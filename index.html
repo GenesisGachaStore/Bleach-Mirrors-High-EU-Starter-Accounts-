@@ -2204,5 +2204,53 @@
   });
 })();
 </script>
+
+<script>
+// AUTO SYNC SLIKA MIRROR
+document.addEventListener('DOMContentLoaded', () => {
+  function azurirajMirrorBrojac() {
+    const sveKartice = Array.from(document.querySelectorAll('.acc'));
+    const dostupne = sveKartice.filter(c => !c.dataset.obrisan);
+    const vidljive = dostupne.filter(c => c.style.display !== 'none');
+    const statusEl = document.getElementById('status') || document.querySelector('.status');
+    if (statusEl) {
+      const resetBtn = statusEl.querySelector('button') ? statusEl.querySelector('button').outerHTML : '';
+      if (vidljive.length < dostupne.length) {
+        statusEl.innerHTML = `Showing <b>${vidljive.length}</b> of <b>${dostupne.length}</b> accounts ${resetBtn}`;
+      } else {
+        statusEl.innerHTML = `Showing all <b>${dostupne.length}</b> accounts ${resetBtn}`;
+      }
+    }
+  }
+
+  document.querySelectorAll('.acc').forEach(card => {
+    const img = card.querySelector('img');
+    if (!img) return;
+    const origSrc = img.getAttribute('src');
+    const sakrijKarticu = () => {
+      card.dataset.obrisan = '1';
+      card.style.setProperty('display', 'none', 'important');
+      azurirajMirrorBrojac();
+    };
+    img.onerror = sakrijKarticu;
+    // Tiha provjera odmah pri otvaranju stranice (zaobilazi kes preglednika)
+    const test = new Image();
+    test.onerror = sakrijKarticu;
+    test.src = origSrc + '?v=' + Math.floor(Date.now() / 60000);
+  });
+
+  // Osigurava da klik na heroje ili Reset nikad ne vrati obrisanu karticu
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('.hero-card') || e.target.closest('button')) {
+      setTimeout(() => {
+        document.querySelectorAll('.acc[data-obrisan="1"]').forEach(c => {
+          c.style.setProperty('display', 'none', 'important');
+        });
+        azurirajMirrorBrojac();
+      }, 20);
+    }
+  });
+});
+</script>
 </body>
 </html>
