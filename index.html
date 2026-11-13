@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bleach Mirrors High Catalog</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+  @keyframes bgPulse {
+    0%, 100% { background-color: #08070a; box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.9); }
+    50% { background-color: #170c29; box-shadow: inset 0 0 110px rgba(123, 66, 188, 0.22); }
+  }
+  body { background-color: #08070a; color: #fff; padding: 15px; display: flex; flex-direction: column; align-items: center; animation: bgPulse 7s infinite ease-in-out; }
+  .discord-bar { width: 100%; max-width: 1080px; background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%); border: 1.5px solid #8ea1e1; border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45); text-align: center; }
+  .discord-text { font-size: 14px; font-weight: bold; color: #ffffff; letter-spacing: 0.4px; }
+  .discord-tag { background: rgba(0, 0, 0, 0.45); color: #ffe680; font-weight: 800; font-size: 14px; padding: 4px 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.25); user-select: all; }
+  .copy-discord-btn { background: #ffcc00; color: #111; border: none; border-radius: 5px; padding: 5px 11px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.15s; }
+  .copy-discord-btn:hover { background: #ffffff; transform: scale(1.04); }
+  .bleach-panel { width: 100%; max-width: 1080px; background: radial-gradient(circle at 50% 0%, #3b1c5e 0%, #190d2b 60%, #0e0917 100%); border: 2px solid #8a4fd1; border-radius: 12px; padding: 22px 18px 18px 18px; margin-bottom: 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(138, 79, 209, 0.35); display: flex; flex-direction: column; align-items: center; }
+  .bleach-title { font-size: 30px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; text-align: center; background: linear-gradient(180deg, #ffffff 10%, #ffd24d 55%, #ff6600 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 3px 12px rgba(255, 102, 0, 0.7)); margin-bottom: 6px; }
+  .bleach-subtitle { font-size: 12px; font-weight: bold; letter-spacing: 2px; color: #d8bff8; background: rgba(0, 0, 0, 0.35); padding: 4px 14px; border-radius: 20px; border: 1px solid rgba(155, 102, 223, 0.3); text-transform: uppercase; margin-bottom: 16px; text-align: center; }
+  .heroes-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 9px; width: 100%; max-width: 1060px; }
+  .hero-card { background: linear-gradient(180deg, #a792d1 0%, #7d66ad 100%); border: 1.5px solid #35274d; border-radius: 6px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; align-items: center; user-select: none; box-shadow: 0 3px 6px rgba(0,0,0,0.45); transition: 0.15s; }
+  .hero-card:hover { border-color: #e0c3fc; transform: translateY(-2px); }
+  .hero-card.active { border-color: #ffcc00; box-shadow: 0 0 14px rgba(255, 204, 0, 0.95); transform: translateY(-2px) scale(1.02); }
+  .hero-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
+  @keyframes cbGlow {
+    0%, 100% { border-color: #d8bff8; box-shadow: 0 0 6px rgba(192, 132, 252, 0.6), inset 0 0 4px rgba(192, 132, 252, 0.4); }
+    50% { border-color: #ffcc00; box-shadow: 0 0 14px rgba(255, 204, 0, 0.95), inset 0 0 6px rgba(255, 204, 0, 0.6); }
+  }
+  .cb-area { width: 100%; padding: 6px 0; display: flex; justify-content: center; background: #26173d; border-top: 1.5px solid #482d70; transition: 0.15s; }
+  .hero-card:hover .cb-area { background: #342052; }
+  .hero-card.active .cb-area { background: #3d2400; border-top-color: #ffcc00; }
+  .cb { width: 22px; height: 22px; border: 2px solid #d8bff8; background: #140b24; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px; color: #111; animation: cbGlow 1.6s infinite ease-in-out; transition: 0.15s; }
+  .hero-card:hover .cb { border-color: #ffffff; transform: scale(1.08); }
+  .hero-card.active .cb { background: #ffcc00; border-color: #ffffff; box-shadow: 0 0 16px #ffcc00, 0 0 24px #ff8800; animation: none; }
+  .hero-card.active .cb::after { content: "✔"; }
+  .status { width: 100%; max-width: 1080px; display: flex; justify-content: center; align-items: center; gap: 12px; padding: 10px 16px; margin-bottom: 16px; background: linear-gradient(90deg, #160c24 0%, #24133b 50%, #160c24 100%); border: 1px solid #5c338f; border-radius: 8px; font-size: 14px; font-weight: bold; color: #e6d4ff; }
+  .reset-btn { background: #ffcc00; color: #140a21; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; }
+  .reset-btn:hover { background: #ffffff; }
+  @keyframes blinkBorder { 0%, 100% { border-color: #666666; box-shadow: 0 0 6px rgba(255, 204, 0, 0.2); } 50% { border-color: #ffcc00; box-shadow: 0 0 18px rgba(255, 204, 0, 0.85); } }
+  @keyframes blinkAccount { 0%, 100% { color: #ffcc00; text-shadow: 0 0 8px rgba(255, 204, 0, 0.8); } 50% { color: #ffffff; text-shadow: 0 0 18px #ffcc00, 0 0 28px #ff8800; } }
+  .accounts { width: 100%; max-width: 1080px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; }
+  .acc { background: #181818; border: 2px solid #ffcc00; border-radius: 6px; padding: 0; overflow: hidden; animation: blinkBorder 1.5s infinite ease-in-out; }
+  .drive-btn { display: block; width: 100%; text-align: center; background: linear-gradient(90deg, #3b1e5e 0%, #6833a8 50%, #3b1e5e 100%); color: #ffe680; font-weight: bold; font-size: 13px; letter-spacing: 0.8px; text-transform: uppercase; text-decoration: none; padding: 9px 12px; border-bottom: 1px solid #5a5a5a; transition: 0.2s; }
+  .drive-btn:hover { background: linear-gradient(90deg, #522982 0%, #8744d6 50%, #522982 100%); color: #ffffff; }
+  .acc-title { font-size: 18px; font-weight: bold; color: #ffcc00; background: #262626; padding: 10px; border-bottom: 2px solid #5a5a5a; margin: 0; text-align: center; animation: blinkAccount 1.2s infinite ease-in-out; }
+  .acc img { width: 100%; display: block; padding: 8px; background: #141414; }
+  .img-crop-box { width: 100%; max-height: 580px; overflow: hidden; position: relative; background: #141414; transition: max-height 0.35s ease; }
+  .img-crop-box.expanded { max-height: 2500px; }
+  .img-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 35px; background: linear-gradient(to bottom, transparent, #181818); pointer-events: none; }
+  .img-crop-box.expanded .img-fade { display: none; }
+  .toggle-wrap { display: flex; justify-content: center; padding: 10px; background: #1c1c1c; border-top: 1px solid #333; }
+  .toggle-btn { background: linear-gradient(90deg, #3b1e5e 0%, #6833a8 50%, #3b1e5e 100%); color: #ffe680; border: 1.5px solid #9b66df; border-radius: 5px; padding: 8px 18px; font-size: 13px; font-weight: bold; letter-spacing: 0.6px; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
+  .toggle-btn:hover { background: linear-gradient(90deg, #522982 0%, #8744d6 50%, #522982 100%); color: #ffffff; }
+  @media (max-width: 768px) { .accounts { grid-template-columns: 1fr; } .heroes-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; } .bleach-title { font-size: 20px; letter-spacing: 1.5px; } .img-crop-box { max-height: 280px !important; } .img-crop-box.expanded { max-height: 2500px !important; } }
+/* COSMIC THEME START */
+  .cosmic-sky {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 5;
+    overflow: hidden;
+  }
+  .discord-bar, .bleach-panel, .status, .accounts {
+    position: relative;
+    z-index: 2;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.25; transform: scale(0.9); }
+    50% { opacity: 0.9; transform: scale(1.2); }
+  }
+  .stars-bg {
+    position: absolute;
+    width: 100%; height: 100%;
+    background-image:
+      radial-gradient(1.5px 1.5px at 12% 18%, #ffffff, transparent),
+      radial-gradient(2px 2px at 28% 72%, #e879f9, transparent),
+      radial-gradient(1.5px 1.5px at 44% 33%, #fde047, transparent),
+      radial-gradient(2px 2px at 67% 15%, #c084fc, transparent),
+      radial-gradient(1.5px 1.5px at 82% 64%, #ffffff, transparent),
+      radial-gradient(2px 2px at 91% 29%, #ffcc00, transparent),
+      radial-gradient(1.5px 1.5px at 19% 88%, #d8b4fe, transparent),
+      radial-gradient(1.5px 1.5px at 56% 81%, #ffffff, transparent),
+      radial-gradient(2px 2px at 74% 48%, #f0abfc, transparent);
+    animation: twinkle 5s infinite ease-in-out;
+  }
+  @keyframes shootingStar {
+    0% { transform: translate(0, 0) rotate(-35deg); opacity: 0; }
+    4% { opacity: 1; }
+    16% { transform: translate(-1100px, 750px) rotate(-35deg); opacity: 0; }
+    100% { transform: translate(-1100px, 750px) rotate(-35deg); opacity: 0; }
+  }
+  .meteor {
+    position: absolute;
+    width: 130px;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff 0%, #ffcc00 35%, #a855f7 75%, transparent 100%);
+    border-radius: 50%;
+    filter: drop-shadow(0 0 6px #ffcc00);
+    opacity: 0;
+  }
+  .meteor::before {
+    content: "";
+    position: absolute;
+    left: 0; top: -2px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #ffffff;
+    box-shadow: 0 0 12px #ffffff, 0 0 20px #ffcc00;
+  }
+  .m1 { top: 6%; left: 95%; animation: shootingStar 7s infinite linear 1s; }
+  .m2 { top: 22%; left: 105%; animation: shootingStar 11s infinite linear 4.5s; }
+  .m3 { top: -2%; left: 68%; animation: shootingStar 9s infinite linear 7.5s; }
+  .m4 { top: 45%; left: 102%; animation: shootingStar 13s infinite linear 10s; }
+  /* COSMIC THEME END */
+/* EXTRA EFFECTS START */
+  @keyframes auraWave {
+    0%, 100% { opacity: 0.35; transform: scaleY(1); }
+    50% { opacity: 0.75; transform: scaleY(1.15); }
+  }
+  .soul-aura {
+    position: absolute;
+    bottom: 0; left: 0; width: 100%; height: 180px;
+    background: radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.45) 0%, rgba(107, 33, 168, 0.15) 55%, transparent 80%);
+    pointer-events: none;
+    animation: auraWave 5s infinite ease-in-out;
+  }
+  @keyframes floatEmber {
+    0% { transform: translateY(0) translateX(0) scale(0.7); opacity: 0; }
+    20% { opacity: 0.95; }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-95vh) translateX(35px) scale(1.2); opacity: 0; }
+  }
+  .ember {
+    position: absolute;
+    bottom: -15px;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .e1 { left: 4%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 8s infinite ease-in 0.2s; }
+  .e2 { left: 8%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: floatEmber 10.5s infinite ease-in 2.1s; }
+  .e3 { left: 12%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: floatEmber 9.5s infinite ease-in 4.2s; }
+  .e4 { left: 16%; width: 4px; height: 4px; background: #c084fc; box-shadow: 0 0 10px #c084fc; animation: floatEmber 11.5s infinite ease-in 1.1s; }
+  .e5 { left: 20%; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 9px #ffcc00; animation: floatEmber 8.5s infinite ease-in 3.4s; }
+  .e6 { left: 25%; width: 5px; height: 5px; background: #ffcc00; box-shadow: 0 0 12px #ff8800; animation: floatEmber 12s infinite ease-in 5.5s; }
+  .e7 { left: 29%; width: 4px; height: 4px; background: #f0abfc; box-shadow: 0 0 10px #f0abfc; animation: floatEmber 9s infinite ease-in 0.8s; }
+  .e8 { left: 33%; width: 3px; height: 3px; background: #fde047; box-shadow: 0 0 9px #fde047; animation: floatEmber 10s infinite ease-in 2.8s; }
+  .e9 { left: 37%; width: 5px; height: 5px; background: #a855f7; box-shadow: 0 0 12px #a855f7; animation: floatEmber 11s infinite ease-in 4.8s; }
+  .e10 { left: 41%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 7.8s infinite ease-in 1.9s; }
+  .e11 { left: 45%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 9px #e879f9; animation: floatEmber 9.8s infinite ease-in 3.9s; }
+  .e12 { left: 50%; width: 4px; height: 4px; background: #ffffff; box-shadow: 0 0 10px #c084fc; animation: floatEmber 8.8s infinite ease-in 6.1s; }
+  .e13 { left: 54%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 9.2s infinite ease-in 0.5s; }
+  .e14 { left: 58%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: floatEmber 11.2s infinite ease-in 2.7s; }
+  .e15 { left: 62%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: floatEmber 8.9s infinite ease-in 4.9s; }
+  .e16 { left: 66%; width: 4px; height: 4px; background: #c084fc; box-shadow: 0 0 10px #c084fc; animation: floatEmber 10.8s infinite ease-in 1.5s; }
+  .e17 { left: 71%; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 9px #ffcc00; animation: floatEmber 8.2s infinite ease-in 3.1s; }
+  .e18 { left: 75%; width: 5px; height: 5px; background: #ffcc00; box-shadow: 0 0 12px #ff8800; animation: floatEmber 11.8s infinite ease-in 5.2s; }
+  .e19 { left: 79%; width: 4px; height: 4px; background: #f0abfc; box-shadow: 0 0 10px #f0abfc; animation: floatEmber 9.4s infinite ease-in 1.3s; }
+  .e20 { left: 83%; width: 3px; height: 3px; background: #fde047; box-shadow: 0 0 9px #fde047; animation: floatEmber 10.3s infinite ease-in 3.6s; }
+  .e21 { left: 87%; width: 5px; height: 5px; background: #a855f7; box-shadow: 0 0 12px #a855f7; animation: floatEmber 11.4s infinite ease-in 6.4s; }
+  .e22 { left: 91%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 7.6s infinite ease-in 2.4s; }
+  .e23 { left: 94%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 9px #e879f9; animation: floatEmber 9.6s infinite ease-in 4.5s; }
+  .e24 { left: 97%; width: 4px; height: 4px; background: #ffffff; box-shadow: 0 0 10px #c084fc; animation: floatEmber 8.4s infinite ease-in 0.9s; }
+  .acc { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+  .acc:hover { transform: translateY(-3px); box-shadow: 0 0 24px rgba(255, 204, 0, 0.9), 0 0 36px rgba(168, 85, 247, 0.5) !important; }
+  /* EXTRA EFFECTS END */
+/* MATCHED HEROES START */
+  .matched-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    background: linear-gradient(90deg, #1b0f2e 0%, #2d184d 50%, #1b0f2e 100%);
+    border-bottom: 1.5px solid #ffcc00;
+  }
+  .matched-label {
+    font-size: 11.5px;
+    font-weight: 900;
+    color: #ffe680;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-right: 4px;
+  }
+  .matched-hero-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 2px solid #ffcc00;
+    border-radius: 6px;
+    padding: 3px 8px 3px 3px;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.75);
+  }
+  .matched-hero-badge img {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    border-radius: 4px;
+    object-fit: cover;
+    display: block;
+  }
+  .matched-hero-badge span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  /* MATCHED HEROES END */
+/* PREMIUM HEROES START */
+  .hero-card {
+    position: relative;
+    background: radial-gradient(circle at 50% 30%, #4b2882 0%, #1a0e2e 100%) !important;
+    border: 2px solid #6b42a8 !important;
+    border-radius: 10px !important;
+    overflow: hidden;
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(168, 85, 247, 0.4) !important;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
+  }
+  .hero-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -120%;
+    width: 60%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.45s ease;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .hero-card:hover::before {
+    left: 160%;
+  }
+  .hero-card:hover {
+    border-color: #e879f9 !important;
+    transform: translateY(-4px) scale(1.03) !important;
+    box-shadow: 0 8px 18px rgba(192, 132, 252, 0.55), inset 0 0 15px rgba(232, 121, 249, 0.5) !important;
+  }
+  .hero-card.active {
+    border-color: #ffcc00 !important;
+    box-shadow: 0 0 18px rgba(255, 204, 0, 0.95), 0 0 28px rgba(255, 136, 0, 0.65) !important;
+    transform: translateY(-4px) scale(1.04) !important;
+  }
+  .hero-card img {
+    filter: contrast(1.08) saturate(1.15);
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+  .hero-card:hover img {
+    transform: scale(1.06);
+    filter: contrast(1.12) saturate(1.22);
+  }
+  /* PREMIUM HEROES END */
+
+/* SEAMLESS BANNER START */
+  @keyframes bannerPulse {
+    0%, 100% { border-color: #9333ea; box-shadow: 0 0 22px rgba(168, 85, 247, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.3); }
+    50% { border-color: #f0abfc; box-shadow: 0 0 38px rgba(217, 70, 239, 0.85), 0 0 15px rgba(255, 204, 0, 0.4); }
+  }
+  @keyframes bannerSweep {
+    0% { left: -100%; }
+    35%, 100% { left: 150%; }
+  }
+  .main-banner-wrap {
+    width: 100%;
+    max-width: 1080px;
+    margin-bottom: 0;
+    border-radius: 14px 14px 0 0;
+    overflow: hidden;
+    border: 2px solid #a855f7;
+    border-bottom: none;
+    position: relative;
+    z-index: 2;
+    background: #0d0717;
+    animation: bannerPulse 4s infinite ease-in-out;
+  }
+  .main-banner-wrap::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 45%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+    transform: skewX(-25deg);
+    animation: bannerSweep 7s infinite ease-in-out;
+    pointer-events: none;
+  }
+  .main-banner-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: contrast(1.04) saturate(1.08);
+  }
+  .discord-bar {
+    border-radius: 0 0 14px 14px !important;
+    border-top: 1px solid rgba(240, 171, 252, 0.45) !important;
+    border-left: 2px solid #a855f7 !important;
+    border-right: 2px solid #a855f7 !important;
+    border-bottom: 2px solid #a855f7 !important;
+    margin-bottom: 16px !important;
+    background: linear-gradient(90deg, #160c29 0%, #3b1c6e 30%, #5865F2 50%, #3b1c6e 70%, #160c29 100%) !important;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(168, 85, 247, 0.45) !important;
+  }
+  /* SEAMLESS BANNER END */
+
+
+/* NEBULA & TOP BTN START */
+  @keyframes nebulaBreathe {
+    0%, 100% { opacity: 0.45; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.12); }
+  }
+  
+  
+  
+  
+  
+  
+  @media (max-width: 1150px) {
+    
+  }
+  /* NEBULA & TOP BTN END */
+/* SMOOTH SCROLL & PERF START */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .cosmic-sky, .ember, .meteor {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+  .acc {
+    content-visibility: auto;
+    contain-intrinsic-size: 680px;
+  }
+  /* SMOOTH SCROLL & PERF END */
+
+  
+  
+
+/* RED DRIVE BTN START */
+  @keyframes redDriveGlow {
+    0%, 100% { box-shadow: inset 0 0 12px rgba(255, 100, 100, 0.35), 0 2px 8px rgba(220, 38, 38, 0.4); }
+    50% { box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.45), 0 2px 14px rgba(239, 68, 68, 0.85); }
+  }
+  .drive-btn {
+    position: relative !important;
+    overflow: hidden !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    text-align: center !important;
+    background: linear-gradient(90deg, #5c0a16 0%, #b91c1c 35%, #dc2626 50%, #b91c1c 65%, #5c0a16 100%) !important;
+    color: #fff3b0 !important;
+    font-weight: 900 !important;
+    font-size: 13.5px !important;
+    letter-spacing: 0.9px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    padding: 11px 14px !important;
+    border-bottom: 2px solid #ff6b6b !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
+    animation: redDriveGlow 2.2s infinite ease-in-out !important;
+    transition: all 0.2s ease !important;
+  }
+  .drive-btn::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.32), transparent);
+    transform: skewX(-25deg);
+    transition: left 0.5s ease;
+  }
+  .drive-btn:hover::after {
+    left: 150%;
+  }
+  .drive-btn:hover {
+    background: linear-gradient(90deg, #7f1d1d 0%, #dc2626 30%, #ef4444 50%, #dc2626 70%, #7f1d1d 100%) !important;
+    color: #ffffff !important;
+    border-bottom-color: #ffcc00 !important;
+    text-shadow: 0 0 10px rgba(255, 230, 128, 0.95) !important;
+  }
+  /* RED DRIVE BTN END */
+/* PAYMENT BAR START */
+  .payment-bar {
+    width: 100%;
+    max-width: 1080px;
+    background: linear-gradient(90deg, #120921 0%, #241240 50%, #120921 100%);
+    border: 1.5px solid #7e22ce;
+    border-radius: 10px;
+    padding: 9px 16px;
+    margin-bottom: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 14px rgba(147, 51, 234, 0.3);
+    position: relative;
+    z-index: 2;
+  }
+  .payment-label {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #e9d5ff;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+  }
+  .pay-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  .pay-paypal {
+    background: linear-gradient(135deg, #003087 0%, #0070e0 100%);
+    border: 1.5px solid #7dd3fc;
+    color: #ffffff;
+  }
+  .pay-steam {
+    background: linear-gradient(135deg, #171a21 0%, #2a475e 100%);
+    border: 1.5px solid #66c0f4;
+    color: #e0f2fe;
+  }
+  /* PAYMENT BAR END */
+
+
+  .back-to-top {
+    position: fixed !important;
+    right: 145px !important;
+    bottom: 24px !important;
+    z-index: 99999 !important;
+    background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 100%) !important;
+    color: #ffe680 !important;
+    border: 2px solid #ffcc00 !important;
+    border-radius: 50px !important;
+    padding: 12px 18px !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.8px !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 204, 0, 0.75) !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+    transition: transform 0.2s ease, background 0.2s ease !important;
+  }
+  .back-to-top:hover {
+    background: #ffcc00 !important;
+    color: #140a21 !important;
+    transform: translateY(-3px) scale(1.05) !important;
+  }
+
+/* FLAG COUNTER START */
+  @keyframes trustedGlow {
+    0%, 100% { color: #ffcc00; text-shadow: 0 0 6px rgba(255, 204, 0, 0.7); transform: scale(1); }
+    50% { color: #ffffff; text-shadow: 0 0 14px #ffcc00, 0 0 22px #ff8800; transform: scale(1.04); }
+  }
+  .trusted-box {
+    position: fixed;
+    top: 15px;
+    right: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(50%);
+    z-index: 95;
+    background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%);
+    border: 2px solid #ffcc00;
+    border-radius: 12px;
+    padding: 10px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.55);
+    text-align: center;
+    max-width: 195px;
+  }
+  .trusted-text {
+    font-size: 13.5px;
+    font-weight: 900;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    line-height: 1.25;
+    animation: trustedGlow 1.8s infinite ease-in-out;
+  }
+  .trusted-box img {
+    width: 175px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    border: 1.5px solid rgba(255, 204, 0, 0.65);
+  }
+  
+  
+  
+  @media (max-width: 1520px) {
+    .trusted-box {
+      position: static;
+      transform: none;
+      margin: 0 auto 14px auto;
+      width: fit-content;
+    }
+  }
+  @media (max-width: 1520px) {
+    
+  }
+  /* FLAG COUNTER END */
+
+  .live-top-box {
+    position: fixed;
+    top: 294px;
+    left: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(-50%);
+    z-index: 96;
+    width: 132px; padding: 7px 12px; gap: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: #0d0717;
+    border: 2px solid #a855f7;
+    border-top: 1.5px solid #ffcc00;
+    border-radius: 0 0 10px 10px;
+    padding: 6px 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4);
+  }
+  .flag-clean-wrap {
+    position: fixed;
+    top: 15px;
+    left: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(-50%);
+    z-index: 95;
+    background: #0d0717;
+    border: 2px solid #a855f7;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 6px 6px 4px 6px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
+  }
+  @media (max-width: 1520px) {
+    .live-top-box, .flag-clean-wrap {
+      position: static;
+      transform: none;
+      margin: 16px auto;
+      width: fit-content;
+    }
+  }
+
+
+  .bleach-top-nav {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto 14px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+  }
+  .btn-back-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, #1b0c30 0%, #581c87 50%, #1b0c30 100%);
+    color: #ffe680;
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    padding: 9px 24px;
+    font-size: 13.5px;
+    font-weight: 900;
+    letter-spacing: 0.9px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 14px rgba(168, 85, 247, 0.5);
+    transition: all 0.2s ease;
+  }
+  .btn-back-home:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%);
+    color: #ffffff;
+    box-shadow: 0 0 22px rgba(255, 204, 0, 0.85);
+  }
+
+
+  /* 100% IDENTICNO CENTRIRANJE I PORAVNANJE NA OBJE STRANICE */
+  html {
+    overflow-y: scroll;
+  }
+  body {
+    padding-top: 15px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow-x: hidden !important;
+  }
+  .container {
+    width: 100% !important;
+    max-width: 1080px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .bleach-top-nav {
+    width: 100% !important;
+    max-width: 1080px !important;
+    margin: 0 auto 14px auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .btn-nav-active, .btn-back-home {
+    padding: 9px 24px !important;
+    font-size: 13.5px !important;
+    line-height: 1.2 !important;
+    box-sizing: border-box !important;
+  }
+  .banner-box {
+    width: 100% !important;
+    max-width: 1080px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .trusted-box {
+    position: fixed !important;
+    top: 15px !important;
+    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
+    transform: translateX(50%) !important;
+    width: 195px !important;
+    max-width: 195px !important;
+  }
+  .flag-clean-wrap {
+    position: fixed !important;
+    top: 15px !important;
+    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
+    transform: translateX(-50%) !important;
+  }
+  .live-top-box {
+    position: fixed !important;
+    top: 294px !important;
+    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
+    transform: translateX(-50%) !important;
+    width: 132px !important;
+  }
+  @media (max-width: 1520px) {
+    .trusted-box, .flag-clean-wrap, .live-top-box {
+      position: static !important;
+      transform: none !important;
+      margin: 12px auto !important;
+    }
+  }
+
+
+  /* POPRAVLJEN FLAG COUNTER (E57c) */
+  .flag-clean-wrap {
+    position: fixed !important;
+    top: 15px !important;
+    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
+    transform: translateX(-50%) !important;
+    z-index: 95 !important;
+    background: #0d0717 !important;
+    border: 2px solid #a855f7 !important;
+    border-bottom: none !important;
+    border-radius: 10px 10px 0 0 !important;
+    padding: 6px 6px 4px 6px !important;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45) !important;
+    margin: 0 !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  .flag-clean-wrap img {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: none !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  @media (max-width: 1280px) {
+    .flag-clean-wrap {
+      position: static !important;
+      transform: none !important;
+      margin: 12px auto !important;
+      border-bottom: 2px solid #a855f7 !important;
+      border-radius: 10px !important;
+      width: fit-content !important;
+    }
+  }
+
+
+  .trusted-box a.btn-epicnpc-topic,
+  .btn-epicnpc-topic {
+    display: block !important;
+    width: 100% !important;
+    margin: 6px 0 2px 0 !important;
+    padding: 7px 10px !important;
+    background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%) !important;
+    background-clip: padding-box !important;
+    color: #ffe680 !important;
+    border: 1.5px solid #ffcc00 !important;
+    border-radius: 8px !important;
+    outline: none !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    text-align: center !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.75) !important;
+    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+    line-height: 1.25 !important;
+    box-sizing: border-box !important;
+  }
+  .trusted-box a.btn-epicnpc-topic:hover,
+  .btn-epicnpc-topic:hover {
+    background: linear-gradient(90deg, #7e22ce 0%, #a855f7 50%, #7e22ce 100%) !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 14px rgba(255, 204, 0, 0.85) !important;
+  }
+
+
+  
+
+  
+
+  /* MIRAN OMOTAC: KUTIJA DISE, GUMB STOJI 100% MIRNO */
+  .epicnpc-wrapper {
+    position: fixed !important;
+    top: 15px !important;
+    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
+    transform: translateX(50%) !important;
+    z-index: 95 !important;
+    width: 195px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+  .epicnpc-wrapper .trusted-box {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+  .epicnpc-wrapper .btn-epicnpc-topic {
+    position: static !important;
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+    margin: 0 !important;
+  }
+  @media (max-width: 1280px) {
+    .epicnpc-wrapper {
+      position: static !important;
+      transform: none !important;
+      margin: 12px auto !important;
+    }
+  }
+
+
+
+  /* ZLATNI OKVIR OKO EPICNPC SLIKE */
+  img[src*="epicnpc" i] {
+    border: 2.5px solid #ffcc00 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 0 14px rgba(255, 204, 0, 0.75), 0 4px 12px rgba(0, 0, 0, 0.85) !important;
+    box-sizing: border-box !important;
+    display: block !important;
+  }
+
+
+
+  
+
+  /* STYLISH HOW TO BUY KUTIJA ISPOD EPICNPC BEDZA */
+  .howtobuy-box {
+    width: 100%;
+    max-width: 195px;
+    background: linear-gradient(180deg, #160929 0%, #0d0717 100%);
+    border: 2px solid #ffcc00;
+    border-radius: 12px;
+    padding: 10px 10px 8px 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45);
+    box-sizing: border-box;
+    margin-top: 2px;
+    text-align: left;
+  }
+  .howtobuy-header {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 900;
+    color: #ffe680;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    border-bottom: 1.5px solid rgba(255, 204, 0, 0.4);
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+  }
+  .htb-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin-bottom: 7px;
+    background: rgba(88, 28, 135, 0.25);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    border-radius: 7px;
+    padding: 5px 6px;
+  }
+  .htb-step:last-child {
+    margin-bottom: 0;
+  }
+  .htb-num {
+    min-width: 18px;
+    height: 18px;
+    background: linear-gradient(135deg, #ffcc00 0%, #f59e0b 100%);
+    color: #0d0717;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+    box-shadow: 0 0 6px rgba(255, 204, 0, 0.7);
+  }
+  .htb-txt {
+    font-size: 10.5px;
+    line-height: 1.28;
+    color: #f3e8ff;
+  }
+  .htb-txt b {
+    color: #ffe680;
+    display: block;
+    font-size: 11px;
+    margin-bottom: 1px;
+  }
+
+
+
+  
+
+  /* JEDNA DO DRUGE LIJEVO: EPICNPC + HOW TO BUY BEZ PREKLAPANJA */
+  .left-side-row {
+    position: fixed !important;
+    top: 15px !important;
+    left: 15px !important;
+    z-index: 95 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin: 0 !important;
+  }
+  .left-side-row .epicnpc-wrapper,
+  .left-side-row .trusted-box {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    width: 175px !important;
+    flex-shrink: 0 !important;
+  }
+  .left-side-row .howtobuy-box {
+    position: static !important;
+    transform: none !important;
+    margin: 0 !important;
+    width: 175px !important;
+    max-width: 175px !important;
+    flex-shrink: 0 !important;
+    background: linear-gradient(180deg, #160929 0%, #0d0717 100%) !important;
+    border: 2px solid #ffcc00 !important;
+    border-radius: 12px !important;
+    padding: 8px 8px 6px 8px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45) !important;
+  }
+  .left-side-row .htb-step {
+    padding: 4px 5px !important;
+    margin-bottom: 5px !important;
+  }
+  .left-side-row .htb-txt {
+    font-size: 10px !important;
+    line-height: 1.22 !important;
+  }
+  @media (max-width: 1620px) {
+    .left-side-row {
+      position: static !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      width: 100% !important;
+      max-width: 1080px !important;
+      margin: 12px auto !important;
+    }
+    .left-side-row .howtobuy-box {
+      width: 100% !important;
+      max-width: 680px !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 8px !important;
+    }
+    .left-side-row .howtobuy-header {
+      grid-column: 1 / -1 !important;
+      margin-bottom: 2px !important;
+    }
+    .left-side-row .htb-step {
+      margin-bottom: 0 !important;
+    }
+  }
+  @media (max-width: 760px) {
+    .left-side-row .howtobuy-box {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+
+
+  /* CIST DIZAJN ZA BLEACH: MIRRORS HIGH */
+  .img-crop-box { max-height: none !important; height: auto !important; overflow: visible !important; }
+  .img-fade, .toggle-wrap, .toggle-btn, .drive-btn { display: none !important; }
+  .heroes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(8, 1fr) !important;
+    gap: 10px !important;
+    max-width: 1040px !important;
+  }
+  .hero-name-label {
+    width: 100%;
+    padding: 4px 2px;
+    background: #140b24;
+    color: #ffe680;
+    font-size: 10.5px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.15;
+    border-top: 1px solid rgba(168, 85, 247, 0.35);
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 768px) {
+    .heroes-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
+  }
+
+
+
+  /* UREDNA MREZA ZA SVE IKONICE HEROJA (8 U REDU) */
+  .heroes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(8, 1fr) !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 1040px !important;
+    margin: 0 auto !important;
+  }
+  .hero-name-label {
+    width: 100%;
+    padding: 4px 2px;
+    background: #140b24;
+    color: #ffe680;
+    font-size: 10.5px;
+    font-weight: 800;
+    text-align: center;
+    line-height: 1.15;
+    border-top: 1px solid rgba(168, 85, 247, 0.35);
+    min-height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  @media (max-width: 768px) {
+    .heroes-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
+  }
+
+
+
+  .accounts {
+    width: 100% !important;
+    max-width: 1080px !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px !important;
+    align-items: start !important;
+    margin: 0 auto !important;
+  }
+  @media (max-width: 768px) {
+    .accounts { grid-template-columns: 1fr !important; }
+  }
+
+</style>
+</head>
+<body>
+  <div class="bleach-top-nav"><a href="https://genesisgachastore.github.io/home/" class="btn-back-home">🏠 Home • Genesis Gacha Store</a></div>
+
+  
+  
+  <!-- NEBULA & TOP BTN HTML START -->
+  <button type="button" class="back-to-top" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'});document.documentElement.scrollTop=0;document.body.scrollTop=0;">▲ Top</button>
+  <!-- NEBULA & TOP BTN HTML END -->
+  <div class="cosmic-sky">
+    <div class="stars-bg"></div>
+    <div class="meteor m1"></div>
+    <div class="meteor m2"></div>
+    <div class="meteor m3"></div>
+    <div class="meteor m4"></div>
+    <div class="soul-aura"></div>
+    <div class="ember e1"></div>
+    <div class="ember e2"></div>
+    <div class="ember e3"></div>
+    <div class="ember e4"></div>
+    <div class="ember e5"></div>
+    <div class="ember e6"></div>
+    <div class="ember e7"></div>
+    <div class="ember e8"></div>
+    <div class="ember e9"></div>
+    <div class="ember e10"></div>
+    <div class="ember e11"></div>
+    <div class="ember e12"></div>
+    <div class="ember e13"></div>
+    <div class="ember e14"></div>
+    <div class="ember e15"></div>
+    <div class="ember e16"></div>
+    <div class="ember e17"></div>
+    <div class="ember e18"></div>
+    <div class="ember e19"></div>
+    <div class="ember e20"></div>
+    <div class="ember e21"></div>
+    <div class="ember e22"></div>
+    <div class="ember e23"></div>
+    <div class="ember e24"></div>
+  </div>
+  <!-- FULL BANNER HTML START -->
+  <div class="main-banner-wrap">
+    <img src="slike/banner.jpg" alt="Bleach Soul Resonance Promo Banner">
+  </div>
+  <!-- FULL BANNER HTML END -->
+  <div class="discord-bar"><span class="discord-text">💬 For any questions, prices or more images, add me on Discord:</span><span class="discord-tag" id="dcTag">GenesisGacha#0271</span><button type="button" class="copy-discord-btn" onclick="kopirajDiscord(this)">📋 Copy</button></div>
+  <!-- PAYMENT BAR HTML START -->
+  <div class="payment-bar">
+    <span class="payment-label">💳 Accepted Payment Methods:</span>
+    <span class="pay-badge pay-paypal">🅿️ PayPal</span>
+    <span class="pay-badge pay-steam">🎮 Steam Gift Cards (EU)</span>
+  </div>
+  <!-- PAYMENT BAR HTML END -->
+  <div class="bleach-panel"><div class="bleach-title">BLEACH: MIRRORS HIGH</div><div class="bleach-subtitle">EU • GUEST STARTER CATALOG • SELECT HEROES TO FILTER</div>
+    <div class="heroes-grid">
+      <div class="hero-card" data-hero="hero_0">
+        <img src="slike/hero_0.jpg" alt="Sosuke Aizen" title="Sosuke Aizen">
+        <div class="hero-name-label">Sosuke Aizen</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_2">
+        <img src="slike/hero_2.jpg" alt="Gin Ichimaru" title="Gin Ichimaru">
+        <div class="hero-name-label">Gin Ichimaru</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_5">
+        <img src="slike/hero_5.jpg" alt="Uryu Ishida" title="Uryu Ishida">
+        <div class="hero-name-label">Uryu Ishida</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_6">
+        <img src="slike/hero_6.jpg" alt="Yoruichi Shihoin" title="Yoruichi Shihoin">
+        <div class="hero-name-label">Yoruichi Shihoin</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_7">
+        <img src="slike/hero_7.jpg" alt="Bambietta Basterbine" title="Bambietta Basterbine">
+        <div class="hero-name-label">Bambietta Basterbine</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_8">
+        <img src="slike/hero_8.jpg" alt="Grimmjow Jaegerjaquez" title="Grimmjow Jaegerjaquez">
+        <div class="hero-name-label">Grimmjow Jaegerjaquez</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_9">
+        <img src="slike/hero_9.jpg" alt="Toshiro Hitsugaya" title="Toshiro Hitsugaya">
+        <div class="hero-name-label">Toshiro Hitsugaya</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_10">
+        <img src="slike/hero_10.jpg" alt="Rukia Kuchiki" title="Rukia Kuchiki">
+        <div class="hero-name-label">Rukia Kuchiki</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_11">
+        <img src="slike/hero_11.jpg" alt="Byakuya Kuchiki" title="Byakuya Kuchiki">
+        <div class="hero-name-label">Byakuya Kuchiki</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_12">
+        <img src="slike/hero_12.jpg" alt="Renji Abarai" title="Renji Abarai">
+        <div class="hero-name-label">Renji Abarai</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_13">
+        <img src="slike/hero_13.jpg" alt="Ichigo Kurosaki" title="Ichigo Kurosaki">
+        <div class="hero-name-label">Ichigo Kurosaki</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_14">
+        <img src="slike/hero_14.jpg" alt="Mayuri Kurotsuchi" title="Mayuri Kurotsuchi">
+        <div class="hero-name-label">Mayuri Kurotsuchi</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_15">
+        <img src="slike/hero_15.jpg" alt="Orihime Inoue" title="Orihime Inoue">
+        <div class="hero-name-label">Orihime Inoue</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_16">
+        <img src="slike/hero_16.jpg" alt="Rangiku Matsumoto" title="Rangiku Matsumoto">
+        <div class="hero-name-label">Rangiku Matsumoto</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_4">
+        <img src="slike/hero_4.jpg" alt="Yasutora Sado (v2)" title="Yasutora Sado (v2)">
+        <div class="hero-name-label">Yasutora Sado (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_3">
+        <img src="slike/hero_3.jpg" alt="Gin Ichimaru (v2)" title="Gin Ichimaru (v2)">
+        <div class="hero-name-label">Gin Ichimaru (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_1">
+        <img src="slike/hero_1.jpg" alt="Sosuke Aizen (v2)" title="Sosuke Aizen (v2)">
+        <div class="hero-name-label">Sosuke Aizen (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_17">
+        <img src="slike/hero_17.jpg" alt="Toshiro Hitsugaya (v2)" title="Toshiro Hitsugaya (v2)">
+        <div class="hero-name-label">Toshiro Hitsugaya (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_18">
+        <img src="slike/hero_18.jpg" alt="Orihime Inoue (v2)" title="Orihime Inoue (v2)">
+        <div class="hero-name-label">Orihime Inoue (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_19">
+        <img src="slike/hero_19.jpg" alt="Ichigo Kurosaki (v2)" title="Ichigo Kurosaki (v2)">
+        <div class="hero-name-label">Ichigo Kurosaki (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_20">
+        <img src="slike/hero_20.jpg" alt="Rangiku Matsumoto (v2)" title="Rangiku Matsumoto (v2)">
+        <div class="hero-name-label">Rangiku Matsumoto (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_21">
+        <img src="slike/hero_21.jpg" alt="Bambietta Basterbine (v2)" title="Bambietta Basterbine (v2)">
+        <div class="hero-name-label">Bambietta Basterbine (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_22">
+        <img src="slike/hero_22.jpg" alt="Rukia Kuchiki (v2)" title="Rukia Kuchiki (v2)">
+        <div class="hero-name-label">Rukia Kuchiki (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_23">
+        <img src="slike/hero_23.jpg" alt="Renji Abarai (v2)" title="Renji Abarai (v2)">
+        <div class="hero-name-label">Renji Abarai (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+      <div class="hero-card" data-hero="hero_24">
+        <img src="slike/hero_24.jpg" alt="Grimmjow Jaegerjaquez (v2)" title="Grimmjow Jaegerjaquez (v2)">
+        <div class="hero-name-label">Grimmjow Jaegerjaquez (v2)</div>
+        <div class="cb-area"><div class="cb"></div></div>
+      </div>
+    </div><div id="heroes" class="heroes-grid"></div></div>
+  <div id="status" class="status"></div>
+  <div id="accounts" class="accounts"></div>
+  
+
+
+<!-- FLAG COUNTER HTML START -->
+  
+  
+  <!-- FLAG COUNTER HTML END -->
+  <!-- LIVE COUNTER START -->
+    
+
+  <div class="left-side-row">
+  <div class="epicnpc-wrapper">
+  <div class="trusted-box">
+    <div class="trusted-text">⭐ 100% Trusted Seller ⭐
+    
+  </div>
+  <a href="https://www.epicnpc.com/threads/aplus-eu-starter-catalog-selector-on-tutorial-only-13-11-2026-25e.3106689/" target="_blank" rel="noopener" class="btn-epicnpc-topic">&#128293; Click Here for EpicNPC Topic</a>
+    
+</div>
+    <img src="slike/epicnpc.png" alt="EpicNPC Verified Seller">
+  </div>
+  <div class="howtobuy-box">
+      <div class="howtobuy-header">&#128722; How to Buy</div>
+      <div class="htb-step">
+        <span class="htb-num">1</span>
+        <div class="htb-txt"><b>Pick Account</b>Select your favorite Account #.</div>
+      </div>
+      <div class="htb-step">
+        <span class="htb-num">2</span>
+        <div class="htb-txt"><b>Add on Discord</b>Message me with the Account #.</div>
+      </div>
+      <div class="htb-step">
+        <span class="htb-num">3</span>
+        <div class="htb-txt"><b>Live Account Check</b>I will log back into the account so we can confirm it's the exact one you want.</div>
+      </div>
+      <div class="htb-step">
+        <span class="htb-num">4</span>
+        <div class="htb-txt"><b>Easy Payment</b>Pay via PayPal or Steam Gift.</div>
+      </div>
+      <div class="htb-step">
+        <span class="htb-num">5</span>
+        <div class="htb-txt"><b>Account Binding</b>Send mail or dummy mail &amp; password.</div>
+      </div>
+      <div class="htb-step">
+        <span class="htb-num">6</span>
+        <div class="htb-txt"><b>100% Yours</b>Account is 100% yours &mdash; change the password and do whatever you want!</div>
+      </div>
+    </div>
+</div>
+
+  <div class="flag-clean-wrap">
+    <a href="https://info.flagcounter.com/E57c" target="_blank" rel="noopener"><img src="https://s01.flagcounter.com/count2/E57c/bg_000000/txt_FFFFFF/border_CCCCCC/columns_1/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+  </div>
+
+  <div class="live-top-box" title="Real-time visitors online">
+    <span style="display:inline-block; width:8px; height:8px; background:#22c55e; border-radius:50%; box-shadow:0 0 8px #22c55e;"></span>
+    <span style="font-size:12px; font-weight:bold; color:#ffe680;">LIVE:</span>
+    <script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
+    <script async src="//waust.at/s.js"></script>
+  </div>
+  <!-- LIVE COUNTER END -->
+  
+  
+  <script type="text/javascript">
+
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+
+  Tawk_API.onLoad = function(){
+
+    Tawk_API.showWidget();
+
+  };
+  </script>
+
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/6af60c7fe84c933e6cc13678/1k78i1khn';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+    <div class="status"><span id="statusCountText">Showing all <b>100</b> accounts</span> <button type="button" class="reset-btn">Reset</button></div>
+
+  <div class="accounts">
+    <div class="acc" data-heroes="hero_1,hero_6,hero_7">
+      <div class="acc-title">Account #1</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_1.jpg" alt="Account #1" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_5">
+      <div class="acc-title">Account #2</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_2.jpg" alt="Account #2" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_15,hero_11,hero_8">
+      <div class="acc-title">Account #3</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_3.jpg" alt="Account #3" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_15,hero_8">
+      <div class="acc-title">Account #4</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_4.jpg" alt="Account #4" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_8">
+      <div class="acc-title">Account #5</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_5.jpg" alt="Account #5" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_2,hero_4,hero_5,hero_10,hero_12">
+      <div class="acc-title">Account #6</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_6.jpg" alt="Account #6" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_15,hero_6,hero_13">
+      <div class="acc-title">Account #7</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_7.jpg" alt="Account #7" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_7,hero_8">
+      <div class="acc-title">Account #8</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_8.jpg" alt="Account #8" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_10,hero_13">
+      <div class="acc-title">Account #9</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_9.jpg" alt="Account #9" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_10,hero_19">
+      <div class="acc-title">Account #10</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_10.jpg" alt="Account #10" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_15,hero_12">
+      <div class="acc-title">Account #11</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_11.jpg" alt="Account #11" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_7,hero_14,hero_8">
+      <div class="acc-title">Account #12</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_12.jpg" alt="Account #12" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_6,hero_8">
+      <div class="acc-title">Account #13</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_13.jpg" alt="Account #13" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_9,hero_10">
+      <div class="acc-title">Account #14</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_14.jpg" alt="Account #14" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_6,hero_7,hero_13">
+      <div class="acc-title">Account #15</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_15.jpg" alt="Account #15" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_7,hero_10,hero_13">
+      <div class="acc-title">Account #16</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_16.jpg" alt="Account #16" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_10,hero_11">
+      <div class="acc-title">Account #17</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_17.jpg" alt="Account #17" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_5,hero_13">
+      <div class="acc-title">Account #18</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_18.jpg" alt="Account #18" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_6,hero_5">
+      <div class="acc-title">Account #19</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_19.jpg" alt="Account #19" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_15,hero_11">
+      <div class="acc-title">Account #20</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_20.jpg" alt="Account #20" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_20,hero_5">
+      <div class="acc-title">Account #21</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_21.jpg" alt="Account #21" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_6,hero_21,hero_22">
+      <div class="acc-title">Account #22</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_22.jpg" alt="Account #22" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_20,hero_13">
+      <div class="acc-title">Account #23</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_23.jpg" alt="Account #23" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_14,hero_19">
+      <div class="acc-title">Account #24</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_24.jpg" alt="Account #24" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_18,hero_7,hero_19">
+      <div class="acc-title">Account #25</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_25.jpg" alt="Account #25" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_15,hero_4,hero_5">
+      <div class="acc-title">Account #26</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_26.jpg" alt="Account #26" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_9,hero_10,hero_19">
+      <div class="acc-title">Account #27</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_27.jpg" alt="Account #27" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_3,hero_17,hero_10">
+      <div class="acc-title">Account #28</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_28.jpg" alt="Account #28" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_6,hero_10">
+      <div class="acc-title">Account #29</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_29.jpg" alt="Account #29" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_7,hero_14,hero_22,hero_11,hero_12,hero_13">
+      <div class="acc-title">Account #30</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_30.jpg" alt="Account #30" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_10,hero_12">
+      <div class="acc-title">Account #31</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_31.jpg" alt="Account #31" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_9,hero_6,hero_7,hero_14">
+      <div class="acc-title">Account #32</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_32.jpg" alt="Account #32" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_9,hero_5">
+      <div class="acc-title">Account #33</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_33.jpg" alt="Account #33" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_9,hero_13">
+      <div class="acc-title">Account #34</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_34.jpg" alt="Account #34" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_9,hero_7,hero_10,hero_12,hero_13">
+      <div class="acc-title">Account #35</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_35.jpg" alt="Account #35" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_14,hero_12">
+      <div class="acc-title">Account #36</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_36.jpg" alt="Account #36" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_9,hero_5">
+      <div class="acc-title">Account #37</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_37.jpg" alt="Account #37" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_15,hero_5,hero_12">
+      <div class="acc-title">Account #38</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_38.jpg" alt="Account #38" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_2,hero_20,hero_10,hero_12">
+      <div class="acc-title">Account #39</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_39.jpg" alt="Account #39" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_15,hero_20,hero_12">
+      <div class="acc-title">Account #40</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_40.jpg" alt="Account #40" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_12">
+      <div class="acc-title">Account #41</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_41.jpg" alt="Account #41" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_18,hero_7,hero_10">
+      <div class="acc-title">Account #42</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_42.jpg" alt="Account #42" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_7,hero_11,hero_13">
+      <div class="acc-title">Account #43</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_43.jpg" alt="Account #43" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_15,hero_10,hero_13">
+      <div class="acc-title">Account #44</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_44.jpg" alt="Account #44" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_16,hero_12">
+      <div class="acc-title">Account #45</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_45.jpg" alt="Account #45" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_5,hero_10">
+      <div class="acc-title">Account #46</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_46.jpg" alt="Account #46" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_6,hero_8">
+      <div class="acc-title">Account #47</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_47.jpg" alt="Account #47" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_9,hero_8">
+      <div class="acc-title">Account #48</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_48.jpg" alt="Account #48" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_20,hero_14,hero_10">
+      <div class="acc-title">Account #49</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_49.jpg" alt="Account #49" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_4,hero_11">
+      <div class="acc-title">Account #50</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_50.jpg" alt="Account #50" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_4,hero_13">
+      <div class="acc-title">Account #51</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_51.jpg" alt="Account #51" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_5">
+      <div class="acc-title">Account #52</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_52.jpg" alt="Account #52" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_18,hero_7,hero_12">
+      <div class="acc-title">Account #53</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_53.jpg" alt="Account #53" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_15,hero_9">
+      <div class="acc-title">Account #54</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_54.jpg" alt="Account #54" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_6,hero_22">
+      <div class="acc-title">Account #55</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_55.jpg" alt="Account #55" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_14,hero_13">
+      <div class="acc-title">Account #56</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_56.jpg" alt="Account #56" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_4,hero_12">
+      <div class="acc-title">Account #57</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_57.jpg" alt="Account #57" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_15,hero_20,hero_9">
+      <div class="acc-title">Account #58</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_58.jpg" alt="Account #58" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_14,hero_10,hero_11">
+      <div class="acc-title">Account #59</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_59.jpg" alt="Account #59" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_14,hero_8,hero_13">
+      <div class="acc-title">Account #60</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_60.jpg" alt="Account #60" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_15,hero_6,hero_21,hero_11,hero_12">
+      <div class="acc-title">Account #61</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_61.jpg" alt="Account #61" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_20,hero_23,hero_8">
+      <div class="acc-title">Account #62</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_62.jpg" alt="Account #62" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_4,hero_11">
+      <div class="acc-title">Account #63</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_63.jpg" alt="Account #63" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_15,hero_10,hero_8">
+      <div class="acc-title">Account #64</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_64.jpg" alt="Account #64" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_14,hero_8">
+      <div class="acc-title">Account #65</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_65.jpg" alt="Account #65" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_17,hero_10">
+      <div class="acc-title">Account #66</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_66.jpg" alt="Account #66" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_7,hero_10,hero_13">
+      <div class="acc-title">Account #67</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_67.jpg" alt="Account #67" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_9">
+      <div class="acc-title">Account #68</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_68.jpg" alt="Account #68" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_8,hero_13">
+      <div class="acc-title">Account #69</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_69.jpg" alt="Account #69" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_20,hero_14">
+      <div class="acc-title">Account #70</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_70.jpg" alt="Account #70" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_6,hero_10,hero_11,hero_13">
+      <div class="acc-title">Account #71</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_71.jpg" alt="Account #71" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_20,hero_6,hero_5">
+      <div class="acc-title">Account #72</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_72.jpg" alt="Account #72" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_20,hero_14">
+      <div class="acc-title">Account #73</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_73.jpg" alt="Account #73" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_7,hero_8">
+      <div class="acc-title">Account #74</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_74.jpg" alt="Account #74" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_15,hero_16,hero_7,hero_14,hero_10,hero_11">
+      <div class="acc-title">Account #75</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_75.jpg" alt="Account #75" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_9,hero_10,hero_11">
+      <div class="acc-title">Account #76</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_76.jpg" alt="Account #76" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_6,hero_12">
+      <div class="acc-title">Account #77</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_77.jpg" alt="Account #77" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_6,hero_10">
+      <div class="acc-title">Account #78</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_78.jpg" alt="Account #78" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_20,hero_5,hero_12">
+      <div class="acc-title">Account #79</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_79.jpg" alt="Account #79" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="">
+      <div class="acc-title">Account #80</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_80.png" alt="Account #80" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_10,hero_12">
+      <div class="acc-title">Account #81</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_81.jpg" alt="Account #81" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_7,hero_8">
+      <div class="acc-title">Account #82</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_82.jpg" alt="Account #82" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_8,hero_13">
+      <div class="acc-title">Account #83</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_83.jpg" alt="Account #83" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_2,hero_12,hero_24">
+      <div class="acc-title">Account #84</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_84.jpg" alt="Account #84" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_6,hero_14">
+      <div class="acc-title">Account #85</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_85.jpg" alt="Account #85" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_7,hero_11,hero_13">
+      <div class="acc-title">Account #86</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_86.jpg" alt="Account #86" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_6,hero_12">
+      <div class="acc-title">Account #87</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_87.jpg" alt="Account #87" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_21,hero_10">
+      <div class="acc-title">Account #88</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_88.jpg" alt="Account #88" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_8">
+      <div class="acc-title">Account #89</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_89.jpg" alt="Account #89" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_2,hero_5,hero_10">
+      <div class="acc-title">Account #90</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_90.jpg" alt="Account #90" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_15,hero_20,hero_11">
+      <div class="acc-title">Account #91</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_91.jpg" alt="Account #91" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_1,hero_15,hero_10">
+      <div class="acc-title">Account #92</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_92.jpg" alt="Account #92" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_5,hero_13">
+      <div class="acc-title">Account #93</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_93.jpg" alt="Account #93" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_14,hero_11">
+      <div class="acc-title">Account #94</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_94.jpg" alt="Account #94" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_9,hero_6,hero_12">
+      <div class="acc-title">Account #95</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_95.jpg" alt="Account #95" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_9,hero_8">
+      <div class="acc-title">Account #96</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_96.jpg" alt="Account #96" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_4,hero_6,hero_8">
+      <div class="acc-title">Account #97</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_97.jpg" alt="Account #97" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_6,hero_5">
+      <div class="acc-title">Account #98</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_98.jpg" alt="Account #98" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_5,hero_12">
+      <div class="acc-title">Account #99</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_99.jpg" alt="Account #99" loading="lazy">
+      </div>
+    </div>
+    <div class="acc" data-heroes="hero_0,hero_2,hero_6,hero_10">
+      <div class="acc-title">Account #100</div>
+      <div class="img-crop-box">
+        <img src="slike/acc_100.jpg" alt="Account #100" loading="lazy">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+<script>
+(function() {
+  var KORAK = 24;
+  var prikazano = KORAK;
+  var aktivniHeroji = new Set();
+
+  function osvjeziKatalog() {
+    var sveKartice = Array.from(document.querySelectorAll('.acc:not(.sold-hidden)'));
+    var odgovarajuce = [];
+
+    sveKartice.forEach(function(kartica) {
+      var lista = (kartica.dataset.heroes || '').split(',').filter(Boolean);
+      var prolazi = true;
+      aktivniHeroji.forEach(function(h) {
+        if (lista.indexOf(h) === -1) prolazi = false;
+      });
+      if (prolazi) {
+        odgovarajuce.push(kartica);
+      } else {
+        kartica.style.display = 'none';
+      }
+    });
+
+    odgovarajuce.forEach(function(kartica, idx) {
+      kartica.style.display = (idx < prikazano) ? '' : 'none';
+    });
+
+    var statusEl = document.getElementById('statusCountText') || document.querySelector('.status span') || document.querySelector('.status');
+    if (statusEl) {
+      statusEl.innerHTML = (aktivniHeroji.size === 0)
+        ? 'Showing all <b>' + odgovarajuce.length + '</b> accounts'
+        : 'Showing <b>' + odgovarajuce.length + '</b> matching accounts';
+    }
+  }
+
+  function oznaciProdan(kartica) {
+    if (!kartica || kartica.classList.contains('sold-hidden')) return;
+    kartica.classList.add('sold-hidden');
+    kartica.style.display = 'none';
+    osvjeziKatalog();
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Odmah pri otvaranju stranice provjerava sve slike u pozadini (bez obzira na lazy-load)
+    document.querySelectorAll('.acc').forEach(function(kartica) {
+      var img = kartica.querySelector('img');
+      if (!img) return;
+      var src = img.getAttribute('src');
+      if (!src) return;
+
+      var tester = new Image();
+      tester.onerror = function() {
+        oznaciProdan(kartica);
+      };
+      tester.src = src;
+
+      img.addEventListener('error', function() {
+        oznaciProdan(kartica);
+      });
+    });
+
+    document.querySelectorAll('.hero-card').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var h = btn.dataset.hero;
+        if (!h) return;
+        if (btn.classList.contains('active')) {
+          btn.classList.remove('active');
+          aktivniHeroji.delete(h);
+        } else {
+          btn.classList.add('active');
+          aktivniHeroji.add(h);
+        }
+        prikazano = KORAK;
+        osvjeziKatalog();
+      });
+    });
+
+    var resetBtn = document.querySelector('.reset-btn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function() {
+        aktivniHeroji.clear();
+        document.querySelectorAll('.hero-card').forEach(function(b) { b.classList.remove('active'); });
+        prikazano = KORAK;
+        osvjeziKatalog();
+      });
+    }
+
+    osvjeziKatalog();
+  });
+
+  window.addEventListener('scroll', function() {
+    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 600)) {
+      var sveKartice = Array.from(document.querySelectorAll('.acc:not(.sold-hidden)'));
+      var ukupno = sveKartice.filter(function(kartica) {
+        var lista = (kartica.dataset.heroes || '').split(',').filter(Boolean);
+        var prolazi = true;
+        aktivniHeroji.forEach(function(h) { if (lista.indexOf(h) === -1) prolazi = false; });
+        return prolazi;
+      }).length;
+
+      if (prikazano < ukupno) {
+        prikazano += KORAK;
+        osvjeziKatalog();
+      }
+    }
+  });
+})();
+</script>
+</body>
+</html>
