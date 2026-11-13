@@ -1343,114 +1343,7 @@
 
 
 
-<script>
-(function() {
-  var KORAK = 24;
-  var prikazano = KORAK;
-  var aktivniHeroji = new Set();
 
-  function osvjeziKatalog() {
-    var sveKartice = Array.from(document.querySelectorAll('.acc:not(.sold-hidden)'));
-    var odgovarajuce = [];
-
-    sveKartice.forEach(function(kartica) {
-      var lista = (kartica.dataset.heroes || '').split(',').filter(Boolean);
-      var prolazi = true;
-      aktivniHeroji.forEach(function(h) {
-        if (lista.indexOf(h) === -1) prolazi = false;
-      });
-      if (prolazi) {
-        odgovarajuce.push(kartica);
-      } else {
-        kartica.style.display = 'none';
-      }
-    });
-
-    odgovarajuce.forEach(function(kartica, idx) {
-      kartica.style.display = (idx < prikazano) ? '' : 'none';
-    });
-
-    var statusEl = document.getElementById('statusCountText') || document.querySelector('.status span') || document.querySelector('.status');
-    if (statusEl) {
-      statusEl.innerHTML = (aktivniHeroji.size === 0)
-        ? 'Showing all <b>' + odgovarajuce.length + '</b> accounts'
-        : 'Showing <b>' + odgovarajuce.length + '</b> matching accounts';
-    }
-  }
-
-  function oznaciProdan(kartica) {
-    if (!kartica || kartica.classList.contains('sold-hidden')) return;
-    kartica.classList.add('sold-hidden');
-    kartica.style.display = 'none';
-    osvjeziKatalog();
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    // Odmah pri otvaranju stranice provjerava sve slike u pozadini (bez obzira na lazy-load)
-    document.querySelectorAll('.acc').forEach(function(kartica) {
-      var img = kartica.querySelector('img');
-      if (!img) return;
-      var src = img.getAttribute('src');
-      if (!src) return;
-
-      var tester = new Image();
-      tester.onerror = function() {
-        oznaciProdan(kartica);
-      };
-      tester.src = src;
-
-      img.addEventListener('error', function() {
-        oznaciProdan(kartica);
-      });
-    });
-
-    document.querySelectorAll('.hero-card').forEach(function(btn) {
-      btn.addEventListener('click', function() {
-        var h = btn.dataset.hero;
-        if (!h) return;
-        if (btn.classList.contains('active')) {
-          btn.classList.remove('active');
-          aktivniHeroji.delete(h);
-        } else {
-          btn.classList.add('active');
-          aktivniHeroji.add(h);
-        }
-        prikazano = KORAK;
-        osvjeziKatalog();
-      });
-    });
-
-    var resetBtn = document.querySelector('.reset-btn');
-    if (resetBtn) {
-      resetBtn.addEventListener('click', function() {
-        aktivniHeroji.clear();
-        document.querySelectorAll('.hero-card').forEach(function(b) { b.classList.remove('active'); });
-        prikazano = KORAK;
-        osvjeziKatalog();
-      });
-    }
-
-    osvjeziKatalog();
-  });
-
-  window.addEventListener('scroll', function() {
-    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 600)) {
-      var sveKartice = Array.from(document.querySelectorAll('.acc:not(.sold-hidden)'));
-      var ukupno = sveKartice.filter(function(kartica) {
-        var lista = (kartica.dataset.heroes || '').split(',').filter(Boolean);
-        var prolazi = true;
-        aktivniHeroji.forEach(function(h) { if (lista.indexOf(h) === -1) prolazi = false; });
-        return prolazi;
-      }).length;
-
-      if (prikazano < ukupno) {
-        prikazano += KORAK;
-        osvjeziKatalog();
-      }
-    }
-  });
-})();
-</script>
 
 
 
@@ -1479,6 +1372,7 @@
         card.classList.add('active');
       }
       filtriraj();
+  setTimeout(azurirajStatusBrojac, 50);
     };
     grid.appendChild(card);
   });
