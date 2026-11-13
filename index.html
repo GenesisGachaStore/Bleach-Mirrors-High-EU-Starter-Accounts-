@@ -1018,21 +1018,160 @@
 
 
 
+  
+
   /* MOBILNI PRIKAZ MIRRORS HIGH */
+  @media (max-width: 768px) { .accounts { grid-template-columns: 1fr; } .heroes-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; } .bleach-title { font-size: 20px; letter-spacing: 1.5px; } .img-crop-box { max-height: 280px !important; } .img-crop-box.expanded { max-height: 2500px !important; } }
+@media (max-width: 1150px) {
+    
+  }
+  /* NEBULA & TOP BTN END */
+/* SMOOTH SCROLL & PERF START */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  .cosmic-sky, .ember, .meteor {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+  .acc {
+    content-visibility: auto;
+    contain-intrinsic-size: 680px;
+  }
+  /* SMOOTH SCROLL & PERF END */
+
+  
+  
+
+/* RED DRIVE BTN START */
+  @keyframes redDriveGlow {
+    0%, 100% { box-shadow: inset 0 0 12px rgba(255, 100, 100, 0.35), 0 2px 8px rgba(220, 38, 38, 0.4); }
+    50% { box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.45), 0 2px 14px rgba(239, 68, 68, 0.85); }
+  }
+@media (max-width: 1520px) {
+    .trusted-box {
+      position: static;
+      transform: none;
+      margin: 0 auto 14px auto;
+      width: fit-content;
+    }
+  }
+@media (max-width: 1520px) {
+    
+  }
+  /* FLAG COUNTER END */
+
+  .live-top-box {
+    position: fixed;
+    top: 294px;
+    left: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(-50%);
+    z-index: 96;
+    width: 132px; padding: 7px 12px; gap: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: #0d0717;
+    border: 2px solid #a855f7;
+    border-top: 1.5px solid #ffcc00;
+    border-radius: 0 0 10px 10px;
+    padding: 6px 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4);
+  }
+  .flag-clean-wrap {
+    position: fixed;
+    top: 15px;
+    left: calc(50% + 540px + ((50vw - 540px) / 2));
+    transform: translateX(-50%);
+    z-index: 95;
+    background: #0d0717;
+    border: 2px solid #a855f7;
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    padding: 6px 6px 4px 6px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
+  }
+  @media (max-width: 1520px) {
+    .live-top-box, .flag-clean-wrap {
+      position: static;
+      transform: none;
+      margin: 16px auto;
+      width: fit-content;
+    }
+  }
+@media (max-width: 1520px) {
+    .trusted-box, .flag-clean-wrap, .live-top-box {
+      position: static !important;
+      transform: none !important;
+      margin: 12px auto !important;
+    }
+  }
+@media (max-width: 1280px) {
+    .flag-clean-wrap {
+      position: static !important;
+      transform: none !important;
+      margin: 12px auto !important;
+      border-bottom: 2px solid #a855f7 !important;
+      border-radius: 10px !important;
+      width: fit-content !important;
+    }
+  }
+@media (max-width: 1280px) {
+    .epicnpc-wrapper {
+      position: static !important;
+      transform: none !important;
+      margin: 12px auto !important;
+    }
+  }
+@media (max-width: 1620px) {
+    .left-side-row {
+      position: static !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      width: 100% !important;
+      max-width: 1080px !important;
+      margin: 12px auto !important;
+    }
+    .left-side-row .howtobuy-box {
+      width: 100% !important;
+      max-width: 680px !important;
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+      gap: 8px !important;
+    }
+    .left-side-row .howtobuy-header {
+      grid-column: 1 / -1 !important;
+      margin-bottom: 2px !important;
+    }
+    .left-side-row .htb-step {
+      margin-bottom: 0 !important;
+    }
+  }
+@media (max-width: 760px) {
+    .left-side-row .howtobuy-box {
+      grid-template-columns: 1fr !important;
+    }
+  }
   @media (max-width: 768px) {
     html, body {
       overflow-x: hidden !important;
       width: 100% !important;
+      max-width: 100vw !important;
     }
-    .grid, .accounts, .accounts-grid, #accountsGrid {
+    .accounts {
       display: grid !important;
       grid-template-columns: 1fr !important;
       gap: 16px !important;
       width: 100% !important;
+      max-width: 100% !important;
       padding: 0 10px !important;
+      margin: 0 auto !important;
       box-sizing: border-box !important;
     }
     .acc {
+      display: block !important;
       width: 100% !important;
       max-width: 100% !important;
       margin: 0 auto !important;
