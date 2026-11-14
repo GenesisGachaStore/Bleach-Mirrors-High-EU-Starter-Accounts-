@@ -1237,6 +1237,25 @@
   }
 </style>
 <style>.cosmic-sky,.cosmic-sky *{pointer-events:none!important}.cosmic-sky{position:fixed!important;inset:0!important;z-index:50!important;display:block!important}.nebula-left,.nebula-right,.soul-aura{display:none!important}.bleach-top-nav,.btn-back-home{position:relative!important;z-index:999!important;pointer-events:auto!important}</style>
+
+<style id="meteor-reference-restored">
+/* Meteori uskladjeni s referentnom stranicom index(3).html */
+.cosmic-sky { z-index: 1 !important; pointer-events: none !important; }
+.cosmic-sky .meteor { display: block !important; visibility: visible !important; animation-play-state: running !important; }
+.meteor { position: absolute; width: 135px; height: 2px; background: linear-gradient(90deg, #fff 0%, #ffcc00 35%, #a855f7 75%, transparent 100%); border-radius: 50%; filter: drop-shadow(0 0 6px #ffcc00); opacity: 0; }
+.meteor::before { content: ""; position: absolute; left: 0; top: -2px; width: 6px; height: 6px; border-radius: 50%; background: #fff; box-shadow: 0 0 12px #fff, 0 0 20px #ffcc00; }
+.meteor-purple { position: absolute; width: 165px; height: 2.5px; background: linear-gradient(90deg, #fff 0%, #e879f9 35%, #7e22ce 75%, transparent 100%); border-radius: 50%; filter: drop-shadow(0 0 8px #d946ef); opacity: 0; }
+.meteor-purple::before { content: ""; position: absolute; left: 0; top: -2px; width: 6px; height: 6px; border-radius: 50%; background: #fff; box-shadow: 0 0 12px #fff, 0 0 22px #e879f9; }
+@keyframes shootingStar { 0% { transform: translate(0,0) rotate(-35deg); opacity: 0; } 4% { opacity: 1; } 16% { transform: translate(-1100px,750px) rotate(-35deg); opacity: 0; } 100% { transform: translate(-1100px,750px) rotate(-35deg); opacity: 0; } }
+@keyframes shootingStarFast { 0% { transform: translate(0,0) rotate(-32deg); opacity: 0; } 3% { opacity: 1; } 14% { transform: translate(-1300px,820px) rotate(-32deg); opacity: 0; } 100% { transform: translate(-1300px,820px) rotate(-32deg); opacity: 0; } }
+.cosmic-sky .m1 { top: 5%; left: 95%; animation: shootingStar 7s infinite linear .8s !important; }
+.cosmic-sky .m2 { top: 24%; left: 105%; animation: shootingStar 10s infinite linear 3.5s !important; }
+.cosmic-sky .m3 { top: -2%; left: 65%; animation: shootingStar 8.5s infinite linear 6.2s !important; }
+.cosmic-sky .m4 { top: 12%; left: 102%; animation: shootingStarFast 6.5s infinite linear 1.9s !important; }
+.cosmic-sky .m5 { top: 38%; left: 98%; animation: shootingStarFast 9s infinite linear 4.4s !important; }
+.cosmic-sky .m6 { top: -4%; left: 48%; animation: shootingStar 7.8s infinite linear 2.7s !important; }
+.cosmic-sky .m7 { top: 55%; left: 104%; animation: shootingStarFast 11s infinite linear 7.1s !important; }
+</style>
 </head>
 <body>
 
@@ -1249,11 +1268,9 @@
   <!-- NEBULA & TOP BTN HTML END -->
   <div class="cosmic-sky">
     <div class="stars-bg"></div>
-    <div class="meteor m1"></div>
-    <div class="meteor m2"></div>
-    <div class="meteor m3"></div>
-    <div class="meteor m4"></div>
-    <div class="soul-aura"></div>
+    <div class="meteor m1"></div><div class="meteor m2"></div><div class="meteor m3"></div>
+    <div class="meteor-purple m4"></div><div class="meteor-purple m5"></div>
+    <div class="meteor m6"></div><div class="meteor-purple m7"></div>
     <div class="ember e1"></div>
     <div class="ember e2"></div>
     <div class="ember e3"></div>
@@ -1548,21 +1565,8 @@
   position: relative !important;
   z-index: 2 !important;
 }
-.cosmic-sky .meteor {
-  display: block !important;
-  visibility: visible !important;
-  opacity: 0 !important;
-  animation-name: shootingStarFixed !important;
-  animation-timing-function: linear !important;
-  animation-iteration-count: infinite !important;
-  animation-play-state: running !important;
-}
-@keyframes shootingStarFixed {
-  0%, 2% { transform: translate(0, 0) rotate(-35deg); opacity: 0; }
-  6% { opacity: 1; }
-  24% { transform: translate(-125vw, 85vh) rotate(-35deg); opacity: 0; }
-  100% { transform: translate(-125vw, 85vh) rotate(-35deg); opacity: 0; }
-}
+
+
 .cosmic-sky .m1 { animation-duration: 8s !important; animation-delay: 0s !important; }
 .cosmic-sky .m2 { animation-duration: 10s !important; animation-delay: 2.5s !important; }
 .cosmic-sky .m3 { animation-duration: 9s !important; animation-delay: 4.5s !important; }
