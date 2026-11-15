@@ -36,8 +36,8 @@
   .hero-card.active .cb { background: #ffcc00; border-color: #ffffff; box-shadow: 0 0 16px #ffcc00, 0 0 24px #ff8800;  }
   .hero-card.active .cb::after { content: "✔"; }
   .status { width: 100%; max-width: 1080px; display: flex; justify-content: center; align-items: center; gap: 12px; padding: 10px 16px; margin-bottom: 16px; background: linear-gradient(90deg, #160c24 0%, #24133b 50%, #160c24 100%); border: 1px solid #5c338f; border-radius: 8px; font-size: 14px; font-weight: bold; color: #e6d4ff; }
-  .reset-btn { background: #ffcc00; color: #140a21; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; }
-  .reset-btn:hover { background: #ffffff; }
+  
+  
   @keyframes blinkBorder { 0%, 100% { border-color: #666666; box-shadow: 0 0 6px rgba(255, 204, 0, 0.2); } 50% { border-color: #ffcc00; box-shadow: 0 0 18px rgba(255, 204, 0, 0.85); } }
   @keyframes blinkAccount { 0%, 100% { color: #ffcc00; text-shadow: 0 0 8px rgba(255, 204, 0, 0.8); } 50% { color: #ffffff; text-shadow: 0 0 18px #ffcc00, 0 0 28px #ff8800; } }
   .accounts { width: 100%; max-width: 1080px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: start; }
@@ -53,7 +53,7 @@
   .toggle-wrap { display: flex; justify-content: center; padding: 10px; background: #1c1c1c; border-top: 1px solid #333; }
   .toggle-btn { background: linear-gradient(90deg, #3b1e5e 0%, #6833a8 50%, #3b1e5e 100%); color: #ffe680; border: 1.5px solid #9b66df; border-radius: 5px; padding: 8px 18px; font-size: 13px; font-weight: bold; letter-spacing: 0.6px; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
   .toggle-btn:hover { background: linear-gradient(90deg, #522982 0%, #8744d6 50%, #522982 100%); color: #ffffff; }
-  @media (max-width: 768px) { .accounts { grid-template-columns: 1fr; } .heroes-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; } .bleach-title { font-size: 20px; letter-spacing: 1.5px; } .img-crop-box { max-height: 280px !important; } .img-crop-box.expanded { max-height: 2500px !important; } }
+  @media (max-width: 768px) {      }
 
 /* EXTRA EFFECTS START */
   @keyframes auraWave {
@@ -261,18 +261,10 @@
   }
   /* NEBULA & TOP BTN END */
 /* SMOOTH SCROLL & PERF START */
-  html {
-    scroll-behavior: smooth;
-  }
   
-  .cosmic-sky, .ember, .meteor {
-    will-change: transform, opacity;
-    transform: translateZ(0);
-  }
-  .acc {
-    content-visibility: auto;
-    contain-intrinsic-size: 680px;
-  }
+  
+  
+  
   /* SMOOTH SCROLL & PERF END */
 
   
@@ -280,8 +272,8 @@
 
 /* RED DRIVE BTN START */
   @keyframes redDriveGlow {
-    0%, 100% { box-shadow: inset 0 0 12px rgba(255, 100, 100, 0.35), 0 2px 8px rgba(220, 38, 38, 0.4); }
-    50% { box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.45), 0 2px 14px rgba(239, 68, 68, 0.85); }
+    
+    
   }
   .drive-btn {
     position: relative !important;
@@ -442,56 +434,17 @@
   
   
   @media (max-width: 1520px) {
-    .trusted-box {
-      position: static;
-      transform: none;
-      margin: 0 auto 14px auto;
-      width: fit-content;
-    }
+    
   }
   @media (max-width: 1520px) {
     
   }
   /* FLAG COUNTER END */
 
-  .live-top-box {
-    position: fixed;
-    top: 294px;
-    left: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(-50%);
-    z-index: 96;
-    width: 132px; padding: 7px 12px; gap: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    background: #0d0717;
-    border: 2px solid #a855f7;
-    border-top: 1.5px solid #ffcc00;
-    border-radius: 0 0 10px 10px;
-    padding: 6px 8px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4);
-  }
-  .flag-clean-wrap {
-    position: fixed;
-    top: 15px;
-    left: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(-50%);
-    z-index: 95;
-    background: #0d0717;
-    border: 2px solid #a855f7;
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
-    padding: 6px 6px 4px 6px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
-  }
+  
+  
   @media (max-width: 1520px) {
-    .live-top-box, .flag-clean-wrap {
-      position: static;
-      transform: none;
-      margin: 16px auto;
-      width: fit-content;
-    }
+    
   }
 
 
@@ -588,11 +541,7 @@
     width: 132px !important;
   }
   @media (max-width: 1520px) {
-    .trusted-box, .flag-clean-wrap, .live-top-box {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
-    }
+    
   }
 
 
@@ -623,14 +572,7 @@
     opacity: 1 !important;
   }
   @media (max-width: 1280px) {
-    .flag-clean-wrap {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
-      border-bottom: 2px solid #a855f7 !important;
-      border-radius: 10px !important;
-      width: fit-content !important;
-    }
+    
   }
 
 
@@ -696,11 +638,7 @@
     margin: 0 !important;
   }
   @media (max-width: 1280px) {
-    .epicnpc-wrapper {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
-    }
+    
   }
 
 
@@ -828,33 +766,13 @@
     line-height: 1.22 !important;
   }
   @media (max-width: 1620px) {
-    .left-side-row {
-      position: static !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      width: 100% !important;
-      max-width: 1080px !important;
-      margin: 12px auto !important;
-    }
-    .left-side-row .howtobuy-box {
-      width: 100% !important;
-      max-width: 680px !important;
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 8px !important;
-    }
-    .left-side-row .howtobuy-header {
-      grid-column: 1 / -1 !important;
-      margin-bottom: 2px !important;
-    }
-    .left-side-row .htb-step {
-      margin-bottom: 0 !important;
-    }
+    
+    
+    
+    
   }
   @media (max-width: 760px) {
-    .left-side-row .howtobuy-box {
-      grid-template-columns: 1fr !important;
-    }
+    
   }
 
 
@@ -868,23 +786,9 @@
     gap: 10px !important;
     max-width: 1040px !important;
   }
-  .hero-name-label {
-    width: 100%;
-    padding: 4px 2px;
-    background: #140b24;
-    color: #ffe680;
-    font-size: 10.5px;
-    font-weight: 800;
-    text-align: center;
-    line-height: 1.15;
-    border-top: 1px solid rgba(168, 85, 247, 0.35);
-    min-height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  
   @media (max-width: 768px) {
-    .heroes-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
+    
   }
 
 
@@ -1147,8 +1051,8 @@
   /* STIL ZA CLEAR FILTER GUMB */
   .reset-btn { background: #ffcc00; color: #140a21; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; }
   .reset-btn:hover { background: #ffffff; }
-  .discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
-  .copy-discord-btn { position: relative !important; z-index: 10000 !important; pointer-events: auto !important; cursor: pointer !important; }
+  
+  
   
   .discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
   .copy-discord-btn { position: relative !important; z-index: 10000 !important; pointer-events: auto !important; cursor: pointer !important; }
