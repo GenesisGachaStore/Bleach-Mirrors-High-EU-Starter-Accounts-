@@ -1720,6 +1720,17 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
   .hero-card { flex-basis: calc((100% - 12px) / 3) !important; }
 }
 </style>
+
+<style>
+/* Gold glow for hero checkboxes */
+.cb {
+  animation: cbGoldGlow 2.2s ease-in-out infinite !important;
+}
+.hero-card.active .cb {
+  animation: cbSelectedGoldGlow 2.2s ease-in-out infinite !important;
+}
+</style>
+
 </head>
 <body>
 <main class="container">
