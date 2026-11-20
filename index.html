@@ -1688,6 +1688,10 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
 #accountImageViewer img{display:block;max-width: min(96vw, 1500px);max-height:92vh;width:auto;height:auto;object-fit:contain;border:2px solid #ffcc00;border-radius:10px;box-shadow:0 0 28px rgba(255,204,0,.35);cursor:default}
 #accountImageViewer button{position:absolute;top:16px;right:20px;width:44px;height:44px;border:1px solid #ffcc00;border-radius:50%;background:#241239;color:#ffe680;font-size:28px;font-weight:bold;cursor:pointer}
 .acc > img{cursor:zoom-in}
+@media (max-width: 1024px) {
+  #accounts .acc > img { cursor: default !important; }
+  #accountImageViewer { display: none !important; }
+}
 
 </style>
 <style>
@@ -2038,6 +2042,8 @@ var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
   const preview=viewer.querySelector('img');
   function closeViewer(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');preview.removeAttribute('src');}
   document.addEventListener('click',function(e){
+    // Na telefonima i tabletima ne otvaraj uvećani prikaz account slika.
+    if(window.matchMedia('(max-width: 1024px)').matches) return;
     const img=e.target.closest('#accounts .acc > img');
     if(img && img.src){e.preventDefault();preview.src=img.src;preview.alt=img.alt||'Account image';viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');return;}
     if(e.target===viewer || e.target.closest('#accountImageViewer button')) closeViewer();
