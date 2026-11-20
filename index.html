@@ -1511,13 +1511,16 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
   background:#181818;
   animation:blinkBorder 1.5s ease-in-out infinite;
 }
-@keyframes blinkBorder { 0%,100% {
-  border-color:#666;
-  box-shadow:0 0 6px rgba(255,204,0,.2);
-} 50% {
-  border-color:#ffcc00;
-  box-shadow:0 0 16px rgba(255,204,0,.7);
-} }
+@keyframes blinkBorder {
+  0%, 100% {
+    border-color: #666666;
+    box-shadow: 0 0 6px rgba(255, 204, 0, 0.2);
+  }
+  50% {
+    border-color: #ffcc00;
+    box-shadow: 0 0 18px rgba(255, 204, 0, 0.85);
+  }
+}
 .acc-title {
   margin:0;
   padding:8px 12px;
