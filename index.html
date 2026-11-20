@@ -1511,13 +1511,8 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
   background:#181818;
   animation:blinkBorder 1.5s ease-in-out infinite;
 }
-@keyframes blinkBorder { 0%,100% {
-  border-color:#666;
-  box-shadow:0 0 6px rgba(255,204,0,.2);
-} 50% {
-  border-color:#ffcc00;
-  box-shadow:0 0 16px rgba(255,204,0,.7);
-} }
+@keyframes blinkBorder { 0%, 100% { border-color: #666666; box-shadow: 0 0 6px rgba(255, 204, 0, 0.2); } 50% { border-color: #ffcc00; box-shadow: 0 0 18px rgba(255, 204, 0, 0.85); } }
+@keyframes blinkAccount { 0%, 100% { color: #ffcc00; text-shadow: 0 0 8px rgba(255, 204, 0, 0.8); } 50% { color: #ffffff; text-shadow: 0 0 18px #ffcc00, 0 0 28px #ff8800; } }
 .acc-title {
   margin:0;
   padding:8px 12px;
@@ -1532,6 +1527,8 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
   font-size:15px;
   font-weight:bold;
   text-align:center;
+
+  animation: blinkAccount 1.2s infinite ease-in-out;
 }
 .acc-price-badge {
   padding:3px 10px;
@@ -1731,26 +1728,6 @@ body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.
 }
 </style>
 
-
-<style id="account-name-gold-glow-only">
-/* Only the Account#x name glows; the card frame stays still. */
-@keyframes blinkAccount {
-  0%, 100% {
-    color: #ffcc00;
-    text-shadow: 0 0 8px rgba(255, 204, 0, 0.8);
-  }
-  50% {
-    color: #ffffff;
-    text-shadow: 0 0 18px #ffcc00, 0 0 28px #ff8800;
-  }
-}
-#accounts .acc {
-  animation: none !important;
-}
-#accounts .acc-title > span:first-child {
-  animation: blinkAccount 1.2s infinite ease-in-out;
-}
-</style>
 </head>
 <body>
 <main class="container">
