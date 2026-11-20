@@ -1,1275 +1,1830 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bleach Mirrors High Catalog</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="#08070a" name="theme-color">
+<title>Bleach Mirrors High Catalog | Genesis Gacha Store</title>
+
+
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-  @keyframes bgPulse {
-    0%, 100% { background-color: #08070a; box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.9); }
-    50% { background-color: #170c29; box-shadow: inset 0 0 110px rgba(123, 66, 188, 0.22); }
-  }
-  body { background-color: #08070a; color: #fff; padding: 15px; display: flex; flex-direction: column; align-items: center; animation: bgPulse 7s infinite ease-in-out; }
-  .discord-bar { width: 100%; max-width: 1080px; background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%); border: 1.5px solid #8ea1e1; border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px; box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45); text-align: center; }
-  .discord-text { font-size: 14px; font-weight: bold; color: #ffffff; letter-spacing: 0.4px; }
-  .discord-tag { background: rgba(0, 0, 0, 0.45); color: #ffe680; font-weight: 800; font-size: 14px; padding: 4px 10px; border-radius: 5px; border: 1px solid rgba(255, 255, 255, 0.25); user-select: all; }
-  .copy-discord-btn { background: #ffcc00; color: #111; border: none; border-radius: 5px; padding: 5px 11px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; transition: 0.15s; }
-  .copy-discord-btn:hover { background: #ffffff; transform: scale(1.04); }
-  .bleach-panel { width: 100%; max-width: 1080px; background: radial-gradient(circle at 50% 0%, #3b1c5e 0%, #190d2b 60%, #0e0917 100%); border: 2px solid #8a4fd1; border-radius: 12px; padding: 22px 18px 18px 18px; margin-bottom: 14px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(138, 79, 209, 0.35); display: flex; flex-direction: column; align-items: center; }
-  .bleach-title { font-size: 30px; font-weight: 900; letter-spacing: 3px; text-transform: uppercase; text-align: center; background: linear-gradient(180deg, #ffffff 10%, #ffd24d 55%, #ff6600 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 3px 12px rgba(255, 102, 0, 0.7)); margin-bottom: 6px; }
-  .bleach-subtitle { font-size: 12px; font-weight: bold; letter-spacing: 2px; color: #d8bff8; background: rgba(0, 0, 0, 0.35); padding: 4px 14px; border-radius: 20px; border: 1px solid rgba(155, 102, 223, 0.3); text-transform: uppercase; margin-bottom: 16px; text-align: center; }
-  .heroes-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 9px; width: 100%; max-width: 1060px; }
-  .hero-card { background: linear-gradient(180deg, #a792d1 0%, #7d66ad 100%); border: 1.5px solid #35274d; border-radius: 6px; overflow: hidden; cursor: pointer; display: flex; flex-direction: column; align-items: center; user-select: none; box-shadow: 0 3px 6px rgba(0,0,0,0.45); transition: 0.15s; }
-  .hero-card:hover { border-color: #e0c3fc; transform: translateY(-2px); }
-  .hero-card.active { border-color: #ffcc00; box-shadow: 0 0 14px rgba(255, 204, 0, 0.95); transform: translateY(-2px) scale(1.02); }
-  .hero-card img { width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; }
-  @keyframes cbGlow {
-    0%, 100% { border-color: #d8bff8; box-shadow: 0 0 6px rgba(192, 132, 252, 0.6), inset 0 0 4px rgba(192, 132, 252, 0.4); }
-    50% { border-color: #ffcc00; box-shadow: 0 0 14px rgba(255, 204, 0, 0.95), inset 0 0 6px rgba(255, 204, 0, 0.6); }
-  }
-  .cb-area { width: 100%; padding: 6px 0; display: flex; justify-content: center; background: #26173d; border-top: 1.5px solid #482d70; transition: 0.15s; }
-  .hero-card:hover .cb-area { background: #342052; }
-  .hero-card.active .cb-area { background: #3d2400; border-top-color: #ffcc00; }
-  .cb { width: 22px; height: 22px; border: 2px solid #d8bff8; background: #140b24; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 16px; color: #111; animation: cbGlow 1.6s infinite ease-in-out; transition: 0.15s; }
-  .hero-card:hover .cb { border-color: #ffffff; transform: scale(1.08); }
-  .hero-card.active .cb { background: #ffcc00; border-color: #ffffff; box-shadow: 0 0 16px #ffcc00, 0 0 24px #ff8800;  }
-  .hero-card.active .cb::after { content: "✔"; }
-  .status { width: 100%; max-width: 1080px; display: flex; justify-content: center; align-items: center; gap: 12px; padding: 10px 16px; margin-bottom: 16px; background: linear-gradient(90deg, #160c24 0%, #24133b 50%, #160c24 100%); border: 1px solid #5c338f; border-radius: 8px; font-size: 14px; font-weight: bold; color: #e6d4ff; }
-  
-  
-  @keyframes blinkBorder { 0%, 100% { border-color: #666666; box-shadow: 0 0 6px rgba(255, 204, 0, 0.2); } 50% { border-color: #ffcc00; box-shadow: 0 0 18px rgba(255, 204, 0, 0.85); } }
-  @keyframes blinkAccount { 0%, 100% { color: #ffcc00; text-shadow: 0 0 8px rgba(255, 204, 0, 0.8); } 50% { color: #ffffff; text-shadow: 0 0 18px #ffcc00, 0 0 28px #ff8800; } }
-  .accounts { width: 100%; max-width: 1080px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; align-items: start; }
-  .acc { background: #181818; border: 2px solid #ffcc00; border-radius: 6px; padding: 0; overflow: hidden; animation: blinkBorder 1.5s infinite ease-in-out; }
-  .drive-btn { display: block; width: 100%; text-align: center; background: linear-gradient(90deg, #3b1e5e 0%, #6833a8 50%, #3b1e5e 100%); color: #ffe680; font-weight: bold; font-size: 13px; letter-spacing: 0.8px; text-transform: uppercase; text-decoration: none; padding: 9px 12px; border-bottom: 1px solid #5a5a5a; transition: 0.2s; }
-  .drive-btn:hover { background: linear-gradient(90deg, #522982 0%, #8744d6 50%, #522982 100%); color: #ffffff; }
-  .acc-title { font-size: 15px; padding: 7px; font-weight: bold; color: #ffcc00; background: #262626; padding: 10px; border-bottom: 2px solid #5a5a5a; margin: 0; text-align: center; animation: blinkAccount 1.2s infinite ease-in-out; }
-  .acc img { width: 100%; display: block; padding: 8px; background: #141414; }
-  .img-crop-box { width: 100%; max-height: 580px; overflow: hidden; position: relative; background: #141414; transition: max-height 0.35s ease; }
-  .img-crop-box.expanded { max-height: 2500px; }
-  .img-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 35px; background: linear-gradient(to bottom, transparent, #181818); pointer-events: none; }
-  .img-crop-box.expanded .img-fade { display: none; }
-  .toggle-wrap { display: flex; justify-content: center; padding: 10px; background: #1c1c1c; border-top: 1px solid #333; }
-  .toggle-btn { background: linear-gradient(90deg, #3b1e5e 0%, #6833a8 50%, #3b1e5e 100%); color: #ffe680; border: 1.5px solid #9b66df; border-radius: 5px; padding: 8px 18px; font-size: 13px; font-weight: bold; letter-spacing: 0.6px; text-transform: uppercase; cursor: pointer; transition: 0.2s; }
-  .toggle-btn:hover { background: linear-gradient(90deg, #522982 0%, #8744d6 50%, #522982 100%); color: #ffffff; }
-  @media (max-width: 768px) {      }
-
-/* EXTRA EFFECTS START */
-  @keyframes auraWave {
-    0%, 100% { opacity: 0.35; transform: scaleY(1); }
-    50% { opacity: 0.75; transform: scaleY(1.15); }
-  }
-  .soul-aura {
-    position: absolute;
-    bottom: 0; left: 0; width: 100%; height: 180px;
-    background: radial-gradient(ellipse at 50% 100%, rgba(168, 85, 247, 0.45) 0%, rgba(107, 33, 168, 0.15) 55%, transparent 80%);
-    pointer-events: none;
-    animation: auraWave 5s infinite ease-in-out;
-  }
-  @keyframes floatEmber {
-    0% { transform: translateY(0) translateX(0) scale(0.7); opacity: 0; }
-    20% { opacity: 0.95; }
-    80% { opacity: 0.8; }
-    100% { transform: translateY(-95vh) translateX(35px) scale(1.2); opacity: 0; }
-  }
-  .ember {
-    position: absolute;
-    bottom: -15px;
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0;
-  }
-  .e1 { left: 4%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 8s infinite ease-in 0.2s; }
-  .e2 { left: 8%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: floatEmber 10.5s infinite ease-in 2.1s; }
-  .e3 { left: 12%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: floatEmber 9.5s infinite ease-in 4.2s; }
-  .e4 { left: 16%; width: 4px; height: 4px; background: #c084fc; box-shadow: 0 0 10px #c084fc; animation: floatEmber 11.5s infinite ease-in 1.1s; }
-  .e5 { left: 20%; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 9px #ffcc00; animation: floatEmber 8.5s infinite ease-in 3.4s; }
-  .e6 { left: 25%; width: 5px; height: 5px; background: #ffcc00; box-shadow: 0 0 12px #ff8800; animation: floatEmber 12s infinite ease-in 5.5s; }
-  .e7 { left: 29%; width: 4px; height: 4px; background: #f0abfc; box-shadow: 0 0 10px #f0abfc; animation: floatEmber 9s infinite ease-in 0.8s; }
-  .e8 { left: 33%; width: 3px; height: 3px; background: #fde047; box-shadow: 0 0 9px #fde047; animation: floatEmber 10s infinite ease-in 2.8s; }
-  .e9 { left: 37%; width: 5px; height: 5px; background: #a855f7; box-shadow: 0 0 12px #a855f7; animation: floatEmber 11s infinite ease-in 4.8s; }
-  .e10 { left: 41%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 7.8s infinite ease-in 1.9s; }
-  .e11 { left: 45%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 9px #e879f9; animation: floatEmber 9.8s infinite ease-in 3.9s; }
-  .e12 { left: 50%; width: 4px; height: 4px; background: #ffffff; box-shadow: 0 0 10px #c084fc; animation: floatEmber 8.8s infinite ease-in 6.1s; }
-  .e13 { left: 54%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 9.2s infinite ease-in 0.5s; }
-  .e14 { left: 58%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 10px #e879f9; animation: floatEmber 11.2s infinite ease-in 2.7s; }
-  .e15 { left: 62%; width: 5px; height: 5px; background: #fde047; box-shadow: 0 0 12px #fde047; animation: floatEmber 8.9s infinite ease-in 4.9s; }
-  .e16 { left: 66%; width: 4px; height: 4px; background: #c084fc; box-shadow: 0 0 10px #c084fc; animation: floatEmber 10.8s infinite ease-in 1.5s; }
-  .e17 { left: 71%; width: 3px; height: 3px; background: #ffffff; box-shadow: 0 0 9px #ffcc00; animation: floatEmber 8.2s infinite ease-in 3.1s; }
-  .e18 { left: 75%; width: 5px; height: 5px; background: #ffcc00; box-shadow: 0 0 12px #ff8800; animation: floatEmber 11.8s infinite ease-in 5.2s; }
-  .e19 { left: 79%; width: 4px; height: 4px; background: #f0abfc; box-shadow: 0 0 10px #f0abfc; animation: floatEmber 9.4s infinite ease-in 1.3s; }
-  .e20 { left: 83%; width: 3px; height: 3px; background: #fde047; box-shadow: 0 0 9px #fde047; animation: floatEmber 10.3s infinite ease-in 3.6s; }
-  .e21 { left: 87%; width: 5px; height: 5px; background: #a855f7; box-shadow: 0 0 12px #a855f7; animation: floatEmber 11.4s infinite ease-in 6.4s; }
-  .e22 { left: 91%; width: 4px; height: 4px; background: #ffcc00; box-shadow: 0 0 10px #ffcc00; animation: floatEmber 7.6s infinite ease-in 2.4s; }
-  .e23 { left: 94%; width: 3px; height: 3px; background: #e879f9; box-shadow: 0 0 9px #e879f9; animation: floatEmber 9.6s infinite ease-in 4.5s; }
-  .e24 { left: 97%; width: 4px; height: 4px; background: #ffffff; box-shadow: 0 0 10px #c084fc; animation: floatEmber 8.4s infinite ease-in 0.9s; }
-  .acc { transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .acc:hover { transform: translateY(-3px); box-shadow: 0 0 24px rgba(255, 204, 0, 0.9), 0 0 36px rgba(168, 85, 247, 0.5) !important; }
-  /* EXTRA EFFECTS END */
-/* MATCHED HEROES START */
-  .matched-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 10px;
-    background: linear-gradient(90deg, #1b0f2e 0%, #2d184d 50%, #1b0f2e 100%);
-    border-bottom: 1.5px solid #ffcc00;
-  }
-  .matched-label {
-    font-size: 11.5px;
-    font-weight: 900;
-    color: #ffe680;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    margin-right: 4px;
-  }
-  .matched-hero-badge {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: rgba(0, 0, 0, 0.55);
-    border: 2px solid #ffcc00;
-    border-radius: 6px;
-    padding: 3px 8px 3px 3px;
-    box-shadow: 0 0 10px rgba(255, 204, 0, 0.75);
-  }
-  .matched-hero-badge img {
-    width: 32px !important;
-    height: 32px !important;
-    padding: 0 !important;
-    border-radius: 4px;
-    object-fit: cover;
-    display: block;
-  }
-  .matched-hero-badge span {
-    font-size: 12px;
-    font-weight: bold;
-    color: #ffffff;
-  }
-  /* MATCHED HEROES END */
-/* PREMIUM HEROES START */
-  .hero-card {
-    position: relative;
-    background: radial-gradient(circle at 50% 30%, #4b2882 0%, #1a0e2e 100%) !important;
-    border: 2px solid #6b42a8 !important;
-    border-radius: 10px !important;
-    overflow: hidden;
-    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(168, 85, 247, 0.4) !important;
-    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease !important;
-  }
-  .hero-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: -120%;
-    width: 60%; height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-    transform: skewX(-20deg);
-    transition: left 0.45s ease;
-    pointer-events: none;
-    z-index: 2;
-  }
-  .hero-card:hover::before {
-    left: 160%;
-  }
-  .hero-card:hover {
-    border-color: #e879f9 !important;
-    transform: translateY(-4px) scale(1.03) !important;
-    box-shadow: 0 8px 18px rgba(192, 132, 252, 0.55), inset 0 0 15px rgba(232, 121, 249, 0.5) !important;
-  }
-  .hero-card.active {
-    border-color: #ffcc00 !important;
-    box-shadow: 0 0 18px rgba(255, 204, 0, 0.95), 0 0 28px rgba(255, 136, 0, 0.65) !important;
-    transform: translateY(-4px) scale(1.04) !important;
-  }
-  .hero-card img {
-    filter: contrast(1.08) saturate(1.15);
-    transition: transform 0.25s ease, filter 0.25s ease;
-  }
-  .hero-card:hover img {
-    transform: scale(1.06);
-    filter: contrast(1.12) saturate(1.22);
-  }
-  /* PREMIUM HEROES END */
-
-/* SEAMLESS BANNER START */
-  @keyframes bannerPulse {
-    0%, 100% { border-color: #9333ea; box-shadow: 0 0 22px rgba(168, 85, 247, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.3); }
-    50% { border-color: #f0abfc; box-shadow: 0 0 38px rgba(217, 70, 239, 0.85), 0 0 15px rgba(255, 204, 0, 0.4); }
-  }
-  @keyframes bannerSweep {
-    0% { left: -100%; }
-    35%, 100% { left: 150%; }
-  }
-  .main-banner-wrap {
-    width: 100%;
-    max-width: 1080px;
-    margin-bottom: 0;
-    border-radius: 14px 14px 0 0;
-    overflow: hidden;
-    border: 2px solid #a855f7;
-    border-bottom: none;
-    position: relative;
-    z-index: 2;
-    background: #0d0717;
-    animation: bannerPulse 4s infinite ease-in-out;
-  }
-  .main-banner-wrap::after {
-    content: "";
-    position: absolute;
-    top: 0; left: -100%;
-    width: 45%; height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.14), transparent);
-    transform: skewX(-25deg);
-    animation: bannerSweep 7s infinite ease-in-out;
-    pointer-events: none;
-  }
-  .main-banner-wrap img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: contrast(1.04) saturate(1.08);
-  }
-  .discord-bar {
-    border-radius: 0 0 14px 14px !important;
-    border-top: 1px solid rgba(240, 171, 252, 0.45) !important;
-    border-left: 2px solid #a855f7 !important;
-    border-right: 2px solid #a855f7 !important;
-    border-bottom: 2px solid #a855f7 !important;
-    margin-bottom: 16px !important;
-    background: linear-gradient(90deg, #160c29 0%, #3b1c6e 30%, #5865F2 50%, #3b1c6e 70%, #160c29 100%) !important;
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.85), 0 4px 20px rgba(168, 85, 247, 0.45) !important;
-  }
-  /* SEAMLESS BANNER END */
-
-
-/* NEBULA & TOP BTN START */
-  @keyframes nebulaBreathe {
-    0%, 100% { opacity: 0.45; transform: scale(1); }
-    50% { opacity: 0.85; transform: scale(1.12); }
-  }
-  
-  
-  
-  
-  
-  
-  @media (max-width: 1150px) {
-    
-  }
-  /* NEBULA & TOP BTN END */
-/* SMOOTH SCROLL & PERF START */
-  
-  
-  
-  
-  /* SMOOTH SCROLL & PERF END */
-
-  
-  
-
-/* RED DRIVE BTN START */
-  @keyframes redDriveGlow {
-    
-    
-  }
-  .drive-btn {
-    position: relative !important;
-    overflow: hidden !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 8px !important;
-    width: 100% !important;
-    text-align: center !important;
-    background: linear-gradient(90deg, #5c0a16 0%, #b91c1c 35%, #dc2626 50%, #b91c1c 65%, #5c0a16 100%) !important;
-    color: #fff3b0 !important;
-    font-weight: 900 !important;
-    font-size: 13.5px !important;
-    letter-spacing: 0.9px !important;
-    text-transform: uppercase !important;
-    text-decoration: none !important;
-    padding: 11px 14px !important;
-    border-bottom: 2px solid #ff6b6b !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85) !important;
-    animation: redDriveGlow 2.2s infinite ease-in-out !important;
-    transition: all 0.2s ease !important;
-  }
-  .drive-btn::after {
-    content: "";
-    position: absolute;
-    top: 0; left: -100%;
-    width: 50%; height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.32), transparent);
-    transform: skewX(-25deg);
-    transition: left 0.5s ease;
-  }
-  .drive-btn:hover::after {
-    left: 150%;
-  }
-  .drive-btn:hover {
-    background: linear-gradient(90deg, #7f1d1d 0%, #dc2626 30%, #ef4444 50%, #dc2626 70%, #7f1d1d 100%) !important;
-    color: #ffffff !important;
-    border-bottom-color: #ffcc00 !important;
-    text-shadow: 0 0 10px rgba(255, 230, 128, 0.95) !important;
-  }
-  /* RED DRIVE BTN END */
-/* PAYMENT BAR START */
-  .payment-bar {
-    width: 100%;
-    max-width: 1080px;
-    background: linear-gradient(90deg, #120921 0%, #241240 50%, #120921 100%);
-    border: 1.5px solid #7e22ce;
-    border-radius: 10px;
-    padding: 9px 16px;
-    margin-bottom: 14px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 14px rgba(147, 51, 234, 0.3);
-    position: relative;
-    z-index: 2;
-  }
-  .payment-label {
-    font-size: 13.5px;
-    font-weight: 800;
-    color: #e9d5ff;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-  }
-  .pay-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 13px;
-    border-radius: 6px;
-    font-size: 13px;
-    font-weight: 900;
-    letter-spacing: 0.4px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-  }
-  .pay-paypal {
-    background: linear-gradient(135deg, #003087 0%, #0070e0 100%);
-    border: 1.5px solid #7dd3fc;
-    color: #ffffff;
-  }
-  .pay-steam {
-    background: linear-gradient(135deg, #171a21 0%, #2a475e 100%);
-    border: 1.5px solid #66c0f4;
-    color: #e0f2fe;
-  }
-  /* PAYMENT BAR END */
-
-
-  .back-to-top {
-    position: fixed !important;
-    right: 145px !important;
-    bottom: 24px !important;
-    z-index: 99999 !important;
-    background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 100%) !important;
-    color: #ffe680 !important;
-    border: 2px solid #ffcc00 !important;
-    border-radius: 50px !important;
-    padding: 12px 18px !important;
-    font-size: 13px !important;
-    font-weight: 900 !important;
-    letter-spacing: 0.8px !important;
-    text-transform: uppercase !important;
-    cursor: pointer !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 204, 0, 0.75) !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: none !important;
-    transition: transform 0.2s ease, background 0.2s ease !important;
-  }
-  .back-to-top:hover {
-    background: #ffcc00 !important;
-    color: #140a21 !important;
-    transform: translateY(-3px) scale(1.05) !important;
-  }
-
-/* FLAG COUNTER START */
-  @keyframes trustedGlow {
-    0%, 100% { color: #ffcc00; text-shadow: 0 0 6px rgba(255, 204, 0, 0.7); transform: scale(1); }
-    50% { color: #ffffff; text-shadow: 0 0 14px #ffcc00, 0 0 22px #ff8800; transform: scale(1.04); }
-  }
-  .trusted-box {
-    position: fixed;
-    top: 15px;
-    right: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(50%);
-    z-index: 95;
-    background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%);
-    border: 2px solid #ffcc00;
-    border-radius: 12px;
-    padding: 10px 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.55);
-    text-align: center;
-    max-width: 195px;
-  }
-  .trusted-text {
-    font-size: 13.5px;
-    font-weight: 900;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-    line-height: 1.25;
-    animation: trustedGlow 1.8s infinite ease-in-out;
-  }
-  .trusted-box img {
-    width: 175px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    border: 1.5px solid rgba(255, 204, 0, 0.65);
-  }
-  
-  
-  
-  @media (max-width: 1520px) {
-    
-  }
-  @media (max-width: 1520px) {
-    
-  }
-  /* FLAG COUNTER END */
-
-  
-  
-  @media (max-width: 1520px) {
-    
-  }
-
-
-  .bleach-top-nav {
-    width: 100%;
-    max-width: 1080px;
-    margin: 0 auto 14px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    z-index: 10;
-  }
-  .btn-back-home {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(90deg, #1b0c30 0%, #581c87 50%, #1b0c30 100%);
-    color: #ffe680;
-    border: 2px solid #ffcc00;
-    border-radius: 10px;
-    padding: 9px 24px;
-    font-size: 13.5px;
-    font-weight: 900;
-    letter-spacing: 0.9px;
-    text-transform: uppercase;
-    text-decoration: none;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 14px rgba(168, 85, 247, 0.5);
-    transition: all 0.2s ease;
-  }
-  .btn-back-home:hover {
-    transform: translateY(-2px);
-    background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%);
-    color: #ffffff;
-    box-shadow: 0 0 22px rgba(255, 204, 0, 0.85);
-  }
-
-
-  /* 100% IDENTICNO CENTRIRANJE I PORAVNANJE NA OBJE STRANICE */
-  html {
-    overflow-y: scroll;
-  }
-  body {
-    padding-top: 15px !important;
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-    overflow-x: hidden !important;
-  }
-  .container {
-    width: 100% !important;
-    max-width: 1080px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  .bleach-top-nav {
-    width: 100% !important;
-    max-width: 1080px !important;
-    margin: 0 auto 14px auto !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-  .btn-nav-active, .btn-back-home {
-    padding: 9px 24px !important;
-    font-size: 13.5px !important;
-    line-height: 1.2 !important;
-    box-sizing: border-box !important;
-  }
-  .banner-box {
-    width: 100% !important;
-    max-width: 1080px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  .trusted-box {
-    position: fixed !important;
-    top: 15px !important;
-    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(50%) !important;
-    width: 195px !important;
-    max-width: 195px !important;
-  }
-  .flag-clean-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-  }
-  .live-top-box {
-    position: fixed !important;
-    top: 294px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-    width: 132px !important;
-  }
-  @media (max-width: 1520px) {
-    
-  }
-
-
-  /* POPRAVLJEN FLAG COUNTER (E57c) */
-  .flag-clean-wrap {
-    position: fixed !important;
-    top: 15px !important;
-    left: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(-50%) !important;
-    z-index: 95 !important;
-    background: #0d0717 !important;
-    border: 2px solid #a855f7 !important;
-    border-bottom: none !important;
-    border-radius: 10px 10px 0 0 !important;
-    padding: 6px 6px 4px 6px !important;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45) !important;
-    margin: 0 !important;
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  .flag-clean-wrap img {
-    display: block !important;
-    width: auto !important;
-    height: auto !important;
-    max-width: none !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-  }
-  @media (max-width: 1280px) {
-    
-  }
-
-
-  .trusted-box a.btn-epicnpc-topic,
-  .btn-epicnpc-topic {
-    display: block !important;
-    width: 100% !important;
-    margin: 6px 0 2px 0 !important;
-    padding: 7px 10px !important;
-    background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%) !important;
-    background-clip: padding-box !important;
-    color: #ffe680 !important;
-    border: 1.5px solid #ffcc00 !important;
-    border-radius: 8px !important;
-    outline: none !important;
-    font-size: 11px !important;
-    font-weight: 900 !important;
-    letter-spacing: 0.5px !important;
-    text-transform: uppercase !important;
-    text-decoration: none !important;
-    text-align: center !important;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.75) !important;
-    transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
-    line-height: 1.25 !important;
-    box-sizing: border-box !important;
-  }
-  .trusted-box a.btn-epicnpc-topic:hover,
-  .btn-epicnpc-topic:hover {
-    background: linear-gradient(90deg, #7e22ce 0%, #a855f7 50%, #7e22ce 100%) !important;
-    color: #ffffff !important;
-    box-shadow: 0 0 14px rgba(255, 204, 0, 0.85) !important;
-  }
-
-
-  
-
-  
-
-  /* MIRAN OMOTAC: KUTIJA DISE, GUMB STOJI 100% MIRNO */
-  .epicnpc-wrapper {
-    position: fixed !important;
-    top: 15px !important;
-    right: calc(50% + 540px + ((100vw - 1080px) / 4)) !important;
-    transform: translateX(50%) !important;
-    z-index: 95 !important;
-    width: 195px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-    margin: 0 !important;
-  }
-  .epicnpc-wrapper .trusted-box {
-    position: static !important;
-    transform: none !important;
-    width: 100% !important;
-    margin: 0 !important;
-  }
-  .epicnpc-wrapper .btn-epicnpc-topic {
-    position: static !important;
-    
-    transform: none !important;
-    transition: none !important;
-    margin: 0 !important;
-  }
-  @media (max-width: 1280px) {
-    
-  }
 
 
 
-  /* ZLATNI OKVIR OKO EPICNPC SLIKE */
-  img[src*="epicnpc" i] {
-    border: 2.5px solid #ffcc00 !important;
-    border-radius: 10px !important;
-    box-shadow: 0 0 14px rgba(255, 204, 0, 0.75), 0 4px 12px rgba(0, 0, 0, 0.85) !important;
-    box-sizing: border-box !important;
-    display: block !important;
-  }
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 16px 16px 40px;
+  color: #ffffff;
+  background: radial-gradient(circle at 50% 20%, #1b0e33 0%, #0b0614 58%, #050308 100%);
+  font-family: Arial, sans-serif;
+}
 
+    .container {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
 
+    /* 1. Osnovna crna, ljubičasta i zlatna tema */
 
-  
-
-  /* STYLISH HOW TO BUY KUTIJA ISPOD EPICNPC BEDZA */
-  .howtobuy-box {
-    width: 100%;
-    max-width: 195px;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%);
-    border: 2px solid #ffcc00;
-    border-radius: 12px;
-    padding: 10px 10px 8px 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45);
-    box-sizing: border-box;
-    margin-top: 2px;
-    text-align: left;
-  }
-  .howtobuy-header {
-    text-align: center;
-    font-size: 12px;
-    font-weight: 900;
-    color: #ffe680;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    padding-bottom: 6px;
-    margin-bottom: 8px;
-    border-bottom: 1.5px solid rgba(255, 204, 0, 0.4);
-    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
-  }
-  .htb-step {
-    display: flex;
-    align-items: flex-start;
-    gap: 7px;
-    margin-bottom: 7px;
-    background: rgba(88, 28, 135, 0.25);
-    border: 1px solid rgba(168, 85, 247, 0.35);
-    border-radius: 7px;
-    padding: 5px 6px;
-  }
-  .htb-step:last-child {
-    margin-bottom: 0;
-  }
-  .htb-num {
-    min-width: 18px;
-    height: 18px;
-    background: linear-gradient(135deg, #ffcc00 0%, #f59e0b 100%);
-    color: #0d0717;
-    font-size: 11px;
-    font-weight: 900;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 1px;
-    box-shadow: 0 0 6px rgba(255, 204, 0, 0.7);
-  }
-  .htb-txt {
-    font-size: 10.5px;
-    line-height: 1.28;
-    color: #f3e8ff;
-  }
-  .htb-txt b {
-    color: #ffe680;
-    display: block;
-    font-size: 11px;
-    margin-bottom: 1px;
-  }
-
-
-
-  
-
-  /* JEDNA DO DRUGE LIJEVO: EPICNPC + HOW TO BUY BEZ PREKLAPANJA */
-  .left-side-row {
-    position: fixed !important;
-    top: 15px !important;
-    left: 15px !important;
-    z-index: 95 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: flex-start !important;
-    gap: 10px !important;
-    margin: 0 !important;
-  }
-  .left-side-row .epicnpc-wrapper,
-  .left-side-row .trusted-box {
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
-    width: 175px !important;
-    flex-shrink: 0 !important;
-  }
-  .left-side-row .howtobuy-box {
-    position: static !important;
-    transform: none !important;
-    margin: 0 !important;
-    width: 175px !important;
-    max-width: 175px !important;
-    flex-shrink: 0 !important;
-    background: linear-gradient(180deg, #160929 0%, #0d0717 100%) !important;
-    border: 2px solid #ffcc00 !important;
-    border-radius: 12px !important;
-    padding: 8px 8px 6px 8px !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.45) !important;
-  }
-  .left-side-row .htb-step {
-    padding: 4px 5px !important;
-    margin-bottom: 5px !important;
-  }
-  .left-side-row .htb-txt {
-    font-size: 10px !important;
-    line-height: 1.22 !important;
-  }
-  @media (max-width: 1620px) {
-    
-    
-    
-    
-  }
-  @media (max-width: 760px) {
-    
-  }
-
-
-
-  /* CIST DIZAJN ZA BLEACH: MIRRORS HIGH */
-  .img-crop-box { max-height: none !important; height: auto !important; overflow: visible !important; }
-  .img-fade, .toggle-wrap, .toggle-btn, .drive-btn { display: none !important; }
-  .heroes-grid {
-    display: grid !important;
-    grid-template-columns: repeat(8, 1fr) !important;
-    gap: 10px !important;
-    max-width: 1040px !important;
-  }
-  
-  @media (max-width: 768px) {
-    
-  }
-
-
-
-  /* UREDNA MREZA ZA SVE IKONICE HEROJA (8 U REDU) */
-  .heroes-grid {
-    display: grid !important;
-    grid-template-columns: repeat(8, 1fr) !important;
-    gap: 10px !important;
-    width: 100% !important;
-    max-width: 1040px !important;
-    margin: 0 auto !important;
-  }
-  .hero-name-label {
-    width: 100%;
-    padding: 4px 2px;
-    background: #140b24;
-    color: #ffe680;
-    font-size: 10.5px;
-    font-weight: 800;
-    text-align: center;
-    line-height: 1.15;
-    border-top: 1px solid rgba(168, 85, 247, 0.35);
-    min-height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  @media (max-width: 768px) {
-    .heroes-grid { grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; }
-  }
-
-
-
-  .accounts {
-    width: 100% !important;
-    max-width: 1080px !important;
-    display: grid !important;
-    grid-template-columns: repeat(4, 1fr) !important; gap: 10px !important;
-    gap: 20px !important;
-    align-items: start !important;
-    margin: 0 auto !important;
-  }
-  @media (max-width: 768px) {
-    .accounts { grid-template-columns: 1fr !important; }
-  }
-
-
-
-  
-
-  /* ISTAKNUTA CIJENA PORED ACCOUNT NASLOVA */
-  .acc-title {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    padding: 8px 12px !important;
-    text-align: center !important;
-  }
-  .acc-price-badge {
-    background: linear-gradient(135deg, #ffd700 0%, #ffae00 100%);
-    color: #140824;
-    font-weight: 900;
-    font-size: 13px;
-    padding: 3px 10px;
-    border-radius: 6px;
-    letter-spacing: 0.4px;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.45);
-    border: 1px solid #fff3a1;
-  }
-
-
-
-  
-
-  /* MOBILNI PRIKAZ MIRRORS HIGH */
-  @media (max-width: 768px) { .accounts { grid-template-columns: 1fr; } .heroes-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; } .bleach-title { font-size: 20px; letter-spacing: 1.5px; } .img-crop-box { max-height: 280px !important; } .img-crop-box.expanded { max-height: 2500px !important; } }
-@media (max-width: 1150px) {
-    
-  }
-  /* NEBULA & TOP BTN END */
-/* SMOOTH SCROLL & PERF START */
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  .cosmic-sky, .ember, .meteor {
-    will-change: transform, opacity;
-    transform: translateZ(0);
-  }
-  .acc {
-    content-visibility: auto;
-    contain-intrinsic-size: 680px;
-  }
-  /* SMOOTH SCROLL & PERF END */
-
-  
-  
-
-/* RED DRIVE BTN START */
-  @keyframes redDriveGlow {
-    0%, 100% { box-shadow: inset 0 0 12px rgba(255, 100, 100, 0.35), 0 2px 8px rgba(220, 38, 38, 0.4); }
-    50% { box-shadow: inset 0 0 20px rgba(255, 204, 0, 0.45), 0 2px 14px rgba(239, 68, 68, 0.85); }
-  }
-@media (max-width: 1520px) {
-    .trusted-box {
-      position: static;
-      transform: none;
-      margin: 0 auto 14px auto;
-      width: fit-content;
+    /* 2. Glavni banner sa ljubičastim sjajem i svjetlosnim prelazom */
+    @keyframes bannerShine {
+      0% {
+  left: -100%;
+}
+      30%, 100% {
+  left: 150%;
+}
     }
-  }
-@media (max-width: 1520px) {
-    
-  }
-  /* FLAG COUNTER END */
 
-  .live-top-box {
-    position: fixed;
-    top: 294px;
-    left: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(-50%);
-    z-index: 96;
-    width: 132px; padding: 7px 12px; gap: 7px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-    background: #0d0717;
-    border: 2px solid #a855f7;
-    border-top: 1.5px solid #ffcc00;
-    border-radius: 0 0 10px 10px;
-    padding: 6px 8px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4);
-  }
-  .flag-clean-wrap {
-    position: fixed;
-    top: 15px;
-    left: calc(50% + 540px + ((50vw - 540px) / 2));
-    transform: translateX(-50%);
-    z-index: 95;
-    background: #0d0717;
-    border: 2px solid #a855f7;
-    border-bottom: none;
-    border-radius: 10px 10px 0 0;
-    padding: 6px 6px 4px 6px;
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
-  }
-  @media (max-width: 1520px) {
-    .live-top-box, .flag-clean-wrap {
-      position: static;
-      transform: none;
-      margin: 16px auto;
-      width: fit-content;
+    @keyframes bannerPulse {
+      0%, 100% {
+  border-color: #a855f7;
+  box-shadow:
+          0 0 28px rgba(168, 85, 247, 0.85),
+          0 0 52px rgba(147, 51, 234, 0.55),
+          inset 0 0 18px rgba(168, 85, 247, 0.38);
+}
+      50% {
+  border-color: #f0abfc;
+  box-shadow:
+          0 0 42px rgba(217, 70, 239, 1),
+          0 0 72px rgba(168, 85, 247, 0.85),
+          inset 0 0 26px rgba(217, 70, 239, 0.55);
+}
     }
-  }
-@media (max-width: 1520px) {
-    .trusted-box, .flag-clean-wrap, .live-top-box {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
+
+    .banner-box {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 2.5px solid #a855f7;
+  border-radius: 14px;
+  background: #0d0717;
+  box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.9),
+        0 0 34px rgba(168, 85, 247, 0.8),
+        0 0 52px rgba(147, 51, 234, 0.45);
+  animation: bannerPulse 2.4s ease-in-out infinite;
+}
+
+    .banner-box img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+    .banner-box::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: -100%;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.14),
+        transparent
+      );
+  transform: skewX(-25deg);
+  animation: bannerShine 7.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+    /* 3. Centralni Home meni */
+    .bleach-top-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto 8px;
+  position: relative;
+  z-index: 10;
+}
+
+    .btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 20px;
+  color: #ffe680;
+  background: linear-gradient(90deg, #1b0c30 0%, #581c87 50%, #1b0c30 100%);
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 900;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8), 0 0 14px rgba(168, 85, 247, 0.5);
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .btn-back-home:focus-visible,
+    .copy-discord-btn:focus-visible,
+    .trusted-panel-link:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+    .btn-back-home:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%);
+  color: #ffffff;
+  box-shadow: 0 0 22px rgba(255, 204, 0, 0.85);
+}
+
+    /* 4. EpicNPC lijevo, banner u sredini, Flag Counter desno – poravnati po vrhu */
+    .hero-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 205px) minmax(0, 1fr) minmax(0, 150px);
+  align-items: stretch;
+  gap: clamp(12px, 1.5vw, 20px);
+  width: 100%;
+}
+
+    .trusted-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  max-width: 205px;
+  margin: 0;
+  padding: 8px 8px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 20%, #3b1c5e 0%, #120821 100%);
+  border: 2px solid #ffcc00;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(255, 204, 0, 0.35);
+}
+
+    .left-info-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 205px;
+  min-width: 0;
+  height: auto;
+  margin: 0 0 0 auto;
+  align-self: start;
+  justify-content: flex-start;
+  transform: translateX(clamp(40px, 5.7vw, 90px));
+}
+
+    .howtobuy-box {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 9px 8px;
+  color: #f3e8ff;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #160929 0%, #0d0717 100%);
+  border: 2px solid #ffcc00;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.9), 0 0 15px rgba(168, 85, 247, 0.35);
+}
+
+    .howtobuy-header {
+  margin: 0 0 8px;
+  padding: 0 0 7px;
+  color: #ffe680;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  line-height: 1.3;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1.5px solid rgba(255, 204, 0, 0.4);
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+}
+
+    .htb-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 0 0 5px;
+  padding: 5px 6px;
+  background: rgba(88, 28, 135, 0.22);
+  border: 1px solid rgba(255, 204, 0, 0.28);
+  border-radius: 7px;
+}
+
+    .htb-step:last-child {
+  margin-bottom: 0;
+}
+
+    .htb-num {
+  display: flex;
+  flex: 0 0 18px;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  color: #0d0717;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, #ffcc00 0%, #f59e0b 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255, 204, 0, 0.45);
+}
+
+    .htb-txt {
+  min-width: 0;
+  font-size: 10.2px;
+  line-height: 1.26;
+  overflow-wrap: anywhere;
+}
+
+    .htb-txt b {
+  display: block;
+  margin-bottom: 1px;
+  color: #ffe680;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+    .trusted-panel-title {
+  color: #ffe680;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  line-height: 1.3;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+}
+
+    .trusted-panel-link {
+  display: inline-block;
+  width: 100%;
+  padding: 7px 6px;
+  color: #ffe680;
+  background: linear-gradient(90deg, #581c87 0%, #9333ea 50%, #581c87 100%);
+  border: 1.5px solid #ffcc00;
+  border-radius: 7px;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.3;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+    .trusted-panel-link:hover {
+  color: #ffffff;
+  background: linear-gradient(90deg, #7e22ce 0%, #a855f7 50%, #7e22ce 100%);
+  box-shadow: 0 0 14px rgba(255, 204, 0, 0.85);
+}
+
+    .trusted-panel img {
+  display: block;
+  width: 100%;
+  max-width: 135px;
+  height: auto;
+  border: 1.5px solid rgba(255, 204, 0, 0.65);
+  border-radius: 8px;
+}
+
+    .hero-layout .banner-box {
+  min-width: 0;
+  width: 84%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+    /* 5. Flag Counter desno od bannera, poravnat s njegovim gornjim rubom */
+    .flag-counter-wrap {
+  align-self: start;
+  justify-self: center;
+  width: 100%;
+  max-width: 150px;
+  margin: 0;
+  padding: 6px 6px 4px;
+  background: #0d0717;
+  border: 2px solid #ffcc00;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.45);
+}
+
+    .flag-counter-wrap a,
+    .flag-counter-wrap img {
+  display: block;
+  max-width: 100%;
+}
+
+    .flag-counter-wrap img {
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  border: 0;
+}
+
+    /* 6. Live brojač odmah ispod Flag Countera, u istoj desnoj koloni */
+    .visitor-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: start;
+  align-self: start;
+  gap: 0;
+  width: 150px;
+  min-width: 0;
+  transform: translateX(clamp(-90px, -5.7vw, -40px));
+}
+
+    .live-top-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  min-height: 36px;
+  margin: 0;
+  padding: 7px 8px;
+  background: #0d0717;
+  border: 2px solid #ffcc00;
+  border-top: 1.5px solid #ffcc00;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.85), 0 0 14px rgba(255, 204, 0, 0.4);
+  white-space: nowrap;
+}
+
+    .live-indicator {
+  display: inline-block;
+  flex: 0 0 8px;
+  width: 8px;
+  height: 8px;
+  background: #ffcc00;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ffcc00;
+}
+
+    .live-label {
+  color: #ffe680;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+    /* Zatvara samo nedostajuću desnu bijelu ivicu LIVE "1 online" widgeta */
+    .live-widget-frame {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+    .live-widget-frame::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 14px;
+  background: #ffffff;
+  pointer-events: none;
+  z-index: 2;
+}
+
+    /* Manji laptopi, tableti i mobiteli: elementi se slažu bez horizontalnog skrolanja */
+    @media (max-width: 1050px) {
+      .hero-layout {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+
+      .left-info-stack {
+  align-self: center;
+  height: auto;
+  justify-content: flex-start;
+  transform: none;
+  width: min(100%, 390px);
+  margin: 0 auto;
+}
+
+      .trusted-panel {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+      .visitor-stack {
+  transform: none;
+  width: min(100%, 180px);
+  margin: 0 auto;
+}
+
+      .flag-counter-wrap {
+  max-width: 100%;
+  margin: 0;
+}
+
     }
-  }
-@media (max-width: 1280px) {
-    .flag-clean-wrap {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
-      border-bottom: 2px solid #a855f7 !important;
-      border-radius: 10px !important;
-      width: fit-content !important;
+
+    @media (max-width: 480px) {
+      .btn-back-home {
+  max-width: 100%;
+  padding: 9px 16px;
+  font-size: 12px;
+  text-align: center;
+}
+
+      .trusted-panel {
+  max-width: 100%;
+  padding: 9px;
+}
+
+      .trusted-panel img {
+  max-width: 135px;
+}
+
+      .flag-counter-wrap {
+  padding: 5px;
+}
     }
-  }
-@media (max-width: 1280px) {
-    .epicnpc-wrapper {
-      position: static !important;
-      transform: none !important;
-      margin: 12px auto !important;
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+  transition-duration: 0.01ms !important;
+}
     }
-  }
-@media (max-width: 1620px) {
-    .left-side-row {
-      position: static !important;
-      flex-wrap: wrap !important;
-      justify-content: center !important;
-      width: 100% !important;
-      max-width: 1080px !important;
-      margin: 12px auto !important;
+
+    /* Discord i Payment trake su odmah ispod bannera, u istoj centriranoj koloni */
+    .banner-column {
+  width: 100%;
+  min-width: 0;
+}
+
+    .banner-column .info-bar,
+    .banner-column .payment-bar {
+  width: 84%;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+    .banner-column .info-bar {
+  margin-top: 12px;
+  flex-wrap: nowrap;
+  gap: clamp(4px, 0.8vw, 10px);
+  padding: 8px clamp(6px, 1vw, 16px);
+  font-size: clamp(8px, 1vw, 13px);
+  white-space: nowrap;
+}
+
+    .banner-column .info-bar > span:first-child {
+  white-space: nowrap;
+  min-width: 0;
+  flex: 0 1 auto;
+}
+
+    .banner-column .info-bar .dc-tag,
+    .banner-column .info-bar .copy-discord-btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+    .banner-column .payment-bar {
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+    @media (max-width: 520px) {
+      body {
+  padding: 14px 8px 28px;
+}
+      .banner-column .info-bar {
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 6px;
+  font-size: 11px;
+  line-height: 1.35;
+  white-space: normal;
+}
+      .banner-column .info-bar > span:first-child {
+  flex: 1 1 100%;
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+      .banner-column .info-bar .dc-tag {
+  padding: 4px 7px;
+  font-size: 10px;
+}
+
+      .banner-column .info-bar .copy-discord-btn {
+  padding: 5px 8px;
+  font-size: 10px;
+}
     }
-    .left-side-row .howtobuy-box {
-      width: 100% !important;
-      max-width: 680px !important;
-      display: grid !important;
-      grid-template-columns: repeat(3, 1fr) !important;
-      gap: 8px !important;
-    }
-    .left-side-row .howtobuy-header {
-      grid-column: 1 / -1 !important;
-      margin-bottom: 2px !important;
-    }
-    .left-side-row .htb-step {
-      margin-bottom: 0 !important;
-    }
-  }
-@media (max-width: 760px) {
-    .left-side-row .howtobuy-box {
-      grid-template-columns: 1fr !important;
-    }
-  }
-  @media (max-width: 768px) {
-    html, body {
-      overflow-x: hidden !important;
-      width: 100% !important;
-      max-width: 100vw !important;
-    }
-    .accounts {
-      display: grid !important;
-      grid-template-columns: 1fr !important;
-      gap: 16px !important;
-      width: 100% !important;
-      max-width: 100% !important;
-      padding: 0 10px !important;
-      margin: 0 auto !important;
-      box-sizing: border-box !important;
-    }
-    .acc {
-      
-      width: 100% !important;
-      max-width: 100% !important;
-      margin: 0 auto !important;
-      box-sizing: border-box !important;
-    }
-    .acc img {
-      width: 100% !important;
-      height: auto !important;
-      display: block !important;
-    }
-    .heroes-grid {
-      grid-template-columns: repeat(4, 1fr) !important;
-      gap: 8px !important;
-      padding: 0 8px !important;
-    }
+
+    /* Originalni Discord info bar */
+    .info-bar {
+  width: 100%;
+  max-width: 1080px;
+  margin: 14px auto 0;
+  background: linear-gradient(90deg, #1b1f3b 0%, #5865F2 50%, #1b1f3b 100%);
+  border: 1.5px solid #8ea1e1;
+  border-radius: 10px;
+  padding: 10px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(88, 101, 242, 0.45);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+    .dc-tag {
+  color: #ffe680;
+  font-weight: 900;
+  background: rgba(88, 28, 135, 0.55);
+  padding: 4px 10px;
+  border-radius: 7px;
+  border: 1px solid #ffcc00;
+}
+
+    .copy-discord-btn {
+  position: relative;
+  z-index: 10;
+  background: #ffcc00;
+  color: #111;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+    .copy-discord-btn:hover {
+  background: #ffffff;
+  transform: scale(1.04);
+}
+
+    /* Originalni Payment bar */
+    .payment-bar {
+  width: 100%;
+  max-width: 1080px;
+  margin: 10px auto 14px;
+  background: linear-gradient(90deg, #120921 0%, #241240 50%, #120921 100%);
+  border: 1.5px solid #7e22ce;
+  border-radius: 10px;
+  padding: 9px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.75), 0 0 14px rgba(147, 51, 234, 0.3);
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+}
+
+    .payment-label {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #e9d5ff;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+    .pay-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 13px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+    .pay-paypal {
+  background: linear-gradient(135deg, #003087 0%, #0070e0 100%);
+  border: 1.5px solid #7dd3fc;
+  color: #ffffff;
+}
+
+    .pay-steam {
+  background: linear-gradient(135deg, #171a21 0%, #2a475e 100%);
+  border: 1.5px solid #66c0f4;
+  color: #e0f2fe;
+}
+
+.selling-header {
+  width: 100%;
+  margin-top: 24px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+  .selling-line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #a855f7, #ffcc00);
+  border-radius: 2px;
+}
+  .selling-line.right {
+  background: linear-gradient(90deg, #ffcc00, #a855f7, transparent);
+}
+  .selling-title {
+  color: #ffe680;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(255, 204, 0, 0.75), 0 0 22px rgba(168, 85, 247, 0.7);
+  text-align: center;
+}
+  @media (max-width: 640px) {
+    .selling-title {
+  font-size: 13.5px;
+  letter-spacing: 1px;
+}
   }
 
-
-
-  
-
-  /* VIDLJIVA KVACICA ZA ZADNJEG HEROJA */
-  .heroes-grid {
-    padding-bottom: 18px !important;
-  }
-  .hero-card {
-    min-height: 112px !important;
-    padding-bottom: 8px !important;
-  }
-
-
-  /* STIL ZA CLEAR FILTER GUMB */
-  .reset-btn { background: #ffcc00; color: #140a21; border: none; border-radius: 4px; padding: 4px 10px; font-size: 12px; font-weight: 800; text-transform: uppercase; cursor: pointer; }
-  .reset-btn:hover { background: #ffffff; }
-  
-  
-  
-  .discord-bar { position: relative !important; z-index: 9999 !important; pointer-events: auto !important; }
-  .copy-discord-btn { position: relative !important; z-index: 10000 !important; pointer-events: auto !important; cursor: pointer !important; }
-</style>
-<style>.accounts:empty,.status:empty,div:empty{display:none!important}</style><style>.flag-clean-wrap{border:2px solid #ffcc00!important;border-bottom:2px solid #ffcc00!important;border-radius:10px!important;padding-bottom:6px!important}.live-top-box{border:2px solid #ffcc00!important;border-top:2px solid #ffcc00!important;border-radius:10px!important;width:auto!important;min-width:138px!important;padding:7px 12px!important}.live-top-box div[title]{width:80px!important;min-width:80px!important;box-sizing:content-box!important;overflow:visible!important}</style><style>.live-top-box > div:first-of-type,.live-top-box > div:first-of-type div{display:inline-block!important;visibility:visible!important;opacity:1!important}.live-top-box > div:nth-of-type(2){display:none!important}</style><style id="gfx-c">@keyframes gTw{0%,100%{opacity:.28;transform:scale(.92)}50%{opacity:.95;transform:scale(1.18)}}@keyframes gMt{0%{transform:translate(0,0) rotate(-35deg);opacity:0}4%{opacity:1}18%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}100%{transform:translate(-1150px,760px) rotate(-35deg);opacity:0}}@keyframes gSp{0%{transform:translateY(0) scale(.85);opacity:0}15%{opacity:1}85%{opacity:.85}100%{transform:translateY(-102vh) scale(1.25);opacity:0}}#gacha-fx,#gacha-fx *{pointer-events:none!important}#gacha-fx{position:fixed!important;top:0!important;left:0!important;right:0!important;bottom:0!important;width:100%!important;min-width:100vw!important;height:100%!important;min-height:100vh!important;z-index:1!important;overflow:hidden!important}html{background:#06040a!important;background-image:radial-gradient(circle at 50% 22%,#1b0e33 0%,#0b0614 55%,#050308 100%)!important;background-attachment:fixed!important}body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar{background:transparent!important;background-color:transparent!important}.container,.main-wrap,.bleach-wrap,.page-wrap,.content-wrap{background:transparent!important}img,.banner,.main-banner,.hero-card,.catalog-card,.panel,.card,.box,.discord-bar,.bleach-top-nav,.btn-back-home{position:relative!important;z-index:5!important}.g-st{position:absolute;inset:0;background-image:radial-gradient(2px 2px at 10% 15%,#fff,transparent),radial-gradient(2px 2px at 24% 68%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 38% 28%,#fff,transparent),radial-gradient(2px 2px at 52% 82%,#f0abfc,transparent),radial-gradient(2px 2px at 67% 20%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 79% 58%,#fff,transparent),radial-gradient(2px 2px at 91% 34%,#f0abfc,transparent),radial-gradient(1.5px 1.5px at 16% 86%,#fff,transparent);animation:gTw 4.5s infinite ease-in-out}.g-mt{position:absolute;width:140px;height:2px;background:linear-gradient(90deg,#fff 0%,#ffcc00 35%,#a855f7 75%,transparent 100%);border-radius:50%;filter:drop-shadow(0 0 6px #ffcc00);opacity:0;animation:gMt 8.5s infinite linear}.g-sp{position:absolute;bottom:-12px;border-radius:50%;opacity:0;animation:gSp 8s infinite linear}</style>
-<style id="gfx-unblock">#gacha-fx,#gacha-fx div{display:block!important}.bleach-wrap,.bleach-panel,.main-wrapper,.page-wrapper{background:transparent!important}img,.account-card,.acc-card,.account-box,.hero-card,.hero-btn,.hero-item,.filter-box,.banner-wrap,.discord-bar,.bleach-top-nav,.btn-back-home,.status,.accounts{position:relative!important;z-index:5!important}</style>
-<style id="matched-badges-css">.matched-box{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px;padding:8px 10px;background:linear-gradient(90deg,#1b0f2e 0%,#2d184d 50%,#1b0f2e 100%);border-bottom:1.5px solid #ffcc00}.matched-label{font-size:11.5px;font-weight:900;color:#ffe680;text-transform:uppercase;letter-spacing:.6px;margin-right:4px}.matched-hero-badge{display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.55);border:2px solid #ffcc00;border-radius:6px;padding:3px 8px 3px 3px;box-shadow:0 0 10px rgba(255,204,0,.75)}.matched-hero-badge img{width:32px!important;height:32px!important;padding:0!important;border-radius:4px;object-fit:cover;display:block}.matched-hero-badge span{font-size:12px;font-weight:700;color:#fff}</style>
-<style id="home-purple-theme">@keyframes purplePulse{0%,100%{opacity:.05}50%{opacity:.66}}html{min-height:100%!important;background:#06040a!important;background-image:none!important;position:relative!important}html::before{content:""!important;position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;z-index:0!important;pointer-events:none!important;background:linear-gradient(180deg,#24104a 0%,#34176b 50%,#200e42 100%)!important;animation:purplePulse 7s ease-in-out infinite!important}body{background:transparent!important;background-image:none!important}</style>
-
-<style id="cosmic-checkmark-meteor-fix-v2">
-/* FIX: visible hero-filter checkmarks */
-.hero-card.active .cb {
-  display: flex !important;
-  align-items: center !important;
+  /* CISTI RASPORED KATALOGA (PC I MOBITEL) */
+  .two-games-row {
+  display: inline-flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
   justify-content: center !important;
-  background: #ffcc00 !important;
-  border: 2px solid #ffffff !important;
-  color: #140a21 !important;
+  align-items: flex-start !important;
+  gap: 18px !important;
+  width: auto !important;
+  max-width: 100% !important;
 }
-.hero-card.active .cb::after {
-  content: "✔" !important;
-  display: block !important;
-  color: #140a21 !important;
-  font-family: Arial, sans-serif !important;
-  font-size: 17px !important;
-  font-weight: 900 !important;
-  line-height: 1 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* FIX: meteors travel visibly across the page without blocking filters */
-.cosmic-sky {
-  z-index: 1 !important;
-  pointer-events: none !important;
-}
-.discord-bar, .bleach-panel, .status, .accounts {
-  position: relative !important;
-  z-index: 2 !important;
-}
-
-
-.cosmic-sky .m1 { animation-duration: 8s !important; animation-delay: 0s !important; }
-.cosmic-sky .m2 { animation-duration: 10s !important; animation-delay: 2.5s !important; }
-.cosmic-sky .m3 { animation-duration: 9s !important; animation-delay: 4.5s !important; }
-.cosmic-sky .m4 { animation-duration: 12s !important; animation-delay: 6.5s !important; }
-</style>
-<style id="checkbox-empty-and-checked-fix">
-/* Keep an empty square visible on every unselected hero card */
-.hero-card .cb {
-  width: 22px !important;
-  height: 22px !important;
-  min-width: 22px !important;
-  min-height: 22px !important;
+  .two-games-row > div {
+  width: 245px !important;
+  min-width: 245px !important;
+  max-width: 245px !important;
+  flex: 0 0 245px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
   box-sizing: border-box !important;
+}
+  .two-games-row > div > div:first-child {
+  width: 245px !important;
+  min-width: 245px !important;
+  max-width: 245px !important;
+  height: 74px !important;
+  min-height: 74px !important;
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
-  background: #140b24 !important;
-  border: 2px solid #d8bff8 !important;
-  border-radius: 4px !important;
-  position: relative !important;
-  color: #140a21 !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
 }
-.hero-card:not(.active) .cb::after {
-  content: "" !important;
+  .two-games-row > div > div:not(:first-child) {
+  width: 245px !important;
+  min-width: 245px !important;
+  max-width: 245px !important;
+  margin-top: 10px !important;
+  box-sizing: border-box !important;
+}
+  @media (max-width: 768px) {
+    .two-games-row {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  gap: 12px !important;
+}
+    .two-games-row > div {
+  margin: 0 auto !important;
+  align-items: center !important;
+}
+    .two-games-row > div > div:not(:first-child) {
+  margin-top: 8px !important;
+  margin-bottom: 4px !important;
+  position: static !important;
+}
+  }
+
+  /* GLAVNI TAB I PADAJUCI SUB-MENU ZA KATALOGE */
+  .game-dropdown-wrap {
+  width: 100%;
+  max-width: 580px;
+  margin: 0 auto;
+  position: relative;
+}
+  .btn-game-main {
+  width: 100%;
+  padding: 16px 22px;
+  background: linear-gradient(90deg, #241042 0%, #581c87 50%, #241042 100%);
+  color: #ffe680;
+  border: 2px solid #ffcc00;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.85), 0 0 16px rgba(168, 85, 247, 0.55);
+  transition: all 0.2s ease;
+}
+  .btn-game-main:hover {
+  background: linear-gradient(90deg, #3b176e 0%, #7e22ce 50%, #3b176e 100%);
+  color: #ffffff;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.95), 0 0 24px rgba(255, 204, 0, 0.85);
+}
+  .game-arrow {
+  font-size: 14px;
+  transition: transform 0.25s ease;
+  color: #ffcc00;
+}
+  .game-dropdown-wrap.open .game-arrow {
+  transform: rotate(180deg);
+}
+  .game-submenu {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 12px;
+  background: rgba(13, 7, 23, 0.96);
+  border: 2px solid #a855f7;
+  border-radius: 12px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.95), 0 0 18px rgba(168, 85, 247, 0.5);
+}
+  .game-dropdown-wrap.open .game-submenu {
+  display: flex;
+}
+  .btn-sub-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 18px;
+  background: linear-gradient(90deg, #1b0c30 0%, #3b176e 100%);
+  color: #ffe680 !important;
+  border: 1.5px solid #ffcc00;
+  border-radius: 9px;
+  font-size: 14.5px;
+  font-weight: 800;
+  text-decoration: none !important;
+  transition: all 0.2s ease;
+}
+  .btn-sub-item:hover {
+  background: linear-gradient(90deg, #581c87 0%, #9333ea 100%);
+  color: #ffffff !important;
+  box-shadow: 0 0 16px rgba(255, 204, 0, 0.8);
+  transform: translateY(-1px);
+}
+
+/* Katalog centriran direktno ispod naslova */
+.selling-header + .two-games-row {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+@media (max-width: 768px) {
+  .selling-header + .two-games-row {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+}
+
+.selling-header.completed-hdr {
+  margin-top: 28px !important;
+}
+.selling-header.completed-hdr .selling-line {
+  background: linear-gradient(90deg, transparent, #22c55e) !important;
+}
+.selling-header.completed-hdr .selling-line.right {
+  background: linear-gradient(90deg, #22c55e, transparent) !important;
+}
+.selling-header.completed-hdr .selling-title {
+  color: #4ade80 !important;
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.55) !important;
+}
+.btn-game-main.completed-btn {
+  background: linear-gradient(180deg, #064e3b 0%, #022c22 100%) !important;
+  border-color: #22c55e !important;
+  color: #dcfce7 !important;
+  box-shadow: 0 0 14px rgba(34, 197, 94, 0.25) !important;
+}
+.btn-game-main.completed-btn:hover {
+  background: linear-gradient(180deg, #047857 0%, #064e3b 100%) !important;
+  border-color: #86efac !important;
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.45) !important;
+}
+.sold-badge {
+  background: rgba(34, 197, 94, 0.2);
+  border: 1px solid #4ade80;
+  color: #86efac;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* Completed sales sit centered directly beneath the available catalogs */
+#completedGamesRow {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+#completedGamesRow > .games-row {
+  width: 245px !important;
+  min-width: 245px !important;
+  max-width: 245px !important;
+  flex: 0 0 245px !important;
+  margin-top: 12px !important;
+}
+@media (max-width: 768px) {
+  #completedGamesRow {
+  flex-direction: column !important;
+  align-items: center !important;
+}
+  #completedGamesRow > .games-row {
+  margin: 0 auto 12px !important;
+}
+}
+
+@keyframes gTw{0%,100%{
+  opacity:.28;
+  transform:scale(.92);
+}50%{
+  opacity:.95;
+  transform:scale(1.18);
+}}
+@keyframes gMt{0%{
+  transform:translate(0,0) rotate(-35deg);
+  opacity:0;
+}4%{
+  opacity:1;
+}18%{
+  transform:translate(-1150px,760px) rotate(-35deg);
+  opacity:0;
+}100%{
+  transform:translate(-1150px,760px) rotate(-35deg);
+  opacity:0;
+}}
+@keyframes gSp{0%{
+  transform:translateY(0) scale(.85);
+  opacity:0;
+}15%{
+  opacity:1;
+}85%{
+  opacity:.85;
+}100%{
+  transform:translateY(-102vh) scale(1.25);
+  opacity:0;
+}}
+@keyframes purplePulse{0%,100%{
+  opacity:.05;
+}50%{
+  opacity:.66;
+}}
+
+html{
+  min-height:100%!important;
+  background:#06040a!important;
+  background-image:none!important;
+  position:relative!important;
+}
+html::before{
+  content:""!important;
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  background:linear-gradient(180deg,#24104a 0%,#34176b 50%,#200e42 100%)!important;
+  animation:purplePulse 7s ease-in-out infinite!important;
+}
+body,.layout,.grid,.columns,.side-col,.right-col,.left-col,.sidebar,.container,.main-wrap,.bleach-wrap,.page-wrap,.content-wrap,.bleach-panel,.main-wrapper,.page-wrapper{
+  background:transparent!important;
+  background-color:transparent!important;
+  background-image:none!important;
+}
+
+.hero-layout,.left-info-stack,.banner-column,.visitor-stack,img,.banner,.main-banner,.banner-box,.hero-card,.catalog-card,.panel,.card,.box,.discord-bar,.bleach-top-nav,.btn-back-home,.offer-card,.jade-card,.account-card,.acc-card,.account-box,.banner-wrap,.status,.accounts,.trusted-panel,.howtobuy-box,.flag-counter-wrap,.live-top-box,.info-bar,.payment-bar,.selling-header,.two-games-row,.btn-game-main,.game-submenu{
+  position:relative!important;
+  z-index:5!important;
+}
+
+#gacha-fx,#gacha-fx *{
+  pointer-events:none!important;
+}
+#gacha-fx{
+  position:fixed!important;
+  inset:0!important;
+  width:100vw!important;
+  height:100vh!important;
+  z-index:1!important;
+  overflow:hidden!important;
+}
+#gacha-fx,#gacha-fx div{
+  display:block!important;
+}
+
+.g-st{
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(2px 2px at 10% 15%,#fff,transparent),radial-gradient(2px 2px at 24% 68%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 38% 28%,#fff,transparent),radial-gradient(2px 2px at 52% 82%,#f0abfc,transparent),radial-gradient(2px 2px at 67% 20%,#ffe680,transparent),radial-gradient(1.5px 1.5px at 79% 58%,#fff,transparent),radial-gradient(2px 2px at 91% 34%,#f0abfc,transparent),radial-gradient(1.5px 1.5px at 16% 86%,#fff,transparent);
+  animation:gTw 4.5s infinite ease-in-out!important;
+}
+.g-mt{
+  position:absolute;
+  width:140px;
+  height:2px;
+  background:linear-gradient(90deg,#fff 0%,#ffcc00 35%,#a855f7 75%,transparent 100%);
+  border-radius:50%;
+  filter:drop-shadow(0 0 6px #ffcc00);
+  opacity:0;
+  animation:gMt 8.5s infinite linear!important;
+}
+.g-sp{
+  position:absolute;
+  bottom:-12px;
+  border-radius:50%;
+  opacity:0;
+  animation-name:gSp!important;
+  animation-iteration-count:infinite!important;
+  animation-timing-function:linear!important;
+}
+
+/* Mobile: banner and contact/payment first, then seller/how-to-buy, then counters */
+  @media (max-width: 1050px) {
+    .hero-layout {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 10px !important;
+}
+    .banner-column {
+  order: 1 !important;
+  width: 100% !important;
+}
+    .left-info-stack {
+  order: 2 !important;
+  width: min(100%, 390px) !important;
+  max-width: 390px !important;
+  margin: 0 auto !important;
+  gap: 8px !important;
+  transform: none !important;
+}
+    .visitor-stack {
+  order: 3 !important;
+  width: min(100%, 180px) !important;
+  max-width: 180px !important;
+  margin: 0 auto !important;
+  transform: none !important;
+}
+    .hero-layout .banner-box,
+    .banner-column .info-bar,
+    .banner-column .payment-bar {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+    .banner-column .info-bar {
+  margin-top: 8px !important;
+}
+    .banner-column .payment-bar {
+  margin-top: 6px !important;
+}
+    .trusted-panel {
+  max-width: 100% !important;
+}
+    .flag-counter-wrap {
+  max-width: 100% !important;
+}
+    .selling-header {
+  margin-top: 12px !important;
+}
+    .two-games-row, .games-row {
+  gap: 8px !important;
+}
+  }
+
+  /* Both Bleach menus always expand vertically underneath their own button */
+  #bleachDropdown, #bmh_bleachDropdown {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  position: relative !important;
+  width: 100% !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+  #bleachDropdown > .btn-game-main,
+  #bmh_bleachDropdown > .btn-game-main {
+  position: relative !important;
+  display: flex !important;
+  width: 100% !important;
+  height: 74px !important;
+  min-height: 74px !important;
+  flex: 0 0 auto !important;
+}
+  #bleachDropdown > .game-submenu,
+  #bmh_bleachDropdown > .game-submenu {
   display: none !important;
+  position: static !important;
+  inset: auto !important;
+  float: none !important;
+  flex-direction: column !important;
+  align-self: stretch !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 8px 0 0 !important;
+  clear: both !important;
+  transform: none !important;
+  z-index: 6 !important;
+}
+  #bleachDropdown.open > .game-submenu,
+  #bmh_bleachDropdown.open > .game-submenu {
+  display: flex !important;
+}
+  #bleachDropdown > .game-submenu > .btn-sub-item,
+  #bmh_bleachDropdown > .game-submenu > .btn-sub-item {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+/* Mobile: keep available catalogs and completed sales side by side */
+@media (max-width: 768px) {
+  .selling-header + .two-games-row,
+  #completedGamesRow {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: 8px !important;
+  width: 100% !important;
+  padding: 0 4px !important;
+  box-sizing: border-box !important;
+}
+  .selling-header + .two-games-row > .games-row,
+  #completedGamesRow > .games-row {
+  width: calc(50% - 4px) !important;
+  min-width: 0 !important;
+  max-width: calc(50% - 4px) !important;
+  flex: 0 0 calc(50% - 4px) !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+  .selling-header + .two-games-row .game-dropdown-wrap,
+  #completedGamesRow .game-dropdown-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+}
+  .selling-header + .two-games-row .btn-game-main,
+  #completedGamesRow .btn-game-main {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 68px !important;
+  padding: 10px 8px !important;
+  gap: 5px !important;
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+  box-sizing: border-box !important;
+  text-align: center !important;
+}
+  .selling-header + .two-games-row .btn-game-main > span:first-child,
+  #completedGamesRow .btn-game-main > span:first-child {
+  min-width: 0 !important;
+  overflow-wrap: anywhere !important;
+}
+  #completedGamesRow .sold-badge {
+  font-size: 9px !important;
+  white-space: nowrap !important;
+}
+}
+
+/* Samo tekst/naslovi lagano trepere – bez animiranja okvira ili panela */
+  @keyframes headingTextShimmer {
+    0%, 100% {
+  color: #ffe680;
+  opacity: 0.96;
+  text-shadow: 0 0 3px rgba(255, 204, 0, 0.3);
+  filter: brightness(1);
+}
+    50% {
+  color: #fff4c2;
+  opacity: 1;
+  text-shadow:
+        0 0 4px rgba(255, 255, 255, 0.45),
+        0 0 8px rgba(255, 204, 0, 0.48),
+        0 0 11px rgba(168, 85, 247, 0.35);
+  filter: brightness(1.06);
+}
+  }
+
+  .trusted-panel-title,
+  .howtobuy-header,
+  .selling-title {
+  animation: headingTextShimmer 2.4s ease-in-out infinite !important;
+}
+/* Mobile order: banner, Discord, payment, catalog heading, catalogs, seller info, completed sales, counters */
+  @media (max-width: 768px) {
+    .container {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+    .hero-layout {
+  display: contents !important;
+}
+    .bleach-top-nav {
+  order: 0 !important;
+}
+    .banner-column {
+  display: flex !important;
+  flex-direction: column !important;
+  order: 1 !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+    .banner-column .banner-box,
+    .banner-column .info-bar,
+    .banner-column .payment-bar {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+    .banner-column .banner-box {
+  order: 1 !important;
+}
+    .banner-column .info-bar {
+  order: 2 !important;
+  margin-top: 8px !important;
+}
+    .banner-column .payment-bar {
+  order: 3 !important;
+  margin-top: 6px !important;
+}
+    .banner-column > .selling-header:not(.completed-hdr) {
+  order: 4 !important;
+  margin: 12px 0 4px !important;
+}
+    #availableGamesRow {
+  order: 2 !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 4px !important;
+  box-sizing: border-box !important;
+}
+    #availableGamesRow > .games-row {
+  display: block !important;
+  flex: 0 1 calc(50% - 5px) !important;
+  width: calc(50% - 5px) !important;
+  min-width: 0 !important;
+  max-width: calc(50% - 5px) !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+    #availableGamesRow .game-dropdown-wrap,
+    #availableGamesRow .btn-game-main {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+    #availableGamesRow .btn-game-main {
+  min-height: 68px !important;
+  height: auto !important;
+  padding: 10px 8px !important;
+  font-size: 12px !important;
+  line-height: 1.25 !important;
+  text-align: center !important;
+}
+    .left-info-stack {
+  order: 3 !important;
+  width: min(100%, 390px) !important;
+  max-width: 390px !important;
+  margin: 12px auto 0 !important;
+  gap: 8px !important;
+  transform: none !important;
+}
+    .selling-header.completed-hdr {
+  order: 4 !important;
+}
+    #completedGamesRow {
+  order: 5 !important;
+}
+    #completedGamesRow {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: 100% !important;
+}
+    #completedGamesRow > .games-row {
+  flex: 0 1 calc(50% - 4px) !important;
+  width: calc(50% - 4px) !important;
+  min-width: 0 !important;
+  max-width: calc(50% - 4px) !important;
+  margin: 0 !important;
+}
+    .visitor-stack {
+  order: 6 !important;
+  width: min(100%, 180px) !important;
+  max-width: 180px !important;
+  margin: 12px auto 0 !important;
+  transform: none !important;
+}
+  }
+
+    /* Accessible main heading, visually hidden to preserve the existing design */
+    .visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+
+
+/* Bleach Mirrors High filter module */
+.bleach-panel {
+  width:100%;
+  max-width:1080px;
+  margin:18px auto 14px;
+  padding:22px 18px 18px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:radial-gradient(circle at 50% 0%,#3b1c5e 0%,#190d2b 60%,#0e0917 100%);
+  border:2px solid #8a4fd1;
+  border-radius:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.8),0 0 25px rgba(138,79,209,.3);
+}
+.bleach-title {
+  margin-bottom:6px;
+  text-align:center;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  background:linear-gradient(180deg,#fff 10%,#ffd24d 55%,#ff6600 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 3px 12px rgba(255,102,0,.6));
+}
+.bleach-subtitle {
+  margin-bottom:16px;
+  padding:4px 14px;
+  border-radius:20px;
+  border:1px solid rgba(155,102,223,.3);
+  background:rgba(0,0,0,.35);
+  color:#d8bff8;
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  letter-spacing:2px;
+  text-transform:uppercase;
+}
+.heroes-grid {
+  width:100%;
+  max-width:1040px;
+  margin:0 auto;
+  padding:0 0 12px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+}
+.hero-card {
+  flex:0 0 calc((100% - 88px) / 12);
+  box-sizing:border-box;
+  position:relative;
+  min-width:0;
+  overflow:hidden;
+  cursor:pointer;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  user-select:none;
+  border:2px solid #6b42a8;
+  border-radius:10px;
+  background:radial-gradient(circle at 50% 30%,#4b2882 0%,#1a0e2e 100%);
+  box-shadow:0 5px 12px rgba(0,0,0,.7),inset 0 0 12px rgba(168,85,247,.3);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.hero-card:hover {
+  border-color:#e879f9;
+  transform:translateY(-3px);
+  box-shadow:0 8px 18px rgba(192,132,252,.45);
+}
+.hero-card.active {
+  border-color:#ffcc00;
+  box-shadow:0 0 18px rgba(255,204,0,.9),0 0 28px rgba(255,136,0,.5);
+  transform:translateY(-3px) scale(1.02);
+}
+.hero-card img {
+  display:block;
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+}
+.hero-name-label {
+  width:100%;
+  min-height:40px;
+  height:auto;
+  padding:5px 3px;
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-top:1px solid rgba(168,85,247,.35);
+  background:#140b24;
+  color:#ffe680;
+  font-size:clamp(8px, .72vw, 9.5px);
+  font-weight:800;
+  line-height:1.15;
+  text-align:center;
+  white-space:normal;
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+.cb-area {
+  width:100%;
+  height:34px;
+  min-height:34px;
+  padding:6px 0;
+  box-sizing:border-box;
+  display:flex;
+  justify-content:center;
+  background:#26173d;
+  border-top:1.5px solid #482d70;
+}
+.cb {
+  width:22px;
+  height:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:2px solid #d6a800;
+  border-radius:4px;
+  background:#140b24;
+  color:#111;
+  font-size:16px;
+  font-weight:900;
+  animation:cbGoldGlow 2.2s ease-in-out infinite;
+  will-change:opacity,box-shadow,background-color,border-color;
+}
+@keyframes cbGoldGlow {
+  0%,100% {
+    border-color:#b8860b;
+    background-color:#140b24;
+    box-shadow:0 0 4px rgba(255,204,0,.30);
+    opacity:.88;
+  }
+  50% {
+    border-color:#ffe066;
+    background-color:#2a210b;
+    box-shadow:0 0 10px rgba(255,204,0,.78);
+    opacity:1;
+  }
 }
 .hero-card.active .cb {
-  background: #ffcc00 !important;
-  border: 2px solid #ffffff !important;
+  background:#ffcc00;
+  border-color:#fff0a6;
+  animation:cbSelectedGoldGlow 2.2s ease-in-out infinite;
+}
+@keyframes cbSelectedGoldGlow {
+  0%,100% { box-shadow:0 0 5px rgba(255,204,0,.48); opacity:.92; }
+  50% { box-shadow:0 0 13px rgba(255,204,0,.98); opacity:1; }
 }
 .hero-card.active .cb::after {
-  content: "✔" !important;
-  display: block !important;
-  color: #140a21 !important;
-  font-size: 17px !important;
+  content:"✔";
+}
+.status {
+  width:100%;
+  max-width:1080px;
+  min-height:42px;
+  margin:0 auto 16px;
+  padding:10px 16px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  text-align:center;
+  color:#e6d4ff;
+  font-size:14px;
+  font-weight:bold;
+  background:linear-gradient(90deg,#160c24 0%,#24133b 50%,#160c24 100%);
+  border:1px solid #5c338f;
+  border-radius:8px;
+}
+.reset-btn {
+  padding:5px 11px;
+  border:0;
+  border-radius:4px;
+  cursor:pointer;
+  background:#ffcc00;
+  color:#140a21;
+  font-size:12px;
+  font-weight:800;
+  text-transform:uppercase;
+}
+.reset-btn:hover {
+  background:#fff;
+}
+.accounts {
+  width:100%;
+  max-width:1080px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  align-items:start;
+  gap:20px;
+}
+.acc {
+  min-width:0;
+  overflow:hidden;
+  border:2px solid #ffcc00;
+  border-radius:6px;
+  background:#181818;
+  animation:blinkBorder 1.5s ease-in-out infinite;
+}
+@keyframes blinkBorder { 0%,100% {
+  border-color:#666;
+  box-shadow:0 0 6px rgba(255,204,0,.2);
+} 50% {
+  border-color:#ffcc00;
+  box-shadow:0 0 16px rgba(255,204,0,.7);
+} }
+.acc-title {
+  margin:0;
+  padding:8px 12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:10px;
+  background:#262626;
+  border-bottom:2px solid #5a5a5a;
+  color:#ffcc00;
+  font-size:15px;
+  font-weight:bold;
+  text-align:center;
+}
+.acc-price-badge {
+  padding:3px 10px;
+  border:1px solid #fff3a1;
+  border-radius:6px;
+  background:linear-gradient(135deg,#ffd700 0%,#ffae00 100%);
+  color:#140824;
+  font-size:13px;
+  font-weight:900;
+}
+.acc > img {
+  display:block;
+  width:100%;
+  height:auto;
+  padding:8px;
+  background:#141414;
+}
+.matched-box {
+  padding:8px 10px;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  background:linear-gradient(90deg,#1b0f2e 0%,#2d184d 50%,#1b0f2e 100%);
+  border-bottom:1.5px solid #ffcc00;
+}
+.matched-label {
+  color:#ffe680;
+  font-size:11.5px;
+  font-weight:900;
+  text-transform:uppercase;
+}
+.matched-hero-badge {
+  padding:3px 8px 3px 3px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  border:2px solid #ffcc00;
+  border-radius:6px;
+  background:rgba(0,0,0,.55);
+  box-shadow:0 0 10px rgba(255,204,0,.55);
+}
+.matched-hero-badge img {
+  width:32px!important;
+  height:32px!important;
+  padding:0!important;
+  border-radius:4px;
+  object-fit:cover;
+}
+.matched-hero-badge span {
+  color:#fff;
+  font-size:12px;
+  font-weight:bold;
+}
+@media (max-width:900px) { .hero-card {
+  flex-basis:calc((100% - 40px) / 6);
+} .accounts {
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+} }
+@media (max-width:600px) { .bleach-panel {
+  padding:16px 10px 12px;
+} .bleach-title {
+  font-size:21px;
+  letter-spacing:1.5px;
+} .bleach-subtitle {
+  font-size:10px;
+  letter-spacing:1px;
+} .heroes-grid {
+  gap:7px;
+} .hero-card {
+  flex-basis:calc((100% - 21px) / 4);
+} .hero-name-label {
+  min-height:40px;
+  height:auto;
+  padding:5px 2px;
+  font-size:8.5px;
+  line-height:1.15;
+} .accounts {
+  grid-template-columns:1fr;
+  gap:14px;
+} .status {
+  font-size:12px;
+  padding:9px;
+} }
+
+
+.banner-column > .bleach-panel {
+  width:84% !important;
+  max-width:none !important;
+  margin:12px auto 14px !important;
+  box-sizing:border-box !important;
+}
+@media (max-width:520px) {
+  .banner-column > .bleach-panel { width:84% !important; }
+}
+
+
+/* Status and account results share the filter panel's exact parent and width */
+.banner-column > .status,
+.banner-column > .accounts {
+  width:84% !important;
+  max-width:none !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  box-sizing:border-box !important;
+}
+.banner-column > .status {
+  margin-top:0 !important;
+  margin-bottom:16px !important;
+}
+.banner-column > .accounts {
+  justify-content:stretch !important;
+}
+
+
+
+.back-to-top {
+  position: fixed !important;
+  right: 145px !important;
+  bottom: 24px !important;
+  z-index: 99999 !important;
+  background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 100%) !important;
+  color: #ffe680 !important;
+  border: 2px solid #ffcc00 !important;
+  border-radius: 50px !important;
+  padding: 12px 18px !important;
+  font-size: 13px !important;
   font-weight: 900 !important;
-  line-height: 1 !important;
+  letter-spacing: 0.8px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,.9), 0 0 16px rgba(255,204,0,.75) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: none !important;
+  transition: transform .2s ease, background .2s ease, opacity .2s ease !important;
+}
+.back-to-top.show { opacity: 1 !important; visibility: visible !important; }
+.back-to-top:hover {
+  background: #ffcc00 !important;
+  color: #140a21 !important;
+  transform: translateY(-3px) scale(1.05) !important;
+}
+@media(max-width:600px) {
+  .back-to-top { right: 14px !important; bottom: 18px !important; padding: 10px 14px !important; }
+}
+
+
+
+#accountImageViewer{position:fixed;inset:0;z-index:1000000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(0,0,0,.92);cursor:zoom-out}
+#accountImageViewer.open{display:flex}
+#accountImageViewer img{display:block;max-width: min(96vw, 1500px);max-height:92vh;width:auto;height:auto;object-fit:contain;border:2px solid #ffcc00;border-radius:10px;box-shadow:0 0 28px rgba(255,204,0,.35);cursor:default}
+#accountImageViewer button{position:absolute;top:16px;right:20px;width:44px;height:44px;border:1px solid #ffcc00;border-radius:50%;background:#241239;color:#ffe680;font-size:28px;font-weight:bold;cursor:pointer}
+.acc > img{cursor:zoom-in}
+
+</style>
+<style>
+/* Final mobile polish: keep the main banner first and make every block fit the screen */
+@media (max-width: 768px) {
+  .container { width: 100% !important; max-width: 100% !important; padding-left: 10px !important; padding-right: 10px !important; box-sizing: border-box !important; }
+  .bleach-top-nav { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+  .hero-layout { display: contents !important; }
+  .banner-column { order: 1 !important; width: 100% !important; max-width: 100% !important; min-width: 0 !important; gap: 8px !important; }
+  .banner-column .banner-box { width: 100% !important; max-width: 100% !important; margin-left: auto !important; margin-right: auto !important; }
+  .banner-column .banner-box img { display: block; width: 100% !important; max-width: 100% !important; height: auto !important; object-fit: contain !important; }
+  .banner-column .info-bar, .banner-column .payment-bar { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; overflow-wrap: anywhere !important; }
+  .bleach-panel, #status, #accounts { width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+  .bleach-panel { padding: 16px 10px 14px !important; margin-top: 12px !important; }
+  .bleach-title { font-size: clamp(20px, 6vw, 28px) !important; letter-spacing: 1.5px !important; line-height: 1.15 !important; }
+  .heroes-grid { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 7px !important; }
+  .hero-card { min-width: 0 !important; }
+  .left-info-stack { order: 3 !important; width: 100% !important; max-width: 100% !important; }
+  .visitor-stack { order: 6 !important; width: 100% !important; max-width: 240px !important; }
+  .account-card, .acc-card, .account-box { max-width: 100% !important; min-width: 0 !important; }
+}
+@media (max-width: 380px) {
+  .container { padding-left: 7px !important; padding-right: 7px !important; }
+  .bleach-panel { padding-left: 7px !important; padding-right: 7px !important; }
+  .heroes-grid { gap: 6px !important; }
+  .hero-card { flex-basis: calc((100% - 12px) / 3) !important; }
 }
 </style>
 </head>
 <body>
-
-  <div class="bleach-top-nav"><a href="https://genesisgachastore.github.io/home/" class="btn-back-home">🏠 Home • Genesis Gacha Store</a></div>
-
-  
-  
-  <!-- NEBULA & TOP BTN HTML START -->
-  <button type="button" class="back-to-top" id="topBtn" onclick="document.querySelector('.bleach-panel').scrollIntoView({behavior:'smooth'})">▲ Top</button>
-  <!-- NEBULA & TOP BTN HTML END -->
-  <div class="cosmic-sky">
-    <div class="ember e1"></div>
-    <div class="ember e2"></div>
-    <div class="ember e3"></div>
-    <div class="ember e4"></div>
-    <div class="ember e5"></div>
-    <div class="ember e6"></div>
-    <div class="ember e7"></div>
-    <div class="ember e8"></div>
-    <div class="ember e9"></div>
-    <div class="ember e10"></div>
-    <div class="ember e11"></div>
-    <div class="ember e12"></div>
-    <div class="ember e13"></div>
-    <div class="ember e14"></div>
-    <div class="ember e15"></div>
-    <div class="ember e16"></div>
-    <div class="ember e17"></div>
-    <div class="ember e18"></div>
-    <div class="ember e19"></div>
-    <div class="ember e20"></div>
-    <div class="ember e21"></div>
-    <div class="ember e22"></div>
-    <div class="ember e23"></div>
-    <div class="ember e24"></div>
-  </div>
-  <!-- FULL BANNER HTML START -->
-  <div class="main-banner-wrap">
-    <img src="slike/banner.jpg" alt="Bleach Soul Resonance Promo Banner">
-  </div>
-  <!-- FULL BANNER HTML END -->
-  <div class="discord-bar"><span class="discord-text">💬 For any questions, prices or more images, add me on Discord:</span><span class="discord-tag" id="dcTag">GenesisGacha#0271</span><button type="button" class="copy-discord-btn" onclick="(function(b){var t=document.getElementById('dcTag').textContent.trim();var ta=document.createElement('textarea');ta.value=t;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.focus();ta.select();ta.setSelectionRange(0,9999);try{document.execCommand('copy');}catch(e){}document.body.removeChild(ta);if(navigator.clipboard){navigator.clipboard.writeText(t).catch(function(){});}var o=b.innerHTML;b.innerHTML='&#10003; Copied!';setTimeout(function(){b.innerHTML=o;},2000);})(this)">&#128203; Copy</button></div>
-  <!-- PAYMENT BAR HTML START -->
-  <div class="payment-bar">
-    <span class="payment-label">💳 Accepted Payment Methods:</span>
-    <span class="pay-badge pay-paypal">🅿️ PayPal</span>
-    <span class="pay-badge pay-steam">🎮 Steam Gift Cards (EU)</span>
-  </div>
-  <!-- PAYMENT BAR HTML END -->
-  <div class="bleach-panel"><div class="bleach-title">BLEACH: MIRRORS HIGH</div><div class="bleach-subtitle">EU • GUEST STARTER CATALOG • SELECT HEROES TO FILTER</div>
-    <div id="heroes" class="heroes-grid"></div>
-  </div>
-  <div id="status" class="status"></div>
-  <div id="accounts" class="accounts"></div>
-
-
-
-
-<!-- FLAG COUNTER HTML START -->
-  
-  
-  <!-- FLAG COUNTER HTML END -->
-  <!-- LIVE COUNTER START -->
-    
-
-  <div class="left-side-row">
-  <div class="epicnpc-wrapper">
-  <div class="trusted-box">
-    <div class="trusted-text">⭐ 100% Trusted Seller ⭐
-    
-  </div>
-  <a href="https://www.epicnpc.com/threads/eu-starter-catalog-chapter-1-map-1-guest-accounts-15e-daily-update.3263407/" target="_blank" rel="noopener" class="btn-epicnpc-topic">&#128293; Click Here for EpicNPC Topic</a>
-    
+<main class="container">
+<h1 class="visually-hidden">Bleach Mirrors High Catalog - Genesis Gacha Store</h1>
+<nav aria-label="Main navigation" class="bleach-top-nav">
+<a class="btn-back-home" href="https://genesisgachastore.github.io/home/">🏠 Home • Genesis Gacha Store</a>
+</nav>
+<div class="hero-layout">
+<div class="left-info-stack">
+<section aria-label="EpicNPC trusted seller" class="trusted-panel">
+<div class="trusted-panel-title">⭐ 100% Trusted Seller ⭐</div>
+<a class="trusted-panel-link" href="https://www.epicnpc.com/threads/eu-starter-catalog-chapter-1-map-1-guest-accounts-15e-daily-update.3263407/" rel="noopener" target="_blank">
+            🔥 CLICK HERE FOR EPICNPC TOPIC
+          </a>
+<img alt="EpicNPC Trusted Seller" src="slike/epicnpc.png">
+</section>
+<section aria-label="How to Buy" class="howtobuy-box">
+<h2 class="howtobuy-header">🛒 How to Buy</h2>
+<div class="htb-step"><span class="htb-num">1</span><div class="htb-txt"><b>Pick Account</b><span>Select your favorite Account #.</span></div></div>
+<div class="htb-step"><span class="htb-num">2</span><div class="htb-txt"><b>Add on Discord</b><span>Message me with the Account #.</span></div></div>
+<div class="htb-step"><span class="htb-num">3</span><div class="htb-txt"><b>Live Account Check</b><span>I will log back into the account so we can confirm it's the exact one you want.</span></div></div>
+<div class="htb-step"><span class="htb-num">4</span><div class="htb-txt"><b>Easy Payment</b><span>Pay via PayPal or Steam Gift.</span></div></div>
+<div class="htb-step"><span class="htb-num">5</span><div class="htb-txt"><b>Account Binding</b><span>Send mail or dummy mail &amp; password.</span></div></div>
+<div class="htb-step"><span class="htb-num">6</span><div class="htb-txt"><b>100% Yours</b><span>Account is 100% yours — change the password and do whatever you want!</span></div></div>
+</section>
 </div>
-    <img src="slike/epicnpc.png" alt="EpicNPC Verified Seller">
-  </div>
-  <div class="howtobuy-box">
-      <div class="howtobuy-header">&#128722; How to Buy</div>
-      <div class="htb-step">
-        <span class="htb-num">1</span>
-        <div class="htb-txt"><b>Pick Account</b>Select your favorite Account #.</div>
-      </div>
-      <div class="htb-step">
-        <span class="htb-num">2</span>
-        <div class="htb-txt"><b>Add on Discord</b>Message me with the Account #.</div>
-      </div>
-      <div class="htb-step">
-        <span class="htb-num">3</span>
-        <div class="htb-txt"><b>Live Account Check</b>I will log back into the account so we can confirm it's the exact one you want.</div>
-      </div>
-      <div class="htb-step">
-        <span class="htb-num">4</span>
-        <div class="htb-txt"><b>Easy Payment</b>Pay via PayPal or Steam Gift.</div>
-      </div>
-      <div class="htb-step">
-        <span class="htb-num">5</span>
-        <div class="htb-txt"><b>Account Binding</b>Send mail or dummy mail &amp; password.</div>
-      </div>
-      <div class="htb-step">
-        <span class="htb-num">6</span>
-        <div class="htb-txt"><b>100% Yours</b>Account is 100% yours &mdash; change the password and do whatever you want!</div>
-      </div>
-    </div>
+<div class="banner-column">
+<div class="banner-box">
+<img alt="Genesis Gacha Store" src="slike/banner.jpg">
 </div>
-
-  <div class="flag-clean-wrap">
-    <a href="https://info.flagcounter.com/E57c" target="_blank" rel="noopener"><img src="https://s01.flagcounter.com/count2/E57c/bg_000000/txt_FFFFFF/border_CCCCCC/columns_1/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter"></a>
-  </div>
-
-<div class="live-top-box" title="Real-time visitors online">
-    <span style="display:inline-block; width:8px; height:8px; background:#ffcc00; border-radius:50%; box-shadow:0 0 8px #ffcc00;"></span>
-    <span style="font-size:12px; font-weight:bold; color:#ffe680;">LIVE:</span>
-    <script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
-    <script async src="//waust.at/s.js"></script>
-  </div>
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="info-bar">
+<span>💬 For any questions, prices or more images, add me on Discord:</span>
+<span class="dc-tag" id="dcTag">GenesisGacha#0271</span>
+<button aria-label="Copy Discord username" class="copy-discord-btn" onclick="copyDiscord(this)" type="button">📋 Copy</button>
+</div>
+<div class="payment-bar">
+<span class="payment-label">💳 Accepted Payment Methods:</span>
+<span class="pay-badge pay-paypal">🅿️ PayPal</span>
+<span class="pay-badge pay-steam">🎮 Steam Gift Cards (EU)</span>
+</div>
+<section aria-label="Bleach Mirrors High hero filter" class="bleach-panel">
+<div class="bleach-title">BLEACH: MIRRORS HIGH</div>
+<div class="bleach-subtitle">EU • GUEST STARTER CATALOG • SELECT HEROES TO FILTER</div>
+<div class="heroes-grid" id="heroes"></div>
+</section>
+<div aria-live="polite" class="status" id="status"></div>
+<div class="accounts" id="accounts"></div>
+</div>
+<aside aria-label="Visitor statistics" class="visitor-stack">
+<div aria-label="Visitor flag counter" class="flag-counter-wrap" role="group">
+<a href="https://info.flagcounter.com/E57c" rel="noopener noreferrer" target="_blank">
+<img alt="Visitor Flag Counter" src="https://s01.flagcounter.com/count2/E57c/bg_000000/txt_FFFFFF/border_CCCCCC/columns_1/maxflags_10/viewers_0/labels_0/pageviews_1/flags_0/percent_0/">
+</a>
+</div>
+<div aria-label="Live visitors online" class="live-top-box" role="group" title="Real-time visitors online">
+<span aria-hidden="true" class="live-indicator"></span>
+<span class="live-label">LIVE:</span>
+<span class="live-widget-frame">
+<script id="_waugen">var _wau = _wau || []; _wau.push(["small", "bleachcat26", "gen"]);</script>
+<script async="" src="//waust.at/s.js"></script>
+</span>
+</div>
+</aside>
+</div>
+</main>
+<div id="gacha-fx"><div class="g-st"></div><div class="g-mt" style="top:6%;left:26%;animation-delay:0.5s!important"></div><div class="g-mt" style="top:18%;left:42%;animation-delay:2.4s!important"></div><div class="g-mt" style="top:12%;left:58%;animation-delay:4.2s!important"></div><div class="g-mt" style="top:28%;left:35%;animation-delay:6.0s!important"></div><div class="g-mt" style="top:8%;left:76%;animation-delay:1.6s!important"></div><div class="g-mt" style="top:22%;left:90%;animation-delay:3.5s!important"></div><div class="g-mt" style="top:34%;left:96%;animation-delay:5.3s!important"></div><div class="g-st" style="transform:scaleX(-1) scaleY(-1);animation-delay:2.2s!important;opacity:.75"></div><div class="g-sp" style="left:8.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.35s!important;animation-duration:7.6s!important"></div><div class="g-sp" style="left:16.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.0s!important;animation-duration:8.45s!important"></div><div class="g-sp" style="left:24.1%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.65s!important;animation-duration:9.3s!important"></div><div class="g-sp" style="left:31.9%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.3s!important;animation-duration:7.6s!important"></div><div class="g-sp" style="left:39.7%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:2.95s!important;animation-duration:8.45s!important"></div><div class="g-sp" style="left:47.5%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.6s!important;animation-duration:9.3s!important"></div><div class="g-sp" style="left:55.3%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.25s!important;animation-duration:7.6s!important"></div><div class="g-sp" style="left:63.1%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:4.9s!important;animation-duration:8.45s!important"></div><div class="g-sp" style="left:70.9%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.55s!important;animation-duration:9.3s!important"></div><div class="g-sp" style="left:78.7%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.2s!important;animation-duration:7.6s!important"></div><div class="g-sp" style="left:86.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:6.85s!important;animation-duration:8.45s!important"></div><div class="g-sp" style="left:94.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:7.5s!important;animation-duration:9.3s!important"></div><div class="g-sp" style="left:5.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:0.0s!important;animation-duration:7.2s!important"></div><div class="g-sp" style="left:12.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.65s!important;animation-duration:8.1s!important"></div><div class="g-sp" style="left:20.6%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.3s!important;animation-duration:9.0s!important"></div><div class="g-sp" style="left:28.4%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.95s!important;animation-duration:7.2s!important"></div><div class="g-sp" style="left:36.2%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.6s!important;animation-duration:8.1s!important"></div><div class="g-sp" style="left:44.0%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:3.25s!important;animation-duration:9.0s!important"></div><div class="g-sp" style="left:51.8%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.9s!important;animation-duration:7.2s!important"></div><div class="g-sp" style="left:59.6%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.55s!important;animation-duration:8.1s!important"></div><div class="g-sp" style="left:67.4%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:5.2s!important;animation-duration:9.0s!important"></div><div class="g-sp" style="left:75.2%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.85s!important;animation-duration:7.2s!important"></div><div class="g-sp" style="left:83.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.5s!important;animation-duration:8.1s!important"></div><div class="g-sp" style="left:90.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:7.15s!important;animation-duration:9.0s!important"></div></div>
 <script>
+
+    async function copyDiscord(button) {
+      const username = document.getElementById("dcTag")?.textContent.trim();
+      if (!username) return;
+
+      const originalLabel = button.innerHTML;
+      let copied = false;
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(username);
+          copied = true;
+        } else {
+          const field = document.createElement("textarea");
+          field.value = username;
+          field.setAttribute("readonly", "");
+          field.style.position = "fixed";
+          field.style.opacity = "0";
+          document.body.appendChild(field);
+          try {
+            field.select();
+            copied = document.execCommand("copy");
+          } finally {
+            field.remove();
+          }
+        }
+      } catch (error) {
+        copied = false;
+      }
+
+      button.textContent = copied ? "✓ Copied!" : "Copy failed";
+      window.setTimeout(() => {
+        button.innerHTML = originalLabel;
+      }, 1800);
+    }
+  
+</script>
+<script>
+
+
   const HEROJI = [{"ime":"Sosuke Aizen","slika":"slike/hero_0.jpg"},{"ime":"Gin Ichimaru","slika":"slike/hero_2.jpg"},{"ime":"Uryu Ishida","slika":"slike/hero_5.jpg"},{"ime":"Yoruichi Shihoin","slika":"slike/hero_6.jpg"},{"ime":"Bambietta Basterbine","slika":"slike/hero_7.jpg"},{"ime":"Grimmjow Jaegerjaquez","slika":"slike/hero_8.jpg"},{"ime":"Toshiro Hitsugaya","slika":"slike/hero_9.jpg"},{"ime":"Rukia Kuchiki","slika":"slike/hero_10.jpg"},{"ime":"Byakuya Kuchiki","slika":"slike/hero_11.jpg"},{"ime":"Renji Abarai","slika":"slike/hero_12.jpg"},{"ime":"Ichigo Kurosaki","slika":"slike/hero_13.jpg"},{"ime":"Mayuri Kurotsuchi","slika":"slike/hero_14.jpg"},{"ime":"Orihime Inoue","slika":"slike/hero_15.jpg"},{"ime":"Rangiku Matsumoto","slika":"slike/hero_16.jpg"},{"ime":"Yasutora Sado","slika":"slike/hero_4.jpg"},{"ime":"Kisuke Urahara","slika":"slike/hero_26.jpg"},{"ime":"Shinji Hirako","slika":"slike/hero_27.jpg"},{"ime":"Gin Ichimaru (v2)","slika":"slike/hero_3.jpg"},{"ime":"Sosuke Aizen (v2)","slika":"slike/hero_1.jpg"},{"ime":"Toshiro Hitsugaya (v2)","slika":"slike/hero_17.jpg"},{"ime":"Orihime Inoue (v2)","slika":"slike/hero_18.jpg"},{"ime":"Ichigo Kurosaki (v2)","slika":"slike/hero_19.jpg"},{"ime":"Rangiku Matsumoto (v2)","slika":"slike/hero_20.jpg"},{"ime":"Bambietta Basterbine (v2)","slika":"slike/hero_21.jpg"},{"ime":"Rukia Kuchiki (v2)","slika":"slike/hero_22.jpg"},{"ime":"Renji Abarai (v2)","slika":"slike/hero_23.jpg"},{"ime":"Grimmjow Jaegerjaquez (v2)","slika":"slike/hero_24.jpg"},{"ime":"Yasutora Sado (v2)","slika":"slike/hero_25.jpg"}];
-  const NALOZI = [{"naziv":"Account #1","heroji":["sosuke aizen (v2)","yoruichi shihoin","bambietta basterbine"],"slika":"slike/acc_1.jpg"},{"naziv":"Account #2","heroji":["sosuke aizen","yasutora sado","uryu ishida"],"slika":"slike/acc_2.jpg"},{"naziv":"Account #3","heroji":["sosuke aizen (v2)","orihime inoue","byakuya kuchiki","grimmjow jaegerjaquez"],"slika":"slike/acc_3.jpg"},{"naziv":"Account #4","heroji":["sosuke aizen","orihime inoue","grimmjow jaegerjaquez"],"slika":"slike/acc_4.jpg"},{"naziv":"Account #5","heroji":["sosuke aizen","yasutora sado","grimmjow jaegerjaquez"],"slika":"slike/acc_5.jpg"},{"naziv":"Account #6","heroji":["sosuke aizen (v2)","gin ichimaru","yasutora sado","uryu ishida","rukia kuchiki","renji abarai"],"slika":"slike/acc_6.jpg"},{"naziv":"Account #7","heroji":["sosuke aizen","orihime inoue","yoruichi shihoin","ichigo kurosaki"],"slika":"slike/acc_7.jpg"},{"naziv":"Account #8","heroji":["sosuke aizen","bambietta basterbine","grimmjow jaegerjaquez"],"slika":"slike/acc_8.jpg"},{"naziv":"Account #9","heroji":["sosuke aizen","rukia kuchiki","ichigo kurosaki"],"slika":"slike/acc_9.jpg"},{"naziv":"Account #10","heroji":["sosuke aizen (v2)","rukia kuchiki","ichigo kurosaki (v2)"],"slika":"slike/acc_10.jpg"},{"naziv":"Account #11","heroji":["sosuke aizen","orihime inoue","renji abarai"],"slika":"slike/acc_11.jpg"},{"naziv":"Account #12","heroji":["sosuke aizen","bambietta basterbine","mayuri kurotsuchi","grimmjow jaegerjaquez"],"slika":"slike/acc_12.jpg"},{"naziv":"Account #13","heroji":["sosuke aizen","yoruichi shihoin","grimmjow jaegerjaquez"],"slika":"slike/acc_13.jpg"},{"naziv":"Account #14","heroji":["sosuke aizen (v2)","toshiro hitsugaya","rukia kuchiki"],"slika":"slike/acc_14.jpg"},{"naziv":"Account #15","heroji":["sosuke aizen","yoruichi shihoin","bambietta basterbine","ichigo kurosaki"],"slika":"slike/acc_15.jpg"},{"naziv":"Account #16","heroji":["sosuke aizen (v2)","bambietta basterbine","rukia kuchiki","ichigo kurosaki"],"slika":"slike/acc_16.jpg"},{"naziv":"Account #17","heroji":["sosuke aizen","gin ichimaru","rukia kuchiki","byakuya kuchiki"],"slika":"slike/acc_17.jpg"},{"naziv":"Account #18","heroji":["sosuke aizen","gin ichimaru","uryu ishida","ichigo kurosaki"],"slika":"slike/acc_18.jpg"},{"naziv":"Account #19","heroji":["sosuke aizen","gin ichimaru","yoruichi shihoin","uryu ishida"],"slika":"slike/acc_19.jpg"},{"naziv":"Account #20","heroji":["sosuke aizen","gin ichimaru","orihime inoue","byakuya kuchiki"],"slika":"slike/acc_20.jpg"},{"naziv":"Account #21","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto (v2)","uryu ishida"],"slika":"slike/acc_21.jpg"},{"naziv":"Account #22","heroji":["sosuke aizen","yoruichi shihoin","bambietta basterbine (v2)","rukia kuchiki (v2)"],"slika":"slike/acc_22.jpg"},{"naziv":"Account #23","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto (v2)","ichigo kurosaki"],"slika":"slike/acc_23.jpg"},{"naziv":"Account #24","heroji":["sosuke aizen","mayuri kurotsuchi","ichigo kurosaki (v2)"],"slika":"slike/acc_24.jpg"},{"naziv":"Account #25","heroji":["sosuke aizen","orihime inoue (v2)","bambietta basterbine","ichigo kurosaki (v2)"],"slika":"slike/acc_25.jpg"},{"naziv":"Account #26","heroji":["sosuke aizen","orihime inoue","yasutora sado","uryu ishida"],"slika":"slike/acc_26.jpg"},{"naziv":"Account #27","heroji":["sosuke aizen","toshiro hitsugaya","rukia kuchiki","ichigo kurosaki (v2)"],"slika":"slike/acc_27.jpg"},{"naziv":"Account #28","heroji":["sosuke aizen","gin ichimaru (v2)","toshiro hitsugaya (v2)","rukia kuchiki"],"slika":"slike/acc_28.jpg"},{"naziv":"Account #29","heroji":["sosuke aizen","yoruichi shihoin","rukia kuchiki"],"slika":"slike/acc_29.jpg"},{"naziv":"Account #30","heroji":["sosuke aizen","kisuke urahara","yasutora sado","bambietta basterbine","mayuri kurotsuchi","rukia kuchiki (v2)","byakuya kuchiki","renji abarai","ichigo kurosaki"],"slika":"slike/acc_30.jpg"},{"naziv":"Account #31","heroji":["sosuke aizen (v2)","rukia kuchiki","renji abarai"],"slika":"slike/acc_31.jpg"},{"naziv":"Account #32","heroji":["sosuke aizen","toshiro hitsugaya","yoruichi shihoin","bambietta basterbine","mayuri kurotsuchi"],"slika":"slike/acc_32.jpg"},{"naziv":"Account #33","heroji":["sosuke aizen","toshiro hitsugaya","uryu ishida"],"slika":"slike/acc_33.jpg"},{"naziv":"Account #34","heroji":["sosuke aizen","toshiro hitsugaya","ichigo kurosaki"],"slika":"slike/acc_34.jpg"},{"naziv":"Account #35","heroji":["sosuke aizen (v2)","toshiro hitsugaya","bambietta basterbine","rukia kuchiki","renji abarai","ichigo kurosaki"],"slika":"slike/acc_35.jpg"},{"naziv":"Account #36","heroji":["sosuke aizen (v2)","mayuri kurotsuchi","renji abarai"],"slika":"slike/acc_36.jpg"},{"naziv":"Account #37","heroji":["sosuke aizen (v2)","toshiro hitsugaya","uryu ishida"],"slika":"slike/acc_37.jpg"},{"naziv":"Account #38","heroji":["sosuke aizen","gin ichimaru","orihime inoue","uryu ishida","renji abarai"],"slika":"slike/acc_38.jpg"},{"naziv":"Account #39","heroji":["sosuke aizen (v2)","gin ichimaru","rangiku matsumoto (v2)","rukia kuchiki","renji abarai"],"slika":"slike/acc_39.jpg"},{"naziv":"Account #40","heroji":["sosuke aizen","orihime inoue","rangiku matsumoto (v2)","renji abarai"],"slika":"slike/acc_40.jpg"},{"naziv":"Account #41","heroji":["sosuke aizen","yasutora sado","renji abarai"],"slika":"slike/acc_41.jpg"},{"naziv":"Account #42","heroji":["sosuke aizen","orihime inoue (v2)","bambietta basterbine","rukia kuchiki"],"slika":"slike/acc_42.jpg"},{"naziv":"Account #43","heroji":["sosuke aizen","bambietta basterbine","byakuya kuchiki","ichigo kurosaki"],"slika":"slike/acc_43.jpg"},{"naziv":"Account #44","heroji":["sosuke aizen","orihime inoue","rukia kuchiki","ichigo kurosaki"],"slika":"slike/acc_44.jpg"},{"naziv":"Account #45","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto","renji abarai"],"slika":"slike/acc_45.jpg"},{"naziv":"Account #46","heroji":["sosuke aizen","yasutora sado","uryu ishida","rukia kuchiki"],"slika":"slike/acc_46.jpg"},{"naziv":"Account #47","heroji":["sosuke aizen","yoruichi shihoin","grimmjow jaegerjaquez"],"slika":"slike/acc_47.jpg"},{"naziv":"Account #48","heroji":["sosuke aizen","toshiro hitsugaya","grimmjow jaegerjaquez"],"slika":"slike/acc_48.jpg"},{"naziv":"Account #49","heroji":["sosuke aizen","rangiku matsumoto (v2)","mayuri kurotsuchi","rukia kuchiki"],"slika":"slike/acc_49.jpg"},{"naziv":"Account #50","heroji":["sosuke aizen (v2)","yasutora sado","byakuya kuchiki"],"slika":"slike/acc_50.jpg"},{"naziv":"Account #51","heroji":["sosuke aizen","gin ichimaru","yasutora sado","ichigo kurosaki"],"slika":"slike/acc_51.jpg"},{"naziv":"Account #52","heroji":["sosuke aizen","yasutora sado","uryu ishida"],"slika":"slike/acc_52.jpg"},{"naziv":"Account #53","heroji":["sosuke aizen","gin ichimaru","orihime inoue (v2)","bambietta basterbine","renji abarai"],"slika":"slike/acc_53.jpg"},{"naziv":"Account #54","heroji":["sosuke aizen","orihime inoue","toshiro hitsugaya"],"slika":"slike/acc_54.jpg"},{"naziv":"Account #55","heroji":["sosuke aizen","yasutora sado","yoruichi shihoin","rukia kuchiki (v2)"],"slika":"slike/acc_55.jpg"},{"naziv":"Account #56","heroji":["sosuke aizen","mayuri kurotsuchi","ichigo kurosaki"],"slika":"slike/acc_56.jpg"},{"naziv":"Account #57","heroji":["sosuke aizen (v2)","yasutora sado","renji abarai"],"slika":"slike/acc_57.jpg"},{"naziv":"Account #58","heroji":["sosuke aizen","gin ichimaru","orihime inoue","rangiku matsumoto (v2)","toshiro hitsugaya"],"slika":"slike/acc_58.jpg"},{"naziv":"Account #59","heroji":["sosuke aizen","mayuri kurotsuchi","rukia kuchiki","byakuya kuchiki"],"slika":"slike/acc_59.jpg"},{"naziv":"Account #60","heroji":["sosuke aizen","gin ichimaru","mayuri kurotsuchi","grimmjow jaegerjaquez","ichigo kurosaki"],"slika":"slike/acc_60.jpg"},{"naziv":"Account #61","heroji":["sosuke aizen","orihime inoue","yoruichi shihoin","bambietta basterbine (v2)","byakuya kuchiki","renji abarai"],"slika":"slike/acc_61.jpg"},{"naziv":"Account #62","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto (v2)","renji abarai (v2)","grimmjow jaegerjaquez"],"slika":"slike/acc_62.jpg"},{"naziv":"Account #63","heroji":["sosuke aizen","gin ichimaru","yasutora sado","byakuya kuchiki"],"slika":"slike/acc_63.jpg"},{"naziv":"Account #64","heroji":["sosuke aizen (v2)","orihime inoue","rukia kuchiki","grimmjow jaegerjaquez"],"slika":"slike/acc_64.jpg"},{"naziv":"Account #65","heroji":["sosuke aizen (v2)","mayuri kurotsuchi","grimmjow jaegerjaquez"],"slika":"slike/acc_65.jpg"},{"naziv":"Account #66","heroji":["sosuke aizen","toshiro hitsugaya (v2)","rukia kuchiki"],"slika":"slike/acc_66.jpg"},{"naziv":"Account #67","heroji":["sosuke aizen","bambietta basterbine","rukia kuchiki","ichigo kurosaki"],"slika":"slike/acc_67.jpg"},{"naziv":"Account #68","heroji":["sosuke aizen","yasutora sado (v2)","toshiro hitsugaya"],"slika":"slike/acc_68.jpg"},{"naziv":"Account #69","heroji":["sosuke aizen","grimmjow jaegerjaquez","ichigo kurosaki"],"slika":"slike/acc_69.jpg"},{"naziv":"Account #70","heroji":["sosuke aizen (v2)","rangiku matsumoto (v2)","mayuri kurotsuchi"],"slika":"slike/acc_70.jpg"},{"naziv":"Account #71","heroji":["yoruichi shihoin","rukia kuchiki","byakuya kuchiki","ichigo kurosaki"],"slika":"slike/acc_71.jpg"},{"naziv":"Account #72","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto (v2)","yoruichi shihoin","uryu ishida"],"slika":"slike/acc_72.jpg"},{"naziv":"Account #73","heroji":["sosuke aizen","rangiku matsumoto (v2)","mayuri kurotsuchi"],"slika":"slike/acc_73.jpg"},{"naziv":"Account #74","heroji":["sosuke aizen","bambietta basterbine","grimmjow jaegerjaquez"],"slika":"slike/acc_74.jpg"},{"naziv":"Account #75","heroji":["orihime inoue","rangiku matsumoto","bambietta basterbine","mayuri kurotsuchi","rukia kuchiki","byakuya kuchiki"],"slika":"slike/acc_75.jpg"},{"naziv":"Account #76","heroji":["sosuke aizen","toshiro hitsugaya","rukia kuchiki","byakuya kuchiki"],"slika":"slike/acc_76.jpg"},{"naziv":"Account #77","heroji":["sosuke aizen","yasutora sado","yoruichi shihoin","renji abarai"],"slika":"slike/acc_77.jpg"},{"naziv":"Account #78","heroji":["sosuke aizen","yoruichi shihoin","rukia kuchiki"],"slika":"slike/acc_78.jpg"},{"naziv":"Account #79","heroji":["sosuke aizen (v2)","rangiku matsumoto (v2)","uryu ishida","renji abarai"],"slika":"slike/acc_79.jpg"},{"naziv":"Account #81","heroji":["sosuke aizen","rukia kuchiki","renji abarai"],"slika":"slike/acc_81.jpg"},{"naziv":"Account #82","heroji":["sosuke aizen","bambietta basterbine","grimmjow jaegerjaquez"],"slika":"slike/acc_82.jpg"},{"naziv":"Account #83","heroji":["sosuke aizen","grimmjow jaegerjaquez","ichigo kurosaki"],"slika":"slike/acc_83.jpg"},{"naziv":"Account #84","heroji":["sosuke aizen (v2)","gin ichimaru","renji abarai","grimmjow jaegerjaquez (v2)"],"slika":"slike/acc_84.jpg"},{"naziv":"Account #85","heroji":["sosuke aizen","yoruichi shihoin","mayuri kurotsuchi"],"slika":"slike/acc_85.jpg"},{"naziv":"Account #86","heroji":["sosuke aizen (v2)","bambietta basterbine","byakuya kuchiki","ichigo kurosaki"],"slika":"slike/acc_86.jpg"},{"naziv":"Account #87","heroji":["sosuke aizen","yoruichi shihoin","renji abarai"],"slika":"slike/acc_87.jpg"},{"naziv":"Account #88","heroji":["sosuke aizen","bambietta basterbine (v2)","rukia kuchiki"],"slika":"slike/acc_88.jpg"},{"naziv":"Account #89","heroji":["sosuke aizen","yasutora sado","grimmjow jaegerjaquez"],"slika":"slike/acc_89.jpg"},{"naziv":"Account #90","heroji":["sosuke aizen (v2)","gin ichimaru","uryu ishida","rukia kuchiki"],"slika":"slike/acc_90.jpg"},{"naziv":"Account #91","heroji":["sosuke aizen","gin ichimaru","orihime inoue","rangiku matsumoto (v2)","byakuya kuchiki"],"slika":"slike/acc_91.jpg"},{"naziv":"Account #92","heroji":["sosuke aizen (v2)","orihime inoue","rukia kuchiki"],"slika":"slike/acc_92.jpg"},{"naziv":"Account #93","heroji":["sosuke aizen","gin ichimaru","uryu ishida","ichigo kurosaki"],"slika":"slike/acc_93.jpg"},{"naziv":"Account #94","heroji":["sosuke aizen","mayuri kurotsuchi","byakuya kuchiki"],"slika":"slike/acc_94.jpg"},{"naziv":"Account #95","heroji":["sosuke aizen","shinji hirako","toshiro hitsugaya","yoruichi shihoin","renji abarai"],"slika":"slike/acc_95.jpg"},{"naziv":"Account #96","heroji":["sosuke aizen","toshiro hitsugaya","grimmjow jaegerjaquez"],"slika":"slike/acc_96.jpg"},{"naziv":"Account #97","heroji":["sosuke aizen","shinji hirako","yasutora sado","yoruichi shihoin","grimmjow jaegerjaquez"],"slika":"slike/acc_97.jpg"},{"naziv":"Account #98","heroji":["sosuke aizen","shinji hirako","yoruichi shihoin","uryu ishida"],"slika":"slike/acc_98.jpg"},{"naziv":"Account #99","heroji":["sosuke aizen","uryu ishida","renji abarai"],"slika":"slike/acc_99.jpg"},{"naziv":"Account #100","heroji":["sosuke aizen","gin ichimaru","yoruichi shihoin","rukia kuchiki"],"slika":"slike/acc_100.jpg"}];
+  const NALOZI = [{"naziv":"Account#1","heroji":["sosuke aizen (v2)","yoruichi shihoin","bambietta basterbine"],"slika":"slike/acc_1.jpg"},{"naziv":"Account#2","heroji":["sosuke aizen","yasutora sado","uryu ishida"],"slika":"slike/acc_2.jpg"},{"naziv":"Account#3","heroji":["sosuke aizen (v2)","orihime inoue","byakuya kuchiki","grimmjow jaegerjaquez"],"slika":"slike/acc_3.jpg"},{"naziv":"Account#4","heroji":["sosuke aizen","orihime inoue","grimmjow jaegerjaquez"],"slika":"slike/acc_4.jpg"},{"naziv":"Account#5","heroji":["sosuke aizen","yasutora sado","grimmjow jaegerjaquez"],"slika":"slike/acc_5.jpg"},{"naziv":"Account#6","heroji":["sosuke aizen (v2)","gin ichimaru","yasutora sado","uryu ishida","rukia kuchiki","renji abarai"],"slika":"slike/acc_6.jpg"},{"naziv":"Account#7","heroji":["sosuke aizen","orihime inoue","yoruichi shihoin","ichigo kurosaki"],"slika":"slike/acc_7.jpg"},{"naziv":"Account#8","heroji":["sosuke aizen","bambietta basterbine","grimmjow jaegerjaquez"],"slika":"slike/acc_8.jpg"},{"naziv":"Account#9","heroji":["sosuke aizen","rukia kuchiki","ichigo kurosaki"],"slika":"slike/acc_9.jpg"},{"naziv":"Account#10","heroji":["sosuke aizen (v2)","rukia kuchiki","ichigo kurosaki (v2)"],"slika":"slike/acc_10.jpg"},{"naziv":"Account#11","heroji":["sosuke aizen","orihime inoue","renji abarai"],"slika":"slike/acc_11.jpg"},{"naziv":"Account#12","heroji":["sosuke aizen","bambietta basterbine","mayuri kurotsuchi","grimmjow jaegerjaquez"],"slika":"slike/acc_12.jpg"},{"naziv":"Account#13","heroji":["sosuke aizen","yoruichi shihoin","grimmjow jaegerjaquez"],"slika":"slike/acc_13.jpg"},{"naziv":"Account#14","heroji":["sosuke aizen (v2)","toshiro hitsugaya","rukia kuchiki"],"slika":"slike/acc_14.jpg"},{"naziv":"Account#15","heroji":["sosuke aizen","yoruichi shihoin","bambietta basterbine","ichigo kurosaki"],"slika":"slike/acc_15.jpg"},{"naziv":"Account#16","heroji":["sosuke aizen (v2)","bambietta basterbine","rukia kuchiki","ichigo kurosaki"],"slika":"slike/acc_16.jpg"},{"naziv":"Account#17","heroji":["sosuke aizen","gin ichimaru","rukia kuchiki","byakuya kuchiki"],"slika":"slike/acc_17.jpg"},{"naziv":"Account#18","heroji":["sosuke aizen","gin ichimaru","uryu ishida","ichigo kurosaki"],"slika":"slike/acc_18.jpg"},{"naziv":"Account#19","heroji":["sosuke aizen","gin ichimaru","yoruichi shihoin","uryu ishida"],"slika":"slike/acc_19.jpg"},{"naziv":"Account#20","heroji":["sosuke aizen","gin ichimaru","orihime inoue","byakuya kuchiki"],"slika":"slike/acc_20.jpg"},{"naziv":"Account#21","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto (v2)","uryu ishida"],"slika":"slike/acc_21.jpg"},{"naziv":"Account#22","heroji":["sosuke aizen","yoruichi shihoin","bambietta basterbine (v2)","rukia kuchiki (v2)"],"slika":"slike/acc_22.jpg"},{"naziv":"Account#23","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto (v2)","ichigo kurosaki"],"slika":"slike/acc_23.jpg"},{"naziv":"Account#24","heroji":["sosuke aizen","mayuri kurotsuchi","ichigo kurosaki (v2)"],"slika":"slike/acc_24.jpg"},{"naziv":"Account#25","heroji":["sosuke aizen","orihime inoue (v2)","bambietta basterbine","ichigo kurosaki (v2)"],"slika":"slike/acc_25.jpg"},{"naziv":"Account#26","heroji":["sosuke aizen","orihime inoue","yasutora sado","uryu ishida"],"slika":"slike/acc_26.jpg"},{"naziv":"Account#27","heroji":["sosuke aizen","toshiro hitsugaya","rukia kuchiki","ichigo kurosaki (v2)"],"slika":"slike/acc_27.jpg"},{"naziv":"Account#28","heroji":["sosuke aizen","gin ichimaru (v2)","toshiro hitsugaya (v2)","rukia kuchiki"],"slika":"slike/acc_28.jpg"},{"naziv":"Account#29","heroji":["sosuke aizen","yoruichi shihoin","rukia kuchiki"],"slika":"slike/acc_29.jpg"},{"naziv":"Account#30","heroji":["sosuke aizen","kisuke urahara","yasutora sado","bambietta basterbine","mayuri kurotsuchi","rukia kuchiki (v2)","byakuya kuchiki","renji abarai","ichigo kurosaki"],"slika":"slike/acc_30.jpg"},{"naziv":"Account#31","heroji":["sosuke aizen (v2)","rukia kuchiki","renji abarai"],"slika":"slike/acc_31.jpg"},{"naziv":"Account#32","heroji":["sosuke aizen","toshiro hitsugaya","yoruichi shihoin","bambietta basterbine","mayuri kurotsuchi"],"slika":"slike/acc_32.jpg"},{"naziv":"Account#33","heroji":["sosuke aizen","toshiro hitsugaya","uryu ishida"],"slika":"slike/acc_33.jpg"},{"naziv":"Account#34","heroji":["sosuke aizen","toshiro hitsugaya","ichigo kurosaki"],"slika":"slike/acc_34.jpg"},{"naziv":"Account#35","heroji":["sosuke aizen (v2)","toshiro hitsugaya","bambietta basterbine","rukia kuchiki","renji abarai","ichigo kurosaki"],"slika":"slike/acc_35.jpg"},{"naziv":"Account#36","heroji":["sosuke aizen (v2)","mayuri kurotsuchi","renji abarai"],"slika":"slike/acc_36.jpg"},{"naziv":"Account#37","heroji":["sosuke aizen (v2)","toshiro hitsugaya","uryu ishida"],"slika":"slike/acc_37.jpg"},{"naziv":"Account#38","heroji":["sosuke aizen","gin ichimaru","orihime inoue","uryu ishida","renji abarai"],"slika":"slike/acc_38.jpg"},{"naziv":"Account#39","heroji":["sosuke aizen (v2)","gin ichimaru","rangiku matsumoto (v2)","rukia kuchiki","renji abarai"],"slika":"slike/acc_39.jpg"},{"naziv":"Account#40","heroji":["sosuke aizen","orihime inoue","rangiku matsumoto (v2)","renji abarai"],"slika":"slike/acc_40.jpg"},{"naziv":"Account#41","heroji":["sosuke aizen","yasutora sado","renji abarai"],"slika":"slike/acc_41.jpg"},{"naziv":"Account#42","heroji":["sosuke aizen","orihime inoue (v2)","bambietta basterbine","rukia kuchiki"],"slika":"slike/acc_42.jpg"},{"naziv":"Account#43","heroji":["sosuke aizen","bambietta basterbine","byakuya kuchiki","ichigo kurosaki"],"slika":"slike/acc_43.jpg"},{"naziv":"Account#44","heroji":["sosuke aizen","orihime inoue","rukia kuchiki","ichigo kurosaki"],"slika":"slike/acc_44.jpg"},{"naziv":"Account#45","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto","renji abarai"],"slika":"slike/acc_45.jpg"},{"naziv":"Account#46","heroji":["sosuke aizen","yasutora sado","uryu ishida","rukia kuchiki"],"slika":"slike/acc_46.jpg"},{"naziv":"Account#47","heroji":["sosuke aizen","yoruichi shihoin","grimmjow jaegerjaquez"],"slika":"slike/acc_47.jpg"},{"naziv":"Account#48","heroji":["sosuke aizen","toshiro hitsugaya","grimmjow jaegerjaquez"],"slika":"slike/acc_48.jpg"},{"naziv":"Account#49","heroji":["sosuke aizen","rangiku matsumoto (v2)","mayuri kurotsuchi","rukia kuchiki"],"slika":"slike/acc_49.jpg"},{"naziv":"Account#50","heroji":["sosuke aizen (v2)","yasutora sado","byakuya kuchiki"],"slika":"slike/acc_50.jpg"},{"naziv":"Account#51","heroji":["sosuke aizen","gin ichimaru","yasutora sado","ichigo kurosaki"],"slika":"slike/acc_51.jpg"},{"naziv":"Account#52","heroji":["sosuke aizen","yasutora sado","uryu ishida"],"slika":"slike/acc_52.jpg"},{"naziv":"Account#53","heroji":["sosuke aizen","gin ichimaru","orihime inoue (v2)","bambietta basterbine","renji abarai"],"slika":"slike/acc_53.jpg"},{"naziv":"Account#54","heroji":["sosuke aizen","orihime inoue","toshiro hitsugaya"],"slika":"slike/acc_54.jpg"},{"naziv":"Account#55","heroji":["sosuke aizen","yasutora sado","yoruichi shihoin","rukia kuchiki (v2)"],"slika":"slike/acc_55.jpg"},{"naziv":"Account#56","heroji":["sosuke aizen","mayuri kurotsuchi","ichigo kurosaki"],"slika":"slike/acc_56.jpg"},{"naziv":"Account#57","heroji":["sosuke aizen (v2)","yasutora sado","renji abarai"],"slika":"slike/acc_57.jpg"},{"naziv":"Account#58","heroji":["sosuke aizen","gin ichimaru","orihime inoue","rangiku matsumoto (v2)","toshiro hitsugaya"],"slika":"slike/acc_58.jpg"},{"naziv":"Account#59","heroji":["sosuke aizen","mayuri kurotsuchi","rukia kuchiki","byakuya kuchiki"],"slika":"slike/acc_59.jpg"},{"naziv":"Account#60","heroji":["sosuke aizen","gin ichimaru","mayuri kurotsuchi","grimmjow jaegerjaquez","ichigo kurosaki"],"slika":"slike/acc_60.jpg"},{"naziv":"Account#61","heroji":["sosuke aizen","orihime inoue","yoruichi shihoin","bambietta basterbine (v2)","byakuya kuchiki","renji abarai"],"slika":"slike/acc_61.jpg"},{"naziv":"Account#62","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto (v2)","renji abarai (v2)","grimmjow jaegerjaquez"],"slika":"slike/acc_62.jpg"},{"naziv":"Account#63","heroji":["sosuke aizen","gin ichimaru","yasutora sado","byakuya kuchiki"],"slika":"slike/acc_63.jpg"},{"naziv":"Account#64","heroji":["sosuke aizen (v2)","orihime inoue","rukia kuchiki","grimmjow jaegerjaquez"],"slika":"slike/acc_64.jpg"},{"naziv":"Account#65","heroji":["sosuke aizen (v2)","mayuri kurotsuchi","grimmjow jaegerjaquez"],"slika":"slike/acc_65.jpg"},{"naziv":"Account#66","heroji":["sosuke aizen","toshiro hitsugaya (v2)","rukia kuchiki"],"slika":"slike/acc_66.jpg"},{"naziv":"Account#67","heroji":["sosuke aizen","bambietta basterbine","rukia kuchiki","ichigo kurosaki"],"slika":"slike/acc_67.jpg"},{"naziv":"Account#68","heroji":["sosuke aizen","yasutora sado (v2)","toshiro hitsugaya"],"slika":"slike/acc_68.jpg"},{"naziv":"Account#69","heroji":["sosuke aizen","grimmjow jaegerjaquez","ichigo kurosaki"],"slika":"slike/acc_69.jpg"},{"naziv":"Account#70","heroji":["sosuke aizen (v2)","rangiku matsumoto (v2)","mayuri kurotsuchi"],"slika":"slike/acc_70.jpg"},{"naziv":"Account#71","heroji":["yoruichi shihoin","rukia kuchiki","byakuya kuchiki","ichigo kurosaki"],"slika":"slike/acc_71.jpg"},{"naziv":"Account#72","heroji":["sosuke aizen","gin ichimaru","rangiku matsumoto (v2)","yoruichi shihoin","uryu ishida"],"slika":"slike/acc_72.jpg"},{"naziv":"Account#73","heroji":["sosuke aizen","rangiku matsumoto (v2)","mayuri kurotsuchi"],"slika":"slike/acc_73.jpg"},{"naziv":"Account#74","heroji":["sosuke aizen","bambietta basterbine","grimmjow jaegerjaquez"],"slika":"slike/acc_74.jpg"},{"naziv":"Account#75","heroji":["orihime inoue","rangiku matsumoto","bambietta basterbine","mayuri kurotsuchi","rukia kuchiki","byakuya kuchiki"],"slika":"slike/acc_75.jpg"},{"naziv":"Account#76","heroji":["sosuke aizen","toshiro hitsugaya","rukia kuchiki","byakuya kuchiki"],"slika":"slike/acc_76.jpg"},{"naziv":"Account#77","heroji":["sosuke aizen","yasutora sado","yoruichi shihoin","renji abarai"],"slika":"slike/acc_77.jpg"},{"naziv":"Account#78","heroji":["sosuke aizen","yoruichi shihoin","rukia kuchiki"],"slika":"slike/acc_78.jpg"},{"naziv":"Account#79","heroji":["sosuke aizen (v2)","rangiku matsumoto (v2)","uryu ishida","renji abarai"],"slika":"slike/acc_79.jpg"},{"naziv":"Account#81","heroji":["sosuke aizen","rukia kuchiki","renji abarai"],"slika":"slike/acc_81.jpg"},{"naziv":"Account#82","heroji":["sosuke aizen","bambietta basterbine","grimmjow jaegerjaquez"],"slika":"slike/acc_82.jpg"},{"naziv":"Account#83","heroji":["sosuke aizen","grimmjow jaegerjaquez","ichigo kurosaki"],"slika":"slike/acc_83.jpg"},{"naziv":"Account#84","heroji":["sosuke aizen (v2)","gin ichimaru","renji abarai","grimmjow jaegerjaquez (v2)"],"slika":"slike/acc_84.jpg"},{"naziv":"Account#85","heroji":["sosuke aizen","yoruichi shihoin","mayuri kurotsuchi"],"slika":"slike/acc_85.jpg"},{"naziv":"Account#86","heroji":["sosuke aizen (v2)","bambietta basterbine","byakuya kuchiki","ichigo kurosaki"],"slika":"slike/acc_86.jpg"},{"naziv":"Account#87","heroji":["sosuke aizen","yoruichi shihoin","renji abarai"],"slika":"slike/acc_87.jpg"},{"naziv":"Account#88","heroji":["sosuke aizen","bambietta basterbine (v2)","rukia kuchiki"],"slika":"slike/acc_88.jpg"},{"naziv":"Account#89","heroji":["sosuke aizen","yasutora sado","grimmjow jaegerjaquez"],"slika":"slike/acc_89.jpg"},{"naziv":"Account#90","heroji":["sosuke aizen (v2)","gin ichimaru","uryu ishida","rukia kuchiki"],"slika":"slike/acc_90.jpg"},{"naziv":"Account#91","heroji":["sosuke aizen","gin ichimaru","orihime inoue","rangiku matsumoto (v2)","byakuya kuchiki"],"slika":"slike/acc_91.jpg"},{"naziv":"Account#92","heroji":["sosuke aizen (v2)","orihime inoue","rukia kuchiki"],"slika":"slike/acc_92.jpg"},{"naziv":"Account#93","heroji":["sosuke aizen","gin ichimaru","uryu ishida","ichigo kurosaki"],"slika":"slike/acc_93.jpg"},{"naziv":"Account#94","heroji":["sosuke aizen","mayuri kurotsuchi","byakuya kuchiki"],"slika":"slike/acc_94.jpg"},{"naziv":"Account#95","heroji":["sosuke aizen","shinji hirako","toshiro hitsugaya","yoruichi shihoin","renji abarai"],"slika":"slike/acc_95.jpg"},{"naziv":"Account#96","heroji":["sosuke aizen","toshiro hitsugaya","grimmjow jaegerjaquez"],"slika":"slike/acc_96.jpg"},{"naziv":"Account#97","heroji":["sosuke aizen","shinji hirako","yasutora sado","yoruichi shihoin","grimmjow jaegerjaquez"],"slika":"slike/acc_97.jpg"},{"naziv":"Account#98","heroji":["sosuke aizen","shinji hirako","yoruichi shihoin","uryu ishida"],"slika":"slike/acc_98.jpg"},{"naziv":"Account#99","heroji":["sosuke aizen","uryu ishida","renji abarai"],"slika":"slike/acc_99.jpg"},{"naziv":"Account#100","heroji":["sosuke aizen","gin ichimaru","yoruichi shihoin","rukia kuchiki"],"slika":"slike/acc_100.jpg"}];
   const OBRISANE_SLIKE = new Set(JSON.parse(sessionStorage.getItem('bmh_obrisane') || '[]'));
   const KORAK_PRIKAZA = 20;
   let prikazanoDoSada = 0;
@@ -1379,25 +1934,119 @@
   })();
 
   filtriraj();
+
+
+</script>
+<script id="matched-badges-js">
+(function () {
+  function updateMatchedBadges() {
+    const activeHeroes = Array.from(document.querySelectorAll(".hero-card.active"));
+    const accountCards = document.querySelectorAll("#accounts .acc");
+
+    accountCards.forEach((card) => {
+      card.querySelector(".matched-box")?.remove();
+      if (!activeHeroes.length) return;
+
+      const box = document.createElement("div");
+      box.className = "matched-box";
+
+      const label = document.createElement("span");
+      label.className = "matched-label";
+      label.textContent = "⭐ Matched:";
+      box.appendChild(label);
+
+      activeHeroes.forEach((hero) => {
+        const image = hero.querySelector("img");
+        const name = hero.querySelector(".hero-name-label")?.textContent.trim()
+          || image?.alt
+          || "Hero";
+
+        const badge = document.createElement("div");
+        badge.className = "matched-hero-badge";
+
+        if (image) {
+          const badgeImage = document.createElement("img");
+          badgeImage.src = image.src;
+          badgeImage.alt = name;
+          badge.appendChild(badgeImage);
+        }
+
+        const badgeName = document.createElement("span");
+        badgeName.textContent = name;
+        badge.appendChild(badgeName);
+        box.appendChild(badge);
+      });
+
+      const title = card.querySelector(".acc-title");
+      if (title) title.insertAdjacentElement("afterend", box);
+      else card.prepend(box);
+    });
+  }
+
+  const accountList = document.getElementById("accounts");
+  if (accountList) {
+    const observer = new MutationObserver(updateMatchedBadges);
+    observer.observe(accountList, { childList: true });
+  }
+
+  document.addEventListener("click", (event) => {
+    if (event.target.closest(".hero-card, .reset-btn")) {
+      requestAnimationFrame(updateMatchedBadges);
+    }
+  });
+
+  updateMatchedBadges();
+})();
 </script>
 
 
-    
+<!-- Tawk.to live chat restored -->
+<script>
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src='https://embed.tawk.to/6af60c7fe84c933e6cc13678/1k78i1khn';s1.charset='UTF-8';s1.setAttribute('crossorigin','*');s0.parentNode.insertBefore(s1,s0);})();
+</script>
+<!-- Back-to-top button: styling and scroll target adapted from supplied reference -->
+<button type="button" class="back-to-top" id="topBtn" aria-label="Back to top">▲ Top</button>
 
-<!--Start of Tawk.to Script-->
-  <script>
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-  s1.async=true;
-  s1.src='https://embed.tawk.to/6af60c7fe84c933e6cc13678/1k78i1khn';
-  s1.charset='UTF-8';
-  s1.setAttribute('crossorigin','*');
-  s0.parentNode.insertBefore(s1,s0);
-  })();
-  </script>
+<script>
+(function () {
+  const btn = document.getElementById('topBtn');
+  if (!btn) return;
+  function updateBackToTop() {
+    btn.classList.toggle('show', window.scrollY > 450);
+  }
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  updateBackToTop();
+  btn.addEventListener('click', function () {
+    const panel = document.querySelector('.bleach-panel');
+    if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 
-<div id="gacha-fx"><div class="g-st"></div><div class="g-mt" style="top:6%;left:26%;animation-delay:0.5s"></div><div class="g-mt" style="top:18%;left:42%;animation-delay:2.4s"></div><div class="g-mt" style="top:12%;left:58%;animation-delay:4.2s"></div><div class="g-mt" style="top:28%;left:35%;animation-delay:6.0s"></div><div class="g-mt" style="top:8%;left:76%;animation-delay:1.6s"></div><div class="g-mt" style="top:22%;left:90%;animation-delay:3.5s"></div><div class="g-mt" style="top:34%;left:96%;animation-delay:5.3s"></div><div class="g-st" style="transform:scaleX(-1) scaleY(-1);animation-delay:2.2s;opacity:.75"></div><div class="g-sp" style="left:8.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.35s;animation-duration:7.6s"></div><div class="g-sp" style="left:16.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.0s;animation-duration:8.45s"></div><div class="g-sp" style="left:24.1%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.65s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:31.9%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.3s;animation-duration:7.6s"></div><div class="g-sp" style="left:39.7%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:2.95s;animation-duration:8.45s"></div><div class="g-sp" style="left:47.5%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.6s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:55.3%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.25s;animation-duration:7.6s"></div><div class="g-sp" style="left:63.1%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:4.9s;animation-duration:8.45s"></div><div class="g-sp" style="left:70.9%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.55s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:78.7%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.2s;animation-duration:7.6s"></div><div class="g-sp" style="left:86.5%;width:3.5px;height:3.5px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:6.85s;animation-duration:8.45s"></div><div class="g-sp" style="left:94.3%;width:3.5px;height:3.5px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:7.5s;animation-duration:9.299999999999999s"></div><div class="g-sp" style="left:5.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:0.0s;animation-duration:7.2s"></div><div class="g-sp" style="left:12.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:0.65s;animation-duration:8.1s"></div><div class="g-sp" style="left:20.6%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:1.3s;animation-duration:9.0s"></div><div class="g-sp" style="left:28.4%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:1.95s;animation-duration:7.2s"></div><div class="g-sp" style="left:36.2%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:2.6s;animation-duration:8.1s"></div><div class="g-sp" style="left:44.0%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:3.25s;animation-duration:9.0s"></div><div class="g-sp" style="left:51.8%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:3.9s;animation-duration:7.2s"></div><div class="g-sp" style="left:59.6%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:4.55s;animation-duration:8.1s"></div><div class="g-sp" style="left:67.4%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:5.2s;animation-duration:9.0s"></div><div class="g-sp" style="left:75.2%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:5.85s;animation-duration:7.2s"></div><div class="g-sp" style="left:83.0%;width:4px;height:4px;background:#ffcc00;box-shadow:0 0 11px #ffcc00;animation-delay:6.5s;animation-duration:8.1s"></div><div class="g-sp" style="left:90.8%;width:4px;height:4px;background:#d946ef;box-shadow:0 0 11px #d946ef;animation-delay:7.15s;animation-duration:9.0s"></div></div>
-<script id="matched-badges-js">(function(){function upd(){var act=Array.from(document.querySelectorAll('.hero-card.active'));var cards=document.querySelectorAll('#accounts .acc');cards.forEach(function(c){var old=c.querySelector('.matched-box');if(old)old.remove();if(act.length>0){var box=document.createElement('div');box.className='matched-box';var lbl=document.createElement('span');lbl.className='matched-label';lbl.textContent='⭐ Matched:';box.appendChild(lbl);act.forEach(function(h){var im=h.querySelector('img');var nm=h.querySelector('.hero-name,span,div:last-child');var b=document.createElement('div');b.className='matched-hero-badge';if(im){var ci=document.createElement('img');ci.src=im.src;b.appendChild(ci);}var sp=document.createElement('span');sp.textContent=nm?nm.textContent.trim():(im?im.alt:'');b.appendChild(sp);box.appendChild(b);});var t=c.querySelector('.acc-title');if(t&&t.nextSibling)c.insertBefore(box,t.nextSibling);else c.prepend(box);}});}document.addEventListener('click',function(e){if(e.target.closest('.hero-card,button'))setTimeout(upd,30);});window.addEventListener('scroll',function(){setTimeout(upd,60);});})();</script>
+<!-- Account image viewer -->
+
+<div id="accountImageViewer" aria-hidden="true" role="dialog" aria-label="Account image preview">
+  <button type="button" aria-label="Close image">×</button>
+  <img src="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" alt="Enlarged account image">
+</div>
+<script>
+(function(){
+  const viewer=document.getElementById('accountImageViewer');
+  if(!viewer) return;
+  const preview=viewer.querySelector('img');
+  function closeViewer(){viewer.classList.remove('open');viewer.setAttribute('aria-hidden','true');preview.removeAttribute('src');}
+  document.addEventListener('click',function(e){
+    const img=e.target.closest('#accounts .acc > img');
+    if(img && img.src){e.preventDefault();preview.src=img.src;preview.alt=img.alt||'Account image';viewer.classList.add('open');viewer.setAttribute('aria-hidden','false');return;}
+    if(e.target===viewer || e.target.closest('#accountImageViewer button')) closeViewer();
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape' && viewer.classList.contains('open')) closeViewer();});
+})();
+</script>
+
+
+
 </body>
 </html>
